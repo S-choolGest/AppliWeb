@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0adddab3-8b2e-41f0-83d3-6d0ea0a64f4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Absence.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Attestation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Bibliothecaire.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Bibliotheque.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Classe.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Club.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Cours.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Demande.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Emprunt.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Encadrement.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Etudiant.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Event.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Formulaire.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Livre.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Matiere.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Membrescolarite.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Module.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Parent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Pfe.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Professeur.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Reservation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Resultat.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Salle.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Specialite.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Utilisateur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_3_22_20__3_00_PM_c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_3_22_20__3_00_PM_c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_3_22_20__3_00_PM_s.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_3_22_20__3_00_PM_s.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,15 +102,16 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\edutech\app\Resources\views\default" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\edutech\src\BibliothequeBundle\Resources\views\Default" />
       <recent name="C:\wamp64\www\edutech\app\Resources\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\AppliWeb\AppliWeb\edutech\src\AppBundle" />
+      <recent name="C:\wamp64\www\edutech\app\Resources\views\default" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -168,7 +137,7 @@
       <workItem from="1584884912187" duration="3064000" />
       <workItem from="1584888383903" duration="1082000" />
       <workItem from="1584898650838" duration="20964000" />
-      <workItem from="1585143170577" duration="5035000" />
+      <workItem from="1585143170577" duration="6250000" />
     </task>
     <servers />
   </component>
@@ -237,11 +206,11 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="794" y="474" key="NewPhpFileDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584992120095" />
-    <state x="2" y="181" key="SettingsEditor" timestamp="1585146726888">
+    <state x="2" y="181" key="SettingsEditor" timestamp="1585152296769">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="461" y="198" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1584885862943" />
-    <state x="2" y="181" key="SettingsEditor/0.44.1920.1036@0.44.1920.1036" timestamp="1585146726888" />
+    <state x="2" y="181" key="SettingsEditor/0.44.1920.1036@0.44.1920.1036" timestamp="1585152296769" />
     <state x="457" y="450" key="SymfonyPathDialog" timestamp="1585143699315">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -256,5 +225,9 @@
     </state>
     <state x="616" y="258" width="672" height="677" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1584996430978" />
     <state x="616" y="269" width="672" height="668" key="run.anything.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1585147482369" />
+    <state x="623" y="268" key="search.everywhere.popup" timestamp="1585152291222">
+      <screen x="0" y="44" width="1920" height="1036" />
+    </state>
+    <state x="623" y="268" key="search.everywhere.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1585152291222" />
   </component>
 </project>
