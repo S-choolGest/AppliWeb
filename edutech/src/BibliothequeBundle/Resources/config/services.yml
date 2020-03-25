@@ -1,4 +1,0 @@
-services:
-#    bibliotheque.example:
-#        class: BibliothequeBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]

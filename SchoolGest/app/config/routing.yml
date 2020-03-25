@@ -1,0 +1,12 @@
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+school:
+    resource: "@SchoolBundle/Resources/config/routing.yml"
+    prefix:   /school
+
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

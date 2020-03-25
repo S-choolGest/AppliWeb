@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block container%}
+    <center>
+    <h1>Etudiants list</h1>
+
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cinp</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etudiant in etudiants %}
+            <tr>
+                <td><a href="{{ path('etudiant_show', { 'id': etudiant.id }) }}">{{ etudiant.id }}</a></td>
+                <td>{{ etudiant.cinP }}</td>
+                <td>
+                    <ul>
+
+                        <li>
+                            <a href="{{ path('etudiant_edit', { 'id': etudiant.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etudiant_new') }}">Create a new etudiant</a>
+        </li>
+    </ul>
+        <form class="navbar-form">
+            <th> <input type="text" id="myInput" placeholder="Research  ..."></th>
+
+
+
+            </button>
+
+        </form>
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
+    </center>
+{% endblock %}

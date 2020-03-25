@@ -1,0 +1,22 @@
+school_absence:
+    resource: "@SchoolBundle/Resources/config/routing/absence.php"
+    prefix:   /absence
+
+school_front:
+    path:     /
+    defaults: { _controller: SchoolBundle:Default:front }
+
+school_back:
+    path:     /back
+    defaults: { _controller: SchoolBundle:Default:index }
+
+school_etudiant:
+    resource: "@SchoolBundle/Resources/config/routing/etudiant.php"
+    prefix:   /etudiant
+
+school_classe:
+    resource: "@SchoolBundle/Resources/config/routing/classe.php"
+    prefix:   /classe
+school_affectation:
+    resource: "@SchoolBundle/Resources/config/routing/affectation.php"
+    prefix:   /affectation

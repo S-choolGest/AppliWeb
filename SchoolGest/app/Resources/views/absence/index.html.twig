@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <center>
+
+
+
+        <section id="main-content">
+
+
+            <h1>Liste des absences</h1>
+
+            <table class="table table-striped table-advance table-hover">
+                <hr>
+
+                <thead>
+                <tr>
+                    <th ><span class="badge bg-default">Etudiant</span></th>
+                    <th ><span class="badge bg-default">Matiere</span></th>
+                    <th> <span class="badge bg-default">Etat</span></th>
+                    <th><span class="badge bg-default">Date</span></th>
+                    <th><span class="badge bg-default">Heure</span></th>
+
+
+
+                </tr>
+                </thead>
+                <tbody>
+        {% for absence in absences %}
+            <tr>
+                <td><span class="label label-info label-warning">{{ absence.idEtudiant.id }}</td>
+                <td class ="hidden-phone"><span class="label label-success">{{ absence.matiere.nomMatiere }}</td>
+                <td><span class="label label-info label-mini">{{ absence.etat }}</td>
+                <td ><span class="calendar-date">{% if absence.heure %}{{ absence.heure|date('h:m') }}{% endif %}</td>
+                <td><span class="calendar-time">{% if absence.date %}{{ absence.date|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+
+                        <li>
+                            <a class="btn btn-round btn-theme03"  href="{{ path('absence_edit', { 'id': absence.id }) }}"> <i class="fa fa-plus"></i>modifier</a>
+                       <br>
+                            <br>
+                            <br>
+                        </li>
+                        <li>
+                <a class="btn btn-round btn-theme04"  href="{{ path('absence_show', { 'id': absence.id }) }}"><i  class="fa fa-pencil"></i>détails</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a class="btn btn-primary btn-lg btn-block" href="{{ path('absence_new') }}">Create a new absence</a>
+        </li>
+    </ul>
+
+        </section></center>
+{% endblock %}
