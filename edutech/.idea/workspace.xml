@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0adddab3-8b2e-41f0-83d3-6d0ea0a64f4f" name="Default Changelist" comment="" />
+    <list default="true" id="0adddab3-8b2e-41f0-83d3-6d0ea0a64f4f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Absence.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Attestation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Bibliothecaire.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Bibliotheque.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Classe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Club.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Cours.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Demande.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Emprunt.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Encadrement.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Etudiant.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Event.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Formulaire.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Livre.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Matiere.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Membrescolarite.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Module.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Parent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Pfe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Professeur.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Reservation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Resultat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Salle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Specialite.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Utilisateur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_3_22_20__3_00_PM_c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_3_22_20__3_00_PM_c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_3_22_20__3_00_PM_s.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_3_22_20__3_00_PM_s.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,8 +58,16 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="edutech@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -71,15 +113,21 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1ZUDixlk02ovnBfYMwk6gsbC3PC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../firstProject" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -102,7 +150,9 @@
       <command value="c dump-autoload" />
       <command value="s generate:bundle" />
       <command value="s generate:controller" />
+      <command value="s doctrine:generate:entity" />
       <command value="s doctrine:generate:entities" />
+      <command value="s doctrine:generate:entities Livre" />
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -118,17 +168,29 @@
       <workItem from="1584884912187" duration="3064000" />
       <workItem from="1584888383903" duration="1082000" />
       <workItem from="1584898650838" duration="20964000" />
+      <workItem from="1585143170577" duration="5035000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="552" y="213" key="#Notifications" timestamp="1584992503674">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="552" y="213" key="#Notifications/0.30.1920.1050@0.30.1920.1050" timestamp="1584992503674" />
+    <state x="72" y="224" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585147275153">
+      <screen x="0" y="44" width="1920" height="1036" />
+    </state>
+    <state x="72" y="224" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585147275153" />
+    <state x="264" y="281" key="#com.intellij.ide.util.MemberChooser" timestamp="1585148441834">
+      <screen x="0" y="44" width="1920" height="1036" />
+    </state>
+    <state x="264" y="281" key="#com.intellij.ide.util.MemberChooser/0.44.1920.1036@0.44.1920.1036" timestamp="1585148441834" />
     <state x="640" y="291" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1584887916353">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
@@ -137,14 +199,24 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="690" y="309" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584991385069" />
-    <state x="684" y="425" key="ComposerCompositePathDialog" timestamp="1584885629830">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="777" y="365" key="#com.jetbrains.php.framework.ui.FailedToParseDialog" timestamp="1585143788822">
+      <screen x="0" y="44" width="1920" height="1036" />
+    </state>
+    <state x="777" y="365" key="#com.jetbrains.php.framework.ui.FailedToParseDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585143788822" />
+    <state x="684" y="434" key="ComposerCompositePathDialog" timestamp="1585143589288">
+      <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="684" y="425" key="ComposerCompositePathDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584885629830" />
-    <state x="740" y="297" key="FileChooserDialogImpl" timestamp="1584885656021">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="684" y="434" key="ComposerCompositePathDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585143589288" />
+    <state x="740" y="307" key="FileChooserDialogImpl" timestamp="1585144705696">
+      <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="740" y="297" key="FileChooserDialogImpl/0.30.1920.1050@0.30.1920.1050" timestamp="1584885656021" />
+    <state x="740" y="307" key="FileChooserDialogImpl/0.44.1920.1036@0.44.1920.1036" timestamp="1585144705696" />
+    <state x="347" y="424" key="FrameworkEditDialogDimensionKey" timestamp="1585143940881">
+      <screen x="0" y="44" width="1920" height="1036" />
+    </state>
+    <state x="347" y="424" key="FrameworkEditDialogDimensionKey/0.44.1920.1036@0.44.1920.1036" timestamp="1585143940881" />
     <state width="1877" height="264" key="GridCell.Tab.0.bottom" timestamp="1584996216587">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
@@ -165,21 +237,24 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="794" y="474" key="NewPhpFileDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584992120095" />
-    <state x="461" y="198" key="SettingsEditor" timestamp="1584885862943">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="2" y="181" key="SettingsEditor" timestamp="1585146726888">
+      <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="461" y="198" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1584885862943" />
-    <state x="731" y="452" key="SymfonyPathDialog" timestamp="1584885659778">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="2" y="181" key="SettingsEditor/0.44.1920.1036@0.44.1920.1036" timestamp="1585146726888" />
+    <state x="457" y="450" key="SymfonyPathDialog" timestamp="1585143699315">
+      <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="731" y="452" key="SymfonyPathDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584885659778" />
+    <state x="457" y="450" key="SymfonyPathDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585143699315" />
     <state x="636" y="378" key="com.intellij.ide.util.TipDialog" timestamp="1584888397659">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="636" y="378" key="com.intellij.ide.util.TipDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584888397659" />
-    <state x="616" y="258" width="672" height="677" key="run.anything.popup" timestamp="1584996430978">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="616" y="269" width="672" height="668" key="run.anything.popup" timestamp="1585147482369">
+      <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="616" y="258" width="672" height="677" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1584996430978" />
+    <state x="616" y="269" width="672" height="668" key="run.anything.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1585147482369" />
   </component>
 </project>
