@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new SchoolBundle\SchoolBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new UserBundle\UserBundle(),
+            new BibliothequeBundle\BibliothequeBundle(),
         ];
 
 

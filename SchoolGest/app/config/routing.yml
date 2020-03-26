@@ -1,6 +1,10 @@
+bibliotheque:
+    resource: "@BibliothequeBundle/Resources/config/routing.yml"
+    prefix:   /bibliotheque
+
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /user
 
 school:
     resource: "@SchoolBundle/Resources/config/routing.yml"

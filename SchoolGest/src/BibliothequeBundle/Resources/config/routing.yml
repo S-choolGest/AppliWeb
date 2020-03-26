@@ -1,0 +1,36 @@
+bibliotheque_homepage:
+    path:     /
+    defaults: { _controller: BibliothequeBundle:Default:index }
+biblio_catalogue:
+    path:     /gestion_catalogue
+    defaults: { _controller: BibliothequeBundle:Default:index }
+biblio_emprunt:
+    path:     /gestion_emprunt
+    defaults: { _controller: BibliothequeBundle:Default:index }
+biblio_reservation:
+    path:     /gestion_reservation
+    defaults: { _controller: BibliothequeBundle:Default:index }
+biblio_catalogue_front:
+    path:     /catalogue
+    defaults: { _controller: BibliothequeBundle:Default:index }
+biblio_emprunt_front:
+    path:     /emprunt
+    defaults: { _controller: BibliothequeBundle:Default:index }
+biblio_reservation_front:
+    path:     /reservation
+    defaults: { _controller: BibliothequeBundle:Default:index }
+add:
+    path:     /back/add
+    defaults: { _controller: BibliothequeBundle:Catalogue:add }
+
+edit:
+    path:     /back/edit
+    defaults: { _controller: BibliothequeBundle:Catalogue:edit }
+
+delete:
+    path:     /back/delete
+    defaults: { _controller: BibliothequeBundle:Catalogue:delete }
+
+search:
+    path:     /back/search
+    defaults: { _controller: BibliothequeBundle:Catalogue:search }
