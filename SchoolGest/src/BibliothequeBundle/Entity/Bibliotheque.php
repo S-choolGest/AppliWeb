@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Entity;
+namespace BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use UserBundle\Entity\Utilisateur;
 
 /**
  * Bibliotheque
  *
  * @ORM\Table(name="bibliotheque", uniqueConstraints={@ORM\UniqueConstraint(name="adresse", columns={"adresse"}), @ORM\UniqueConstraint(name="unique_id_bibliothecaire", columns={"id_bibliothecaire"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BibliothequeBundle\Repository\BibliothequeRepository")
  */
 class Bibliotheque
 {
@@ -43,12 +44,10 @@ class Bibliotheque
     private $adresse;
 
     /**
-     * @var \Bibliothecaire
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Bibliothecaire")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_bibliothecaire", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\Utilisateur")
+     * @ORM\JoinColumn(name="id_bibliothecaire", referencedColumnName="id")
      */
     private $idBibliothecaire;
 

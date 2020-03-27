@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Reservation
  *
  * @ORM\Table(name="reservation")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BibliothequeBundle\Repository\ReservationRepository")
  */
 class Reservation
 {

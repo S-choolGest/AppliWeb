@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Livre
  *
  * @ORM\Table(name="livre", indexes={@ORM\Index(name="fk_livre_bibliotheque", columns={"id_bibliotheque"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BibliothequeBundle\Repository\LivreRepository")
  */
 class Livre
 {

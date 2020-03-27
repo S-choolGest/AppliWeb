@@ -25,55 +25,52 @@
             <div class="row mt">
                 <div class="col-lg-12">
                     <div class="form-panel">
-                        <form action="#" class="form-horizontal style-form">
+                        {{ form_start(f, {'attr' : {'class' : 'form-horizontal style-form'}}) }}
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Titre</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="titre du livre">
+                        {{ form_widget(f.titre, {'attr' : {'class' : 'form-control', 'placeholder' : 'titre du livre', 'type' : 'text', 'name' : 'titre'} }) }}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Auteur</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="auteur du livre">
+                        {{ form_widget(f.auteur, {'attr' : {'class' : 'form-control', 'placeholder' : 'auteur du livre', 'type' : 'text', 'name' : 'auteur'} }) }}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Editeur</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="editeur du livre">
+                        {{ form_widget(f.editeur, {'attr' : {'class' : 'form-control', 'placeholder' : 'editeur du livre', 'type' : 'text', 'name' : 'editeur'} }) }}
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Catégorie</label>
+                                <label class="col-sm-2 col-sm-2 control-label">Categorie</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="catégorie du livre">
+                                    {{ form_widget(f.categorie, {'attr' : {'class' : 'form-control', 'placeholder' : 'catégorie du livre', 'type' : 'text', 'name' : 'categorie'} }) }}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Date de sortie</label>
                                 <div class="col-md-3 col-xs-11">
-                                    <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date="01-01-2014" class="input-append date dpYears">
-                                        <input type="text" readonly="" value="01-01-2014" size="16" class="form-control">
-                                        <span class="input-group-btn add-on">
-                        <button class="btn btn-theme" type="button"><i class="fa fa-calendar"></i></button>
-                        </span>
-                                    </div>
+                                    {{ form_widget(f.datesortie, {'attr' : {'class' : 'form-control form-control-inline input-medium default-date-picker', 'size' : '16', 'type' : 'text', 'name' : 'datesortie', 'value' : ''} }) }}
                                     <span class="help-block">Select date</span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Nombre de pages</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" placeholder="Nombre de pages">
+                                    {{ form_widget(f.taille, {'attr' : {'class' : 'form-control', 'placeholder' : 'Nombre de pages', 'type' : 'number', 'name' : 'taille'} }) }}
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Nombre d'exemplaires</label>
+                                <label class="col-sm-2 col-sm-2 control-label">Nombre d' exemplaires</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" placeholder="Nombre d'exemplaires">
+                                    {{ form_widget(f.quantite, {'attr' : {'class' : 'form-control', 'placeholder' : 'Nombre d exemplaires', 'type' : 'number', 'name' : 'quantite'} }) }}
                                 </div>
                             </div>
+                        {{ form_widget(f.dateajout, {'attr' : {'class':'hidden'}}) }}
+                        {{ form_widget(f.idBibliotheque, {'attr' : {}}) }}
                             <div class="form-group last">
                                 <label class="control-label col-md-3">photo de couverture</label>
                                 <div class="col-md-9">
@@ -86,9 +83,9 @@
                         <span class="btn btn-theme02 btn-file">
                           <span class="fileupload-new"><i class="fa fa-paperclip"></i> Selectionner une image</span>
                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
-                        <input type="file" class="default" />
+                                    {{ form_widget(f.img, {'attr' : {'class' : 'default', 'type' : 'file', 'name' : 'img'} }) }}
                         </span>
-                                            <a href="advanced_form_components.html#" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash-o"></i> supprimer</a>
+                                            <a href="#" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash-o"></i> supprimer</a>
                                         </div>
                                     </div>
                                     <span class="label label-info">NOTE!</span>
@@ -100,7 +97,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-theme02"><i class="fa fa-plus-circle"></i> Ajouter</button>
-                        </form>
+                        {{ form_end(f) }}
                     </div>
                     <!-- /form-panel -->
                 </div>
