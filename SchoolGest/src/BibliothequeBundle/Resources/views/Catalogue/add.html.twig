@@ -12,7 +12,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('lib/bootstrap-datepicker/css/datepicker.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('lib/bootstrap-daterangepicker/daterangepicker.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('lib/bootstrap-timepicker/compiled/timepicker.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('lib/bootstrap-datetimepicker/datertimepicker.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('lib/bootstrap-datetimepicker/css/datetimepicker.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('lib/gritter/css/jquery.gritter.css') }}" />
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet">
@@ -25,78 +26,83 @@
             <div class="row mt">
                 <div class="col-lg-12">
                     <div class="form-panel">
+                        <a id="add-livre" class="btn btn-info  btn-sm" href="javascript:;">Imageless</a>
                         {{ form_start(f, {'attr' : {'class' : 'form-horizontal style-form'}}) }}
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Titre</label>
-                                <div class="col-sm-10">
-                        {{ form_widget(f.titre, {'attr' : {'class' : 'form-control', 'placeholder' : 'titre du livre', 'type' : 'text', 'name' : 'titre'} }) }}
-                                </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Titre</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(f.titre, {'attr' : {'class' : 'form-control', 'placeholder' : 'titre du livre', 'type' : 'text', 'name' : 'titre'} }) }}
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Auteur</label>
-                                <div class="col-sm-10">
-                        {{ form_widget(f.auteur, {'attr' : {'class' : 'form-control', 'placeholder' : 'auteur du livre', 'type' : 'text', 'name' : 'auteur'} }) }}
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Auteur</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(f.auteur, {'attr' : {'class' : 'form-control', 'placeholder' : 'auteur du livre', 'type' : 'text', 'name' : 'auteur'} }) }}
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Editeur</label>
-                                <div class="col-sm-10">
-                        {{ form_widget(f.editeur, {'attr' : {'class' : 'form-control', 'placeholder' : 'editeur du livre', 'type' : 'text', 'name' : 'editeur'} }) }}
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Editeur</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(f.editeur, {'attr' : {'class' : 'form-control', 'placeholder' : 'editeur du livre', 'type' : 'text', 'name' : 'editeur'} }) }}
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Categorie</label>
-                                <div class="col-sm-10">
-                                    {{ form_widget(f.categorie, {'attr' : {'class' : 'form-control', 'placeholder' : 'catégorie du livre', 'type' : 'text', 'name' : 'categorie'} }) }}
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Categorie</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(f.categorie, {'attr' : {'class' : 'form-control', 'placeholder' : 'catégorie du livre', 'type' : 'text', 'name' : 'categorie'} }) }}
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Date de sortie</label>
-                                <div class="col-md-3 col-xs-11">
-                                    {{ form_widget(f.datesortie, {'attr' : {'class' : 'form-control form-control-inline input-medium default-date-picker', 'size' : '16', 'type' : 'text', 'name' : 'datesortie', 'value' : ''} }) }}
-                                    <span class="help-block">Select date</span>
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Date de sortie</label>
+                            <div class="col-md-3 col-xs-11">
+                                {{ form_widget(f.datesortie, {'attr' : {'class' : 'form-control form-control-inline input-medium default-date-picker', 'size' : '16', 'type' : 'text', 'name' : 'datesortie', 'value' : ''} }) }}
+                                <span class="help-block">Select date</span>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Nombre de pages</label>
-                                <div class="col-sm-10">
-                                    {{ form_widget(f.taille, {'attr' : {'class' : 'form-control', 'placeholder' : 'Nombre de pages', 'type' : 'number', 'name' : 'taille'} }) }}
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Nombre de pages</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(f.taille, {'attr' : {'class' : 'form-control', 'placeholder' : 'Nombre de pages', 'type' : 'number', 'name' : 'taille'} }) }}
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Nombre d' exemplaires</label>
-                                <div class="col-sm-10">
-                                    {{ form_widget(f.quantite, {'attr' : {'class' : 'form-control', 'placeholder' : 'Nombre d exemplaires', 'type' : 'number', 'name' : 'quantite'} }) }}
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Nombre d' exemplaires</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(f.quantite, {'attr' : {'class' : 'form-control', 'placeholder' : 'Nombre d exemplaires', 'type' : 'number', 'name' : 'quantite'} }) }}
                             </div>
-                        {{ form_widget(f.dateajout, {'attr' : {'class':'hidden'}}) }}
+                        </div>
+                        {{ form_widget(f.dateajout, {'attr' : {'class':'form-control form-control-inline input-medium default-date-picker', 'type':'text', 'value': "now"|date("m/d/Y")}})
+                        }}
                         {{ form_widget(f.idBibliotheque, {'attr' : {}}) }}
-                            <div class="form-group last">
-                                <label class="control-label col-md-3">photo de couverture</label>
-                                <div class="col-md-9">
-                                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                                        <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" alt="" />
-                                        </div>
-                                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                                        <div>
-                        <span class="btn btn-theme02 btn-file">
-                          <span class="fileupload-new"><i class="fa fa-paperclip"></i> Selectionner une image</span>
-                        <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
-                                    {{ form_widget(f.img, {'attr' : {'class' : 'default', 'type' : 'file', 'name' : 'img'} }) }}
-                        </span>
-                                            <a href="#" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash-o"></i> supprimer</a>
-                                        </div>
+                        <div class="form-group last">
+                            <label class="control-label col-md-3">photo de couverture</label>
+                            <div class="col-md-9">
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" alt="" />
                                     </div>
-                                    <span class="label label-info">NOTE!</span>
-                                    <span>
-                      Attached image thumbnail is
-                      supported in Latest Firefox, Chrome, Opera,
-                      Safari and Internet Explorer 10 only
-                      </span>
+                                    <div class="fileupload-preview fileupload-exists thumbnail"
+                                         style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                    <div>
+                                    <span class="btn btn-theme02 btn-file">
+                                        <span class="fileupload-new"><i class="fa fa-paperclip"></i> Selectionner une
+                                            image</span>
+                                        <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
+                                        {{ form_widget(f.img, {'attr' : {'class' : 'default', 'type' : 'file', 'name' : 'img'} }) }}
+                                    </span>
+                                        <a href="#" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload"><i
+                                                    class="fa fa-trash-o"></i> supprimer</a>
+                                    </div>
                                 </div>
+                                <span class="label label-info">NOTE!</span>
+                                <span>
+                                Attached image thumbnail is
+                                supported in Latest Firefox, Chrome, Opera,
+                                Safari and Internet Explorer 10 only
+                            </span>
                             </div>
-                            <button type="submit" class="btn btn-theme02"><i class="fa fa-plus-circle"></i> Ajouter</button>
+                        </div>
+                        <button type="submit" class="btn btn-theme02" id="add-livre" href="javascript:;"><i class="fa fa-plus-circle"></i> Ajouter</button>
                         {{ form_end(f) }}
                     </div>
                     <!-- /form-panel -->
@@ -122,8 +128,24 @@
     <script type="text/javascript" src="{{ asset('lib/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
     <script type="text/javascript" src="{{ asset('lib/bootstrap-daterangepicker/date.js') }}"></script>
     <script type="text/javascript" src="{{ asset('lib/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') }}"></script>
     <script type="text/javascript" src="{{ asset('lib/bootstrap-daterangepicker/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('lib/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
     <script src="{{ asset('lib/advanced-form-components.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('lib/gritter/js/jquery.gritter.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('lib/gritter-conf.js') }}"></script>
+    <script>
+        $('#add-livre').click(function(){
+
+            $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: 'Livre ajouté!',
+                // (string | mandatory) the text inside the notification
+                text: 'Le livre a bien été ajouté à la bibliothèque. Vous serez redirigez vers le catalogue. Cliquez ici pour ajouter un <a href="{{ path('add_livre') }}" style="color:#4ECDC4">nouveau livre</a>.'
+            });
+
+            return false;
+        });
+    </script>
 {% endblock %}

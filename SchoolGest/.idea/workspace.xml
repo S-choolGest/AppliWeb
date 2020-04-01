@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec199dcd-f0a8-4c54-bb00-c33a949e31fc" name="Default Changelist" comment="ajout de /src/Entity avec entites du projet &#10;ajout de Bibliothequebundle">
+    <list default="true" id="ec199dcd-f0a8-4c54-bb00-c33a949e31fc" name="Default Changelist" comment="ajout des crud Bibliotheque">
+      <change afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/catalogue.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/CatalogueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/CatalogueController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Bibliothecaire.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Bibliotheque.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Bibliotheque.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Emprunt.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Emprunt.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Livre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Livre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/BibliothecaireRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Form/LivreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Form/LivreType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/search.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +55,11 @@
     <select />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -112,7 +118,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../firstProject" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -123,15 +129,15 @@
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SchoolGest\app\Resources\views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\SchoolGest\src\SchoolBundle\Form" />
       <recent name="C:\wamp64\www\SchoolGest\src\SchoolBundle\Resources\views\Default" />
       <recent name="C:\wamp64\www\SchoolGest\src\UserBundle\Resources\views\Default" />
       <recent name="C:\wamp64\www\SchoolGest\app\Resources\views\default" />
       <recent name="C:\wamp64\www\SchoolGest\app\Resources" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\SchoolGest\app\Resources\views" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -168,7 +174,6 @@
       <command value="s doctrine:generate:crud SchoolBundle:Affectation" />
       <command value="s doctrine:schema:update --force" />
       <command value="s generate:bundle" />
-      <command value="s generate:controller" />
       <command value="s doctrine:generate:entity BibliothequeBundle:Livre" />
       <command value="s doctrine:generate:entity BibliothequeBundle:Emprunt" />
       <command value="s doctrine:generate:entity BibliothequeBundle:Bibliothecaire" />
@@ -178,6 +183,7 @@
       <command value="s doctrine:generate:form BibliothequeBundle" />
       <command value="s doctrine:generate:form BibliothequeBundle:LivreForm" />
       <command value="s doctrine:generate:form BibliothequeBundle:Livre" />
+      <command value="s generate:controller" />
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -210,7 +216,10 @@
       <workItem from="1585172497388" duration="3932000" />
       <workItem from="1585225862205" duration="12580000" />
       <workItem from="1585239793454" duration="13039000" />
-      <workItem from="1585319049780" duration="6233000" />
+      <workItem from="1585319049780" duration="11923000" />
+      <workItem from="1585399187967" duration="36812000" />
+      <workItem from="1585577722870" duration="5954000" />
+      <workItem from="1585768465370" duration="251000" />
     </task>
     <servers />
   </component>
@@ -219,7 +228,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ajout de /src/Entity avec entites du projet &#10;ajout de Bibliothequebundle" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout de /src/Entity avec entites du projet &#10;ajout de Bibliothequebundle" />
+    <MESSAGE value="ajout des crud Bibliotheque" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout des crud Bibliotheque" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="220" width="816" height="730" key="#Intentions" timestamp="1585265246087">
@@ -234,14 +244,14 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="744" y="277" key="#com.intellij.ide.util.MemberChooser/0.44.1920.1036@0.44.1920.1036" timestamp="1585238152750" />
-    <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1585257863248">
+    <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1585523265399">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585257863248" />
-    <state x="490" y="69" key="CommitChangelistDialog2" timestamp="1585238769521">
+    <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585523265399" />
+    <state x="490" y="69" key="CommitChangelistDialog2" timestamp="1585768712838">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="490" y="69" key="CommitChangelistDialog2/0.44.1920.1036@0.44.1920.1036" timestamp="1585238769521" />
+    <state x="490" y="69" key="CommitChangelistDialog2/0.44.1920.1036@0.44.1920.1036" timestamp="1585768712838" />
     <state x="796" y="429" key="ComposerCompositePathDialog" timestamp="1585228184215">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -250,30 +260,30 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="184" y="129" key="DiffContextDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585238848213" />
-    <state x="1129" y="372" key="FileChooserDialogImpl" timestamp="1585241309281">
+    <state x="1129" y="372" key="FileChooserDialogImpl" timestamp="1585578009136">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="1129" y="372" key="FileChooserDialogImpl/0.44.1920.1036@0.44.1920.1036" timestamp="1585241309281" />
+    <state x="1129" y="372" key="FileChooserDialogImpl/0.44.1920.1036@0.44.1920.1036" timestamp="1585578009136" />
     <state x="1267" y="451" key="FrameworkEditDialogDimensionKey" timestamp="1585227700099">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="1267" y="451" key="FrameworkEditDialogDimensionKey/0.44.1920.1036@0.44.1920.1036" timestamp="1585227700099" />
-    <state width="1877" height="132" key="GridCell.Tab.0.bottom" timestamp="1585315170623">
+    <state width="1877" height="132" key="GridCell.Tab.0.bottom" timestamp="1585581720489">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state width="1877" height="132" key="GridCell.Tab.0.bottom/0.44.1920.1036@0.44.1920.1036" timestamp="1585315170623" />
-    <state width="1877" height="132" key="GridCell.Tab.0.center" timestamp="1585315170622">
+    <state width="1877" height="132" key="GridCell.Tab.0.bottom/0.44.1920.1036@0.44.1920.1036" timestamp="1585581720489" />
+    <state width="1877" height="132" key="GridCell.Tab.0.center" timestamp="1585581720489">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state width="1877" height="132" key="GridCell.Tab.0.center/0.44.1920.1036@0.44.1920.1036" timestamp="1585315170622" />
-    <state width="1877" height="132" key="GridCell.Tab.0.left" timestamp="1585315170622">
+    <state width="1877" height="132" key="GridCell.Tab.0.center/0.44.1920.1036@0.44.1920.1036" timestamp="1585581720489" />
+    <state width="1877" height="132" key="GridCell.Tab.0.left" timestamp="1585581720489">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state width="1877" height="132" key="GridCell.Tab.0.left/0.44.1920.1036@0.44.1920.1036" timestamp="1585315170622" />
-    <state width="1877" height="132" key="GridCell.Tab.0.right" timestamp="1585315170622">
+    <state width="1877" height="132" key="GridCell.Tab.0.left/0.44.1920.1036@0.44.1920.1036" timestamp="1585581720489" />
+    <state width="1877" height="132" key="GridCell.Tab.0.right" timestamp="1585581720489">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state width="1877" height="132" key="GridCell.Tab.0.right/0.44.1920.1036@0.44.1920.1036" timestamp="1585315170622" />
+    <state width="1877" height="132" key="GridCell.Tab.0.right/0.44.1920.1036@0.44.1920.1036" timestamp="1585581720489" />
     <state x="573" y="202" key="SettingsEditor" timestamp="1585230569839">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -286,13 +296,17 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="552" y="290" key="Vcs.Push.Dialog.v2/0.44.1920.1036@0.44.1920.1036" timestamp="1585238856372" />
-    <state x="1096" y="265" width="672" height="677" key="run.anything.popup" timestamp="1585241831005">
+    <state x="636" y="385" key="com.intellij.ide.util.TipDialog" timestamp="1585768472109">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="1096" y="265" width="672" height="677" key="run.anything.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1585241831005" />
-    <state x="623" y="268" width="672" height="678" key="search.everywhere.popup" timestamp="1585235317984">
+    <state x="636" y="385" key="com.intellij.ide.util.TipDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585768472109" />
+    <state x="1096" y="265" width="672" height="677" key="run.anything.popup" timestamp="1585581551161">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="623" y="268" width="672" height="678" key="search.everywhere.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1585235317984" />
+    <state x="1096" y="265" width="672" height="677" key="run.anything.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1585581551161" />
+    <state x="623" y="268" width="672" height="678" key="search.everywhere.popup" timestamp="1585410897976">
+      <screen x="0" y="44" width="1920" height="1036" />
+    </state>
+    <state x="623" y="268" width="672" height="678" key="search.everywhere.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1585410897976" />
   </component>
 </project>

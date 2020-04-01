@@ -19,18 +19,22 @@ biblio_emprunt_front:
 biblio_reservation_front:
     path:     /reservation
     defaults: { _controller: BibliothequeBundle:Default:index }
-add:
+add_livre:
     path:     /back/add
     defaults: { _controller: BibliothequeBundle:Catalogue:add }
 
-edit:
-    path:     /back/edit
+edit_livre:
+    path:     /back/edit/{id}
     defaults: { _controller: BibliothequeBundle:Catalogue:edit }
 
-delete:
-    path:     /back/delete
+delete_livre:
+    path:     /back/delete/{id}
     defaults: { _controller: BibliothequeBundle:Catalogue:delete }
 
-search:
-    path:     /back/search
+catalogue_livre:
+    path:     /back/catalogue
     defaults: { _controller: BibliothequeBundle:Catalogue:search }
+
+catalogue_livre_front:
+    path:     /front/catalogue/{id}
+    defaults: { _controller: BibliothequeBundle:Catalogue:catalogue }

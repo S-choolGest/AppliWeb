@@ -15,40 +15,35 @@
     <section id="main-content">
         <section class="wrapper site-min-height">
             <h3><i class="fa fa-angle-right"></i>Catalogue des livres   <a href="{{ path('add_livre') }}"><i class="fa fa-plus-square-o"></i></a></h3>
+            <div class="row mt">
+                <div class="col-lg-5">
                     <div class="row">
                         {% for l in livres %}
-                            <div class="col-lg-2 col-sm-6 col-md-3 col-6 col-xl-2 mb">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
                                 <div class="livre">
                                     <div class="photo">
                                         <a class="fancybox" href="{{ l.img }}"><img src="{{ l.img }}"
-                                                                                    width="170" height="240" alt="" /></a>
+                                                                                    width="170" height="270" alt="" /></a>
                                         <div class="pr2-social centered">
-                                            <a href="#" data-toggle="modal" data-target="#panel_info_livre{{ l.id }}"><i
+                                            <a href="#" class="info_livre" id="info_livre{{ l.id }}"><i
                                                         class="fa fa-info-circle"></i></a>
                                             <a href="{{ path("edit_livre", {"id":l.id}) }}"><i
                                                         class="fa fa-edit"></i></a>
-                                            <a href="#" id="{{ l.id }}" class="delete_livre"><i class="fa fa-times-circle"></i></a>
+                                            <a href="#" class="delete_livre"><i class="fa fa-times-circle"></i></a>
                                             <div id="edit"></div>
                                             <div id="delete"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- /panel -->
-                            </div>
 
-                                <div id="panel_info_livre{{ l.id }}" class="modal fade">
+                                <div id="panel_info_livre{{ l.id }}" class="modal">
                                     <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                <h4 class="modal-title" id="myModalLabel">détail du livre</h4>
-                                            </div>
-                                            <div class="modal-footer">
+                                        <a href="#" class="close_info"><i class="fa fa-times"></i></a>
                                         <div class="col-md-4 centered">
                                             <img src="{{ l.img }}" width="170" height="270" alt="" />
                                         </div>
-                                        <div id="detail" class="text-left">
-                                            <p class="text-left">
+                                        <div id="detail" class="col-md-4 profile-text">
                                             <h5>Titre : {{ l.titre }}</h5>
                                             <h5>Auteur : {{ l.auteur }}</h5>
                                             <h5>Editeur : {{ l.editeur }}</h5>
@@ -56,10 +51,7 @@
                                             <h5>date d'ajout : {{ l.dateajout|date('d-m-Y') }}</h5>
                                             <h5>nombre de pages : {{ l.taille }}</h5>
                                             <h5>nombre d'exemplaires : {{ l.quantite }}</h5>
-                                            </p>
                                         </div>
-                                            </div>
-                                    </div>
                                     </div>
                                 </div>
 
@@ -96,8 +88,12 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         {% endfor %}
                     </div>
+                </div>
+                <!-- /col-lg-12 -->
+            </div>
         </section>
     </section>
     <!--main content end-->
@@ -127,8 +123,7 @@
                         'Deleted!',
                         'Your file has been deleted.',
                         'success'
-                    );
-                    $('.delete_livre').attr("{{ render(controller('BibliothequeBundle:Catalogue:delete', {'id':'this.id'})) |escape('js') }}")
+                    )
                 }
             })
         });
