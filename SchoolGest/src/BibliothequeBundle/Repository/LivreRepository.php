@@ -10,4 +10,7 @@ namespace BibliothequeBundle\Repository;
  */
 class LivreRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getLivreLesPlusDemande(){
+        //$qd = $this->getEntityManager()->createQuery('select l from BibliothequeBundle:Livre l order by l.');
+    }
 }

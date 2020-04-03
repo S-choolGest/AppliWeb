@@ -36,5 +36,5 @@ catalogue_livre:
     defaults: { _controller: BibliothequeBundle:Catalogue:search }
 
 catalogue_livre_front:
-    path:     /front/catalogue/{id}
+    path:     /front/catalogue
     defaults: { _controller: BibliothequeBundle:Catalogue:catalogue }

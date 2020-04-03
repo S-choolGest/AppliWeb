@@ -1,24 +1,27 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Knowledge Template</title>
+    <title>Edutech</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
 
     <!-- Facebook and Twitter integration -->
-    <meta property="og:title" content=""/>
-    <meta property="og:image" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:site_name" content=""/>
-    <meta property="og:description" content=""/>
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
     <meta name="twitter:title" content="" />
     <meta name="twitter:image" content="" />
     <meta name="twitter:url" content="" />
     <meta name="twitter:card" content="" />
+
+    {% block css %}
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
 
@@ -33,11 +36,11 @@
     <link rel="stylesheet" href="{{ asset('front/css/magnific-popup.css') }}">
 
     <!-- Flexslider  -->
-    <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/flexslider.css') }}">
 
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/owl.theme.default.min.css') }}">
 
     <!-- Flaticons  -->
     <link rel="stylesheet" href="{{ asset('front/fonts/flaticon/font/flaticon.css') }}">
@@ -49,130 +52,145 @@
     <script src="{{ asset('front/js/modernizr-2.6.2.min.js') }}"></script>
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]-->
-    <script src="{{ asset('js/respond.min.js') }}"></script>
+    <script src="{{ asset('front/js/respond.min.js') }}"></script>
     <![endif]-->
+
+    {% endblock %}
 
 </head>
 <body>
 
-{% block header %}
-    <div class="colorlib-loader"></div>
+<div class="colorlib-loader"></div>
 
-    <div id="page">
-        <nav class="colorlib-nav" role="navigation">
-            <div class="upper-menu">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <p>The ideal WordPress theme for online learning center</p>
-                        </div>
-                        <div class="col-xs-6 col-md-push-2 text-right">
-                            <p class="btn-apply"><a href="#">Our Vision</a> <a href="#">Our Missions</a> <a href="#">Sign Up</a></p>
-                        </div>
+<div id="page">
+
+    {% block nav %}
+    <nav class="colorlib-nav" role="navigation">
+        <div class="upper-menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <p>Le site idéal pour la gestion de votre école</p>
+                    </div>
+                    <div class="col-xs-6 col-md-push-2 text-right">
+                        <p class="btn-apply"><a href="#">Notre Vision</a> <a href="#">Notre Missions</a> <a href="#">Se connecter</a></p>
                     </div>
                 </div>
             </div>
-            <div class="top-menu">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div id="colorlib-logo"><a href="#">Knowledge</a></div>
-                        </div>
-                        <div class="col-md-10 text-right menu-1">
-                            <ul>
-                                <li class="active"><a href="#">Home</a></li>
-                                <li class="has-dropdown">
-                                    <a href="#">Courses</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Courses Single</a></li>
-                                        <li><a href="#">Mobile Apps</a></li>
-                                        <li><a href="#">Website</a></li>
-                                        <li><a href="#">Web Design</a></li>
-                                        <li><a href="#">WordPress</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Teachers</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Events</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li class="btn-cta"><a href="#"><span>Get started</span></a></li>
-                            </ul>
-                        </div>
+        </div>
+        <div class="top-menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div id="colorlib-logo"><a href="#">Edutech</a></div>
+                    </div>
+                    <div class="col-md-10 text-right menu-1">
+                        <ul>
+                            <li class="active"><a href="#">Accueil</a></li>
+                            <li class="has-dropdown">
+                                <a href="#">Bibliothèque</a>
+                                <ul class="dropdown">
+                                    <li><a href="{{ path('catalogue_livre_front') }}">Catalogue</a></li>
+                                    <li><a href="{{ path('biblio_emprunt_front') }}">Emprunts</a></li>
+                                    <li><a href="{{ path('biblio_reservation_front') }}">Réservation</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Encardrement</a></li>
+                            <li class="has-dropdown">
+                                <a href="#">Cours</a>
+                                <ul class="dropdown">
+                                    <li><a href="#">Cours</a></li>
+                                    <li><a href="#">Notes</a></li>
+                                    <li><a href="#">Emploi de temps</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Evènements</a></li>
+                            <li class="btn-cta"><a href="#"><span>Get started</span></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </nav>
-        <aside id="colorlib-hero">
-            <div class="flexslider">
-                <ul class="slides">
-                    <li style="background-image: url({{ asset('front/images/img_bg_1.jpg') }});">
-                        <div class="overlay"></div>
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-8 col-sm-12 col-md-offset-2 col-xs-12 col-md-pull-1 slider-text">
-                                    <div class="slider-text-inner">
-                                        <div class="desc">
-                                            <h2>You only have to know one thing</h2>
-                                            <h1>Best Online Learning System</h1>
-                                            <p><a href="https://vimeo.com/channels/staffpicks/93951774" class="btn btn-primary btn-lg popup-vimeo"><span class="icon"><i class="icon-play3"></i></span> Start Learning Now!</a></p>
-                                        </div>
+        </div>
+    </nav>
+
+    {% endblock %}
+
+    {% block aside %}
+
+    <aside id="colorlib-hero">
+        <div class="flexslider">
+            <ul class="slides">
+                <li style="background-image: url({{ asset('front/images/img_bg_1.jpg') }});">
+                    <div class="overlay"></div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-12 col-md-offset-2 col-xs-12 col-md-pull-1 slider-text">
+                                <div class="slider-text-inner">
+                                    <div class="desc">
+                                        <h2>You only have to know one thing</h2>
+                                        <h1>Best Online Learning System</h1>
+                                        <p><a href="https://vimeo.com/channels/staffpicks/93951774" class="btn btn-primary btn-lg popup-vimeo"><span class="icon"><i class="icon-play3"></i></span> Start Learning Now!</a></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                    <li style="background-image: url({{ asset('front/images/img_bg_5.jpg') }});">
-                        <div class="overlay"></div>
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-8 col-sm-12 col-md-offset-2 col-xs-12 col-md-pull-1 slider-text">
-                                    <div class="slider-text-inner">
-                                        <div class="desc">
-                                            <h2>You only have to know one thing</h2>
-                                            <h1>Online Free Course</h1>
-                                            <p><a href="https://vimeo.com/channels/staffpicks/93951774" class="btn btn-primary btn-lg popup-vimeo"><span class="icon"><i class="icon-play3"></i></span> Start Learning Now!</a></p>
-                                        </div>
+                    </div>
+                </li>
+                <li style="background-image: url({{ asset('front/images/img_bg_5.jpg') }});">
+                    <div class="overlay"></div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-12 col-md-offset-2 col-xs-12 col-md-pull-1 slider-text">
+                                <div class="slider-text-inner">
+                                    <div class="desc">
+                                        <h2>You only have to know one thing</h2>
+                                        <h1>Online Free Course</h1>
+                                        <p><a href="https://vimeo.com/channels/staffpicks/93951774" class="btn btn-primary btn-lg popup-vimeo"><span class="icon"><i class="icon-play3"></i></span> Start Learning Now!</a></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                    <li style="background-image: url({{ asset('front/images/img_bg_3.jpg') }});">
-                        <div class="overlay"></div>
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-8 col-sm-12 col-md-offset-2 col-xs-12 col-md-pull-1 slider-text">
-                                    <div class="slider-text-inner">
-                                        <div class="desc">
-                                            <h2>You only have to know one thing</h2>
-                                            <h1>Education is a Key to Success</h1>
-                                            <p><a href="https://vimeo.com/channels/staffpicks/93951774" class="btn btn-primary btn-lg popup-vimeo"><span class="icon"><i class="icon-play3"></i></span> Start Leaning Now!</a></p>
-                                        </div>
+                    </div>
+                </li>
+                <li style="background-image: url({{ asset('front/images/img_bg_3.jpg') }});">
+                    <div class="overlay"></div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-12 col-md-offset-2 col-xs-12 col-md-pull-1 slider-text">
+                                <div class="slider-text-inner">
+                                    <div class="desc">
+                                        <h2>You only have to know one thing</h2>
+                                        <h1>Education is a Key to Success</h1>
+                                        <p><a href="https://vimeo.com/channels/staffpicks/93951774" class="btn btn-primary btn-lg popup-vimeo"><span class="icon"><i class="icon-play3"></i></span> Start Leaning Now!</a></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                    <li style="background-image: url({{ asset('front/images/img_bg_4.jpg') }});">
-                        <div class="overlay"></div>
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-8 col-sm-12 col-md-offset-2 col-xs-12 col-md-pull-1 slider-text">
-                                    <div class="slider-text-inner">
-                                        <div class="desc">
-                                            <h2>You only have to know one thing</h2>
-                                            <h1>Best Online Learning Center</h1>
-                                            <p><a href="https://vimeo.com/channels/staffpicks/93951774" class="btn btn-primary btn-lg popup-vimeo"><span class="icon"><i class="icon-play3"></i></span> Start Learning Now!</a></p>
-                                        </div>
+                    </div>
+                </li>
+                <li style="background-image: url({{ asset('front/images/img_bg_4.jpg') }});">
+                    <div class="overlay"></div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-12 col-md-offset-2 col-xs-12 col-md-pull-1 slider-text">
+                                <div class="slider-text-inner">
+                                    <div class="desc">
+                                        <h2>You only have to know one thing</h2>
+                                        <h1>Best Online Learning Center</h1>
+                                        <p><a href="https://vimeo.com/channels/staffpicks/93951774" class="btn btn-primary btn-lg popup-vimeo"><span class="icon"><i class="icon-play3"></i></span> Start Learning Now!</a></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </aside>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    {% endblock %}
+
+    {% block container %}
 
         <div class="colorlib-search">
             <div class="container">
@@ -564,7 +582,7 @@
                                 <h3>David Brook</h3>
                                 <span>Instructor</span>
                             </div>
-                            <div class="trainer-img" style="background-image: url({{ asset('front/images/person3.jpg)') }}"></div>
+                            <div class="trainer-img" style="background-image: url({{ asset('front/images/person3.jpg') }}"></div>
                         </div>
                     </div>
 
@@ -792,7 +810,7 @@
                                 </div>
 
                                 <div class="block-21 d-flex animate-box">
-                                    <a href="#" class="blog-img" style="background-image: url({{ asset('front/images/blog-4.jpg);') }}"></a>
+                                    <a href="#" class="blog-img" style="background-image: url({{ asset('front/images/blog-4.jpg') }}"></a>
                                     <div class="text">
                                         <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                                         <p>ven the all-powerful Pointing has no control about the blind texts it is an almost</p>
@@ -811,7 +829,7 @@
         </div>
 
 
-        <!-- <div class="colorlib-blog colorlib-light-grey">
+        <div class="colorlib-blog colorlib-light-grey">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
@@ -822,7 +840,7 @@
                 <div class="row">
                     <div class="col-md-6 animate-box">
                         <article class="article-entry">
-                            <a href="blog.html" class="blog-img" style="background-image: url(images/blog-1.jpg);">
+                            <a href="blog.html" class="blog-img" style="background-image: url({{ asset('front/images/blog-1.jpg') }});">
                                 <p class="meta"><span class="day">18</span><span class="month">Apr</span></p>
                             </a>
                             <div class="desc">
@@ -834,7 +852,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="f-blog animate-box">
-                            <a href="blog.html" class="blog-img" style="background-image: url(images/blog-1.jpg);">
+                            <a href="blog.html" class="blog-img" style="background-image: url({{ asset('front/images/blog-1.jpg') }});">
                             </a>
                             <div class="desc">
                                 <h2><a href="blog.html">How to Create Website in Scratch</a></h2>
@@ -843,7 +861,7 @@
                             </div>
                         </div>
                         <div class="f-blog animate-box">
-                            <a href="blog.html" class="blog-img" style="background-image: url(images/blog-2.jpg);">
+                            <a href="blog.html" class="blog-img" style="background-image: url({{ asset('front/images/blog-2.jpg') }});">
                             </a>
                             <div class="desc">
                                 <h2><a href="blog.html">How to Convert PSD File to HTML File?</a></h2>
@@ -852,7 +870,7 @@
                             </div>
                         </div>
                         <div class="f-blog animate-box">
-                            <a href="blog.html" class="blog-img" style="background-image: url(images/blog-3.jpg);">
+                            <a href="blog.html" class="blog-img" style="background-image: url({{ asset('front/images/blog-3.jpg') }});">
                             </a>
                             <div class="desc">
                                 <h2><a href="blog.html">How to Build Games App in Mobile</a></h2>
@@ -863,140 +881,133 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
+    {% endblock %}
 
-
-        <div id="colorlib-subscribe" class="subs-img" style="background-image: url({{ asset('front/images/img_bg_2.jpg') }});" data-stellar-background-ratio="0.5">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
-                        <h2>Subscribe Newsletter</h2>
-                        <p>Subscribe our newsletter and get latest update</p>
-                    </div>
+    {% block footer %}
+    <div id="colorlib-subscribe" class="subs-img" style="background-image: url({{ asset('front/images/img_bg_2.jpg') }});" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
+                    <h2>Subscribe Newsletter</h2>
+                    <p>Subscribe our newsletter and get latest update</p>
                 </div>
-                <div class="row animate-box">
-                    <div class="col-md-6 col-md-offset-3">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form class="form-inline qbstp-header-subscribe">
-                                    <div class="col-three-forth">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="email" placeholder="Enter your email">
-                                        </div>
+            </div>
+            <div class="row animate-box">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-inline qbstp-header-subscribe">
+                                <div class="col-three-forth">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="email" placeholder="Enter your email">
                                     </div>
-                                    <div class="col-one-third">
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">Subscribe Now</button>
-                                        </div>
+                                </div>
+                                <div class="col-one-third">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Subscribe Now</button>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
+</div>
 
+<footer id="colorlib-footer">
+    <div class="container">
+        <div class="row row-pb-md">
+            <div class="col-md-3 colorlib-widget">
+                <h4>Contact Info</h4>
+                <ul class="colorlib-footer-links">
+                    <li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
+                    <li><a href="#"><i class="icon-phone"></i> + 1235 2355 98</a></li>
+                    <li><a href="#"><i class="icon-envelope"></i> info@yoursite.com</a></li>
+                    <li><a href="#"><i class="icon-location4"></i> yourwebsite.com</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 colorlib-widget">
+                <h4>Programs</h4>
+                <p>
+                <ul class="colorlib-footer-links">
+                    <li><a href="#"><i class="icon-check"></i> Diploma Degree</a></li>
+                    <li><a href="#"><i class="icon-check"></i> BS Degree</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Beginner</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Intermediate</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Advance</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Difficulty</a></li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-md-2 colorlib-widget">
+                <h4>Useful Links</h4>
+                <p>
+                <ul class="colorlib-footer-links">
+                    <li><a href="#"><i class="icon-check"></i> About Us</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Testimonials</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Courses</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Event</a></li>
+                    <li><a href="#"><i class="icon-check"></i> News</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Contact</a></li>
+                </ul>
+                </p>
+            </div>
 
-{% endblock %}
-{% block container %}
+            <div class="col-md-2 colorlib-widget">
+                <h4>Support</h4>
+                <p>
+                <ul class="colorlib-footer-links">
+                    <li><a href="#"><i class="icon-check"></i> Documentation</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Forums</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Help &amp; Support</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Scholarship</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Student Transport</a></li>
+                    <li><a href="#"><i class="icon-check"></i> Release Status</a></li>
+                </ul>
+                </p>
+            </div>
 
-{% endblock %}
-
-{% block footer %}
-    <footer id="colorlib-footer">
+            <div class="col-md-3 colorlib-widget">
+                <h4>Recent Post</h4>
+                <div class="f-blog">
+                    <a href="#" class="blog-img" style="background-image: url({{ asset('front/images/blog-1.jpg') }});">
+                    </a>
+                    <div class="desc">
+                        <h2><a href="#">Creating Mobile Apps</a></h2>
+                        <p class="admin"><span>18 April 2018</span></p>
+                    </div>
+                </div>
+                <div class="f-blog">
+                    <a href="#" class="blog-img" style="background-image: url({{ asset('front/images/blog-2.jpg') }});">
+                    </a>
+                    <div class="desc">
+                        <h2><a href="#">Creating Mobile Apps</a></h2>
+                        <p class="admin"><span>18 April 2018</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copy">
         <div class="container">
-            <div class="row row-pb-md">
-                <div class="col-md-3 colorlib-widget">
-                    <h4>Contact Info</h4>
-                    <ul class="colorlib-footer-links">
-                        <li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
-                        <li><a href="#"><i class="icon-phone"></i> + 1235 2355 98</a></li>
-                        <li><a href="#"><i class="icon-envelope"></i> info@yoursite.com</a></li>
-                        <li><a href="#"><i class="icon-location4"></i> yourwebsite.com</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2 colorlib-widget">
-                    <h4>Programs</h4>
+            <div class="row">
+                <div class="col-md-12 text-center">
                     <p>
-                    <ul class="colorlib-footer-links">
-                        <li><a href="#"><i class="icon-check"></i> Diploma Degree</a></li>
-                        <li><a href="#"><i class="icon-check"></i> BS Degree</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Beginner</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Intermediate</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Advance</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Difficulty</a></li>
-                    </ul>
+                        <small class="block">&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small><br>
+                        <small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>, <a href="http://pexels.com/" target="_blank">Pexels</a></small>
                     </p>
-                </div>
-                <div class="col-md-2 colorlib-widget">
-                    <h4>Useful Links</h4>
-                    <p>
-                    <ul class="colorlib-footer-links">
-                        <li><a href="#"><i class="icon-check"></i> About Us</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Testimonials</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Courses</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Event</a></li>
-                        <li><a href="#"><i class="icon-check"></i> News</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Contact</a></li>
-                    </ul>
-                    </p>
-                </div>
-
-                <div class="col-md-2 colorlib-widget">
-                    <h4>Support</h4>
-                    <p>
-                    <ul class="colorlib-footer-links">
-                        <li><a href="#"><i class="icon-check"></i> Documentation</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Forums</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Help &amp; Support</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Scholarship</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Student Transport</a></li>
-                        <li><a href="#"><i class="icon-check"></i> Release Status</a></li>
-                    </ul>
-                    </p>
-                </div>
-
-                <div class="col-md-3 colorlib-widget">
-                    <h4>Recent Post</h4>
-                    <div class="f-blog">
-                        <a href="#" class="blog-img" style="background-image: url({{ asset('front/images/blog-1.jpg') }});">
-                        </a>
-                        <div class="desc">
-                            <h2><a href="#">Creating Mobile Apps</a></h2>
-                            <p class="admin"><span>18 April 2018</span></p>
-                        </div>
-                    </div>
-                    <div class="f-blog">
-                        <a href="#" class="blog-img" style="background-image: url({{ asset('front/images/blog-2.jpg') }});">
-                        </a>
-                        <div class="desc">
-                            <h2><a href="#">Creating Mobile Apps</a></h2>
-                            <p class="admin"><span>18 April 2018</span></p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="copy">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <p>
-                            <small class="block">&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small><br>
-                            <small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>, <a href="http://pexels.com/" target="_blank">Pexels</a></small>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
 
 {% endblock %}
 

@@ -15,7 +15,7 @@
     <section id="main-content">
         <section class="wrapper site-min-height">
             <h3><i class="fa fa-angle-right"></i>Catalogue des livres   <a href="{{ path('add_livre') }}"><i class="fa fa-plus-square-o"></i></a></h3>
-                    <div class="row">
+                    <div class="row" id="catalogue">
                         {% for l in livres %}
                             <div class="col-lg-2 col-sm-6 col-md-3 col-6 col-xl-2 mb">
                                 <div class="livre">
@@ -123,12 +123,26 @@
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.value) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    );
-                    $('.delete_livre').attr("{{ render(controller('BibliothequeBundle:Catalogue:delete', {'id':'this.id'})) |escape('js') }}")
+                    url = "{{ path('delete_livre', {"id" : 'livre_id'}) }}";
+                    url = url.replace("livre_id", this.id);
+                    //document.location.href = url;
+                    $.ajax({
+                        url: url,
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            "idSelect": this.id
+                        },
+                        async: true,
+                        success: function (data) {
+                            $('#catalogue').load(' #catalogue');
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            );
+                        }
+                    });
                 }
             })
         });

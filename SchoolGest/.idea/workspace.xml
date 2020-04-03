@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec199dcd-f0a8-4c54-bb00-c33a949e31fc" name="Default Changelist" comment="ajout des crud Bibliotheque">
-      <change afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/catalogue.html.twig" afterDir="false" />
+    <list default="true" id="ec199dcd-f0a8-4c54-bb00-c33a949e31fc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/web/front/images/bibliotheque_cover.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base_front.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base_front.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/CatalogueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/CatalogueController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Bibliotheque.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Bibliotheque.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Form/LivreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Form/LivreType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/LivreRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/LivreRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/catalogue.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/catalogue.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/search.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Default/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,15 +128,15 @@
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\SchoolGest\app\Resources\views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\AppliWeb\AppliWeb\SchoolGest\web\front\images" />
+      <recent name="C:\wamp64\www\AppliWeb\AppliWeb\SchoolGest\web\images" />
       <recent name="C:\wamp64\www\SchoolGest\src\SchoolBundle\Form" />
       <recent name="C:\wamp64\www\SchoolGest\src\SchoolBundle\Resources\views\Default" />
       <recent name="C:\wamp64\www\SchoolGest\src\UserBundle\Resources\views\Default" />
-      <recent name="C:\wamp64\www\SchoolGest\app\Resources\views\default" />
-      <recent name="C:\wamp64\www\SchoolGest\app\Resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SchoolGest\app\Resources\views" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -219,8 +218,17 @@
       <workItem from="1585319049780" duration="11923000" />
       <workItem from="1585399187967" duration="36812000" />
       <workItem from="1585577722870" duration="5954000" />
-      <workItem from="1585768465370" duration="251000" />
+      <workItem from="1585768465370" duration="11485000" />
+      <workItem from="1585902095808" duration="9566000" />
     </task>
+    <task id="LOCAL-00001" summary="ajout des crud Bibliotheque">
+      <created>1585768964714</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585768964714</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +240,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="ajout des crud Bibliotheque" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="220" key="#Inspections" timestamp="1585912050109">
+      <screen x="0" y="44" width="1920" height="1036" />
+    </state>
+    <state x="552" y="220" key="#Inspections/0.44.1920.1036@0.44.1920.1036" timestamp="1585912050109" />
     <state x="552" y="220" width="816" height="730" key="#Intentions" timestamp="1585265246087">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -248,10 +260,10 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585523265399" />
-    <state x="490" y="69" key="CommitChangelistDialog2" timestamp="1585768712838">
+    <state x="490" y="69" key="CommitChangelistDialog2" timestamp="1585768961466">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="490" y="69" key="CommitChangelistDialog2/0.44.1920.1036@0.44.1920.1036" timestamp="1585768712838" />
+    <state x="490" y="69" key="CommitChangelistDialog2/0.44.1920.1036@0.44.1920.1036" timestamp="1585768961466" />
     <state x="796" y="429" key="ComposerCompositePathDialog" timestamp="1585228184215">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -260,10 +272,10 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="184" y="129" key="DiffContextDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585238848213" />
-    <state x="1129" y="372" key="FileChooserDialogImpl" timestamp="1585578009136">
+    <state x="1129" y="372" key="FileChooserDialogImpl" timestamp="1585906381014">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="1129" y="372" key="FileChooserDialogImpl/0.44.1920.1036@0.44.1920.1036" timestamp="1585578009136" />
+    <state x="1129" y="372" key="FileChooserDialogImpl/0.44.1920.1036@0.44.1920.1036" timestamp="1585906381014" />
     <state x="1267" y="451" key="FrameworkEditDialogDimensionKey" timestamp="1585227700099">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -292,14 +304,22 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="843" y="456" key="SymfonyPathDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585228151751" />
-    <state x="552" y="290" key="Vcs.Push.Dialog.v2" timestamp="1585238856372">
+    <state x="552" y="290" key="Vcs.Push.Dialog.v2" timestamp="1585768992623">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="552" y="290" key="Vcs.Push.Dialog.v2/0.44.1920.1036@0.44.1920.1036" timestamp="1585238856372" />
-    <state x="636" y="385" key="com.intellij.ide.util.TipDialog" timestamp="1585768472109">
+    <state x="552" y="290" key="Vcs.Push.Dialog.v2/0.44.1920.1036@0.44.1920.1036" timestamp="1585768992623" />
+    <state x="540" y="216" key="com.intellij.database.dbimport.ImportDialog" timestamp="1585911153754">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="636" y="385" key="com.intellij.ide.util.TipDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585768472109" />
+    <state x="540" y="216" key="com.intellij.database.dbimport.ImportDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585911153754" />
+    <state x="669" y="199" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1585911113388">
+      <screen x="0" y="44" width="1920" height="1036" />
+    </state>
+    <state x="669" y="199" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585911113388" />
+    <state x="636" y="385" key="com.intellij.ide.util.TipDialog" timestamp="1585902094465">
+      <screen x="0" y="44" width="1920" height="1036" />
+    </state>
+    <state x="636" y="385" key="com.intellij.ide.util.TipDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585902094465" />
     <state x="1096" y="265" width="672" height="677" key="run.anything.popup" timestamp="1585581551161">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>

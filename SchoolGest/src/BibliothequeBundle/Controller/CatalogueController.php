@@ -42,11 +42,13 @@ class CatalogueController extends Controller
         ));
     }
 
-    public function deleteAction()
+    public function deleteAction($id)
     {
-        return $this->render('@Bibliotheque/Catalogue/delete.html.twig', array(
-            // ...
-        ));
+        $livre = $this->getDoctrine()->getRepository( Livre::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($livre);
+        $em->flush();
+        return $this->json(['id' => $id, 'message' => 'Suppression reussite'], 200);
     }
 
     public function searchAction()
