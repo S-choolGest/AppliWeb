@@ -1,6 +1,7 @@
 {% extends "base_front.html.twig" %}
 {% block css %}
     {{ parent() }}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 {% endblock %}
 {% block nav %}
     <nav class="colorlib-nav" role="navigation">
@@ -11,7 +12,16 @@
                         <p>Le site idéal pour la gestion de votre école</p>
                     </div>
                     <div class="col-xs-6 col-md-push-2 text-right">
-                        <p class="btn-apply"><a href="#">Notre Vision</a> <a href="#">Notre Missions</a> <a href="#">Se connecter</a></p>
+                        <p class="btn-apply"><a href="#">Notre Vision</a> <a href="#">Notre Missions</a>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                {{ app.user.username }} |
+                                <a href="{{ path('fos_user_security_logout') }}">
+                                    {{ 'se déconnecter'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                            {% else %}
+                                <a href="{{ path('fos_user_security_login') }}">{{ 'se connecter'|trans({}, 'FOSUserBundle') }}</a>
+                            {% endif %}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -213,11 +223,26 @@
                                         <h5>nombre d'exemplaires : <span>{{ l.quantite }}</span></h5>
                                         </p>
                                     </div>
+                                    {{ form_start(f, {'attr' : {'class' : 'form-horizontal style-form'}}) }}
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Date début</label>
+                                        {{ form_widget(f.datedebut, {'attr' : {'class' : 'form-control form-control-inline input-medium default-date-picker', 'size' : '16', 'type' : 'date', 'name' : 'datedebut', 'value' : ''} }) }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Date fin</label>
+                                        <div class="">
+                                            {{ form_widget(f.datefin, {'attr' : {'class' : 'form-control form-control-inline input-medium default-date-picker', 'size' : '16', 'type' : 'text', 'name' : 'datefin', 'value' : ''} }) }}
+                                        </div>
+                                    </div>
+                                    {{ form_widget(f.idemprunteur, {'attr' : {'class':'hide', 'value':app.user.id}}) }}
+                                    {{ form_widget(f.idlivre, {'attr' : {'class':'hide', 'value':l.id}}) }}
+                                    {{ form_widget(f.dateemprunt, {'attr' : {'class':'', 'type':'date', 'value':"now"|date("m-d-Y")}}) }}
                                 </div>
-                                <div class="modal-footer">
+                                <div class="modal-footer" id="{{ l.id }}">
                                     <button class="btn btn-secondary" data-dismiss="modal" type="button"> Close</button>
-                                    <button class="btn btn-primary" type="button">Emprunter</button>
+                                    <button class="btn btn-primary" type="submit" id="emprunter">Emprunter</button>
                                 </div>
+                                {{ form_end(f) }}
                             </div>
                         </div>
                     </div>
@@ -228,5 +253,28 @@
 {% endblock %}
 {% block js %}
     {{ parent() }}
-
+    <script>
+        $('#emprunter').click(function () {
+            url = "{{ path('emprunter', {"idlivre" : 'livre_id', "iduser" : app.user.id}) }}";
+            url = url.replace("livre_id", this.parentElement.id);
+            $.ajax({
+                url: url,
+                type: "POST",
+                dataType: "json",
+                data: {
+                    "idSelect": this.id
+                },
+                async: true,
+                success: function (data) {
+                    /*$('.modal').css('display', 'none');
+                    $('.fade').css('display', 'none');*/
+                    Swal.fire(
+                        'Emprunt!',
+                        'Emprunt réussi',
+                        'success'
+                    );
+                }
+            });
+        })
+    </script>
 {% endblock %}

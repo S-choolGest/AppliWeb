@@ -3,12 +3,13 @@
 namespace BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use UserBundle\Entity\Utilisateur;
 
 /**
  * Emprunt
  *
  * @ORM\Table(name="emprunt", indexes={@ORM\Index(name="fk_livre", columns={"idLivre"}), @ORM\Index(name="fk_emprunt_user", columns={"idEmprunteur"})})
- * @ORM\Entity(repositoryClass="BibliothequeBundle\Repository\EmpruntRepository")
+ * @ORM\Entity
  */
 class Emprunt
 {
@@ -64,9 +65,9 @@ class Emprunt
     private $datefin;
 
     /**
-     * @var \FosUser
+     * @var Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idEmprunteur", referencedColumnName="id")
      * })
@@ -74,7 +75,7 @@ class Emprunt
     private $idemprunteur;
 
     /**
-     * @var \Livre
+     * @var Livre
      *
      * @ORM\ManyToOne(targetEntity="Livre")
      * @ORM\JoinColumns({
@@ -196,7 +197,7 @@ class Emprunt
     }
 
     /**
-     * @return \FosUser
+     * @return Utilisateur
      */
     public function getIdemprunteur()
     {
@@ -204,7 +205,7 @@ class Emprunt
     }
 
     /**
-     * @param \FosUser $idemprunteur
+     * @param Utilisateur $idemprunteur
      */
     public function setIdemprunteur($idemprunteur)
     {
@@ -212,7 +213,7 @@ class Emprunt
     }
 
     /**
-     * @return \Livre
+     * @return Livre
      */
     public function getIdlivre()
     {
@@ -220,7 +221,7 @@ class Emprunt
     }
 
     /**
-     * @param \Livre $idlivre
+     * @param Livre $idlivre
      */
     public function setIdlivre($idlivre)
     {

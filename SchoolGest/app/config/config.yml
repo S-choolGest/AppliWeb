@@ -13,7 +13,8 @@ parameters:
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
+    #translator: ~
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -80,5 +81,5 @@ fos_user:
     service:
         mailer: fos_user.mailer.twig_swift
     from_email:
-        address: "badiaa.bouhdid@esprit.tn"
-        sender_name: "badi3a"
+        address: "arthurwilliam.ngassanguesseu@esprit.tn"
+        sender_name: "william"

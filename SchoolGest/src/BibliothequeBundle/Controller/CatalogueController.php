@@ -2,7 +2,9 @@
 
 namespace BibliothequeBundle\Controller;
 
+use BibliothequeBundle\Entity\Emprunt;
 use BibliothequeBundle\Entity\Livre;
+use BibliothequeBundle\Form\EmpruntType;
 use BibliothequeBundle\Form\LivreType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -60,10 +62,22 @@ class CatalogueController extends Controller
         ));
     }
 
-    public function catalogueAction(){
+    public function catalogueAction(Request $request){
         $livres = $this->getDoctrine()->getRepository(Livre::class)->findAll();
+
+        $emprunt = new Emprunt();
+        $formEmprunt = $this->createForm(EmpruntType::class, $emprunt);
+        $formEmprunt->handleRequest($request);
+        if($formEmprunt->isSubmitted()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($emprunt);
+            $em->flush();
+            //return $this->redirectToRoute('catalogue_livre');
+        }
+
         return $this->render('@Bibliotheque/Catalogue/catalogue.html.twig', array(
-            "livres"=>$livres
+            "livres"=>$livres,
+            "f"=>$formEmprunt->createView()
             // ...
         ));
     }

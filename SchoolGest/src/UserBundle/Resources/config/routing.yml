@@ -6,3 +6,6 @@ fos_user:
 front:
     path:     /front
     defaults: { _controller: SchoolBundle:Default:front }
+back:
+    path:     /back
+    defaults: { _controller: SchoolBundle:Default:back }

@@ -73,7 +73,16 @@
                         <p>Le site idéal pour la gestion de votre école</p>
                     </div>
                     <div class="col-xs-6 col-md-push-2 text-right">
-                        <p class="btn-apply"><a href="#">Notre Vision</a> <a href="#">Notre Missions</a> <a href="#">Se connecter</a></p>
+                        <p class="btn-apply"><a href="#">Notre Vision</a> <a href="#">Notre Missions</a>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                                <a href="{{ path('fos_user_security_logout') }}">
+                                    {{ 'se déconnecter'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                            {% else %}
+                                <a href="{{ path('fos_user_security_login') }}">{{ 'se connecter'|trans({}, 'FOSUserBundle') }}</a>
+                            {% endif %}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -949,7 +958,7 @@
                 <p>
                 <ul class="colorlib-footer-links">
                     <li><a href="#"><i class="icon-check"></i> About Us</a></li>
-                    <li><a href="#"><i class="icon-check"></i> Testimonials</a></li>
+                    <li><a href="{{ path('back') }}"><i class="icon-check"></i> Gestion</a></li>
                     <li><a href="#"><i class="icon-check"></i> Courses</a></li>
                     <li><a href="#"><i class="icon-check"></i> Event</a></li>
                     <li><a href="#"><i class="icon-check"></i> News</a></li>

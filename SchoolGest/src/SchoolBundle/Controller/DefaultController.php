@@ -16,4 +16,8 @@ class DefaultController extends Controller
         return $this->render('@School/Default/index_front.html.twig');
     }
 
+    public function backAction()
+    {
+        return $this->render('@School/Default/index.html.twig');
+    }
 }

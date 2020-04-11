@@ -4,7 +4,7 @@ bibliotheque:
 
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
-    prefix:   /user
+    prefix:   /
 
 school:
     resource: "@SchoolBundle/Resources/config/routing.yml"

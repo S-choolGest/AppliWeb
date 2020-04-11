@@ -36,7 +36,7 @@
             <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
         </div>
         <!--logo start-->
-        <a href="#" class="logo"><b><span>EdutecH</span></b></a>
+        <a href="#" class="logo"><b><span>Edutech</span></b></a>
         <!--logo end-->
         <div class="nav notify-row" id="top_menu">
             <!--  notification start -->
@@ -71,11 +71,11 @@
         <div>
 
             {% if is_granted("IS_AUTHENTICATED_FULLY") %}
-                <a href="{{ path('fos_user_security_logout') }}">Logout</a>
+                {{ app.user.username }} |
+                <a href="{{ path('fos_user_security_logout') }}">se déconnecter</a>
             {% else %}
-                <a href="{{ path('fos_user_registration_register') }}">Register</a> /  / <a href="{{ path('fos_user_security_login') }}" >Login</a>
+                <a href="{{ path('fos_user_registration_register') }}">s'inscrire</a> /  / <a href="{{ path('fos_user_security_login') }}" >Login</a>
             {% endif %}
-
         </div>
     </header>
     <!--header end-->
