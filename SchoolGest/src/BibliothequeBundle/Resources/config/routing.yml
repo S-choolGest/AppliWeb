@@ -7,6 +7,11 @@ biblio_catalogue:
 biblio_emprunt:
     path:     /back/emprunts
     defaults: { _controller: BibliothequeBundle:Emprunt:view }
+edit_emprunt:
+    path:     /back/emprunts/edit/{id}/{choix}
+    defaults: { _controller: BibliothequeBundle:Emprunt:edit }
+    options:
+        expose: true
 biblio_reservation:
     path:     /gestion_reservation
     defaults: { _controller: BibliothequeBundle:Default:index }
@@ -30,6 +35,8 @@ edit_livre:
 delete_livre:
     path:     /back/delete/{id}
     defaults: { _controller: BibliothequeBundle:Catalogue:delete }
+    options:
+        expose: true
 
 catalogue_livre:
     path:     /back/catalogue
@@ -39,13 +46,9 @@ catalogue_livre_front:
     path:     /front/catalogue
     defaults: { _controller: BibliothequeBundle:Catalogue:catalogue }
 emprunter:
-    path:     /front/emprunter/{idlivre}/{iduser}
+    path:     /front/emprunter
     defaults: { _controller: BibliothequeBundle:Emprunt:add }
 
 delete:
     path:     /annuler
     defaults: { _controller: BibliothequeBundle:Emprunt:delete }
-
-modify:
-    path:     /modify
-    defaults: { _controller: BibliothequeBundle:Emprunt:modify }

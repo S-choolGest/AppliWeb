@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new UserBundle\UserBundle(),
             new BibliothequeBundle\BibliothequeBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new \Vich\UploaderBundle\VichUploaderBundle(),
         ];
 
 

@@ -114,17 +114,18 @@
     <script>
         $('.delete_livre').click(function () {
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Etes-vous sûre?',
+                text: "Cette action est irréversible!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Oui, supprimer!'
             }).then((result) => {
                 if (result.value) {
-                    url = "{{ path('delete_livre', {"id" : 'livre_id'}) }}";
-                    url = url.replace("livre_id", this.id);
+                    var url = Routing.generate('delete_livre', {id: this.id}, true);
+                    /*url = "{{ path('delete_livre', {"id" : 'livre_id'}) }}";
+                    url = url.replace("livre_id", this.id);*/
                     //document.location.href = url;
                     $.ajax({
                         url: url,
@@ -137,8 +138,8 @@
                         success: function (data) {
                             $('#catalogue').load(' #catalogue');
                             Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
+                                'Supprimé!',
+                                'Le livre a été supprimé.',
                                 'success'
                             );
                         }

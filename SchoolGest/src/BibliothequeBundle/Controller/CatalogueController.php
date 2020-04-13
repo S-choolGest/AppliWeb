@@ -7,6 +7,7 @@ use BibliothequeBundle\Entity\Livre;
 use BibliothequeBundle\Form\EmpruntType;
 use BibliothequeBundle\Form\LivreType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\Request;
 
 class CatalogueController extends Controller
@@ -18,6 +19,7 @@ class CatalogueController extends Controller
         $formLivre->handleRequest($request);
         if($formLivre->isSubmitted()){
             $em = $this->getDoctrine()->getManager();
+            $livre->setDateajout(new \DateTime('now'));
             $em->persist($livre);
             $em->flush();
             return $this->redirectToRoute('catalogue_livre');
@@ -65,19 +67,8 @@ class CatalogueController extends Controller
     public function catalogueAction(Request $request){
         $livres = $this->getDoctrine()->getRepository(Livre::class)->findAll();
 
-        $emprunt = new Emprunt();
-        $formEmprunt = $this->createForm(EmpruntType::class, $emprunt);
-        $formEmprunt->handleRequest($request);
-        if($formEmprunt->isSubmitted()){
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($emprunt);
-            $em->flush();
-            //return $this->redirectToRoute('catalogue_livre');
-        }
-
         return $this->render('@Bibliotheque/Catalogue/catalogue.html.twig', array(
             "livres"=>$livres,
-            "f"=>$formEmprunt->createView()
             // ...
         ));
     }

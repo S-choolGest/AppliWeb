@@ -10,6 +10,8 @@ school:
     resource: "@SchoolBundle/Resources/config/routing.yml"
     prefix:   /school
 
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
 app:
     resource: '@AppBundle/Controller/'

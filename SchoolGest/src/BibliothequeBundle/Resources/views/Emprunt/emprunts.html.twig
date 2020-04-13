@@ -1,6 +1,7 @@
 {% extends "base.html.twig" %}
 {% block css %}
     {{ parent() }}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
 
     <!-- Animate.css -->
@@ -38,22 +39,116 @@
     <section id="main-content">
         <section class="wrapper site-min-height">
             <h3><i class="fa fa-angle-right"></i>Emprunts de livre </h3>
-            <div class="row">
+            <div class="row" id="emprunts">
                 <div class="col-md-8">
+                    {% for e in emprunts %}
+                        <div class="col-md-6">
                     <div class="block-21 d-flex animate-box mysize">
-                        <a href="#" class="blog-img" style="background-image: url({{ asset('front/images/blog-2.jpg') }});height: 200px; width: 200px"></a>
+                        <a href="#" class="blog-img" data-toggle="modal" data-target="#panel_info_emprunt{{ e.id }}" style="background-image: url({{ e.idlivre.img }});height: 200px; width: 200px"></a>
                         <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful </a></h3>
-                            <p>ven the all-powerful </p>
+                            <h3 class="heading"><a href="#" data-toggle="modal" data-target="#panel_info_livre{{ e.id }}">{{ e.idlivre.titre }} </a></h3>
+                            <p class="etat_emprunt{{ e.id }}">Etat :{% if e.etat == 0 %}<span style="color: grey"> <i class="fa fa-spinner"></i>  en attente </span>{% elseif e.etat == 1 %}<span style="color: blue">  <i class="fa fa-thumbs-o-up"></i> confirmé </span>{% elseif e.etat == 2 %} <span style="color: red"><i class="fa fa-warning"></i> refusé</span> {% elseif e.etat == 3 %} <span style="color: green"><i class="fa fa-thumbs-up"></i> rendu</span> {% endif %}</p>
                             <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> May 29, 2018</a></div>
-                                <div><a href="#"><span class="icon-user2"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-calendar"></span> {{ e.dateemprunt|date('d-m-Y') }}</a></div>
+                                <div><a href="#" data-toggle="modal" data-target="#panel_info_user{{ e.id }}"><span class="icon-user2"></span> {{ e.idemprunteur.nom~" "~e.idemprunteur.prenom }}</a></div>
                                 <div><a href="#"><span class="icon-chat"></span> 19</a></div>
                             </div>
                         </div>
                     </div>
+                            <div id="panel_info_livre{{ e.id }}" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">détail du livre</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="col-md-4 centered">
+                                                <img src="{{ e.idlivre.img }}" width="170" height="270" alt="" />
+                                            </div>
+                                            <div id="detail" class="">
+                                                <p class="text-left">
+                                                <h5>Titre : <span class="details">{{ e.idlivre.titre }}</span></h5>
+                                                <h5>Auteur : <span>{{ e.idlivre.auteur }}</span></h5>
+                                                <h5>Editeur : <span>{{ e.idlivre.editeur }}</span></h5>
+                                                <h5>date de sortie : <span>{{ e.idlivre.datesortie|date('d-m-Y') }}</span></h5>
+                                                <h5>date d'ajout : <span>{{ e.idlivre.dateajout|date('d-m-Y') }}</span></h5>
+                                                <h5>nombre de pages : <span>{{ e.idlivre.taille }}</span></h5>
+                                                <h5>nombre d'exemplaires : <span>{{ e.idlivre.quantite }}</span></h5>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" data-dismiss="modal" type="button"> fermer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="panel_info_user{{ e.id }}" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">détail de l'utilisateur</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="col-md-4 centered">
+                                                <img src="{{ e.idemprunteur.profile }}" width="170" height="270" alt="" />
+                                            </div>
+                                            <div id="detail" class="mt-2">
+                                                <h5>Nom d'utilisateur : <span class="details">{{ e.idemprunteur.username }}</span></h5>
+                                                <div class="row">
+                                                    <div class="col"> <h5>Nom : <span>{{ e.idemprunteur.nom }}</span></h5></div>
+                                                    <div class="col"> <h5>Prénom : <span>{{ e.idemprunteur.prenom }}</span></h5></div>
+                                                    <div class="col"> <h5>Email : <span>{{ e.idemprunteur.email }}</span></h5></div>
+                                                    <div class="col"> <h5>CIN : <span>{{ e.idemprunteur.cin }}</span></h5></div>
+                                                    <div class="col"> <h5>Téléphone : <span>{{ e.idemprunteur.numTel }}</span></h5></div>
+                                                    <div class="col"> <h5>Adresse : <span>{{ e.idemprunteur.adresse }}</span></h5></div>
+                                                    <!--<div class="col"> <h5>Rôle : <ul>{% for role in e.idemprunteur.roles %}<li><span>{{ role }}</span></li>{% endfor %}</ul></h5></div>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" data-dismiss="modal" type="button"> fermer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="panel_info_emprunt{{ e.id }}" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">détail de l'emprunt</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="detail" class="mt-2">
+                                                <div class="row">
+                                                    <div class="col"> <h5>date d'emprunt : <span>{{ e.dateemprunt|date('d-m-Y') }}</span></h5></div>
+                                                    <div class="col"> <h5>date de confirmation : <span>{% if e.dateconfirmation is empty %} RAS {% else %}{{ e.dateconfirmation|date('d-m-Y') }}{% endif %}</span></h5></div>
+                                                    <div class="col"> <h5>date de retour : <span>{% if e.daterendu is empty %} RAS {% else %}{{ e.daterendu|date('d-m-Y') }}{% endif %}</span></h5></div>
+                                                    <div class="col"> <h5>date de debut : <span>{{ e.datedebut|date('d-m-Y') }}</span></h5></div>
+                                                    <div class="col"> <h5>date de fin : <span>{{ e.datefin|date('d-m-Y') }}</span></h5></div>
+                                                    <div class="col"><h5 class="etat_emprunt{{ e.id }}">Etat : {% if e.etat == 0 %}<span style="color: grey"> <i class="fa fa-spinner"></i>  en attente </span>{% elseif e.etat == 1 %} <span style="color: blue"><i class="fa fa-thumbs-o-up"></i> confirmé </span>{% elseif e.etat == 2 %} <span style="color: red"><i class="fa fa-warning"></i> refusé</span> {% elseif e.etat == 3 %} <span style="color: green"><i class="fa fa-thumbs-up"></i> rendu</span> {% endif %}</h5></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer" id={{ e.id }}>
+                                            {% if e.etat == 0 %}
+                                                <button class="btn btn-primary valider" type="submit" id="accepter{{ e.id }}" value="1">accepter</button>
+                                                <button class="btn btn-danger valider" type="submit" id="refuser{{ e.id }}" value="2">refuser</button>
+                                            {% elseif e.etat == 1 %}
+                                                <button class="btn btn-primary valider" type="submit" id="retour{{ e.id }}" value="3">confirmer retour </button>
+                                            {% else %}
+                                            {% endif %}
+                                            <button class="btn btn-secondary" data-dismiss="modal" type="button"> fermer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
-
                 <!-- SIDEBAR: start -->
                 <div class="col-md-4 animate-box">
                     <div class="sidebar">
@@ -120,7 +215,7 @@
 {% block js %}
     {{ parent() }}
     <!-- jQuery -->
-    <!--<script src="{{ asset('front/js/jquery.min.js') }}"></script>-->
+    <script src="{{ asset('front/js/jquery.min.js') }}"></script>
     <!-- jQuery Easing -->
     <script src="{{ asset('front/js/jquery.easing.1.3.js') }}"></script>
     <!-- Bootstrap -->
@@ -143,5 +238,78 @@
 
     <script>
         $('.mysize').css('width','500px','height','500px')
+    </script>
+
+    <script>
+        $('.valider').click(function () {
+            var choix_emprunt = this.value;
+            var id_emprunt = this.parentElement.id;
+            //$('.modal').modal('hide');
+            //$(".modal .close").click();
+            Swal.fire({
+                title: 'veillez confirmer votre choix ',
+                text: "Vous ne pouvez plus revenir en arriere!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Oui!'
+            }).then((result) => {
+                if (result.value) {
+                    //url = "{{ path('edit_emprunt', {"id": 'id_emprunt', "choix" : 'choix'}) }}";
+                    var url = Routing.generate('edit_emprunt', {id: id_emprunt, choix: choix_emprunt}, true);
+                    /*url = url.replace("choix", this.value);
+                    url = url.replace("id_emprunt", this.parentElement.id);*/
+                    //document.location.href = url;
+                    $.ajax({
+                        url: url,
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            "idSelect": this.parentElement.id,
+                            "choix":this.id,
+                        },
+                        async: true,
+                        success: function (data) {
+                            //$('#emprunts').load(' #emprunts');
+                            if(choix_emprunt == 0){
+                                $('.etat_emprunt'+id_emprunt).html("Etat : <span style=\"color: grey\"> <i class=\"fa fa-spinner\"></i>  en attente </span>");
+                            }
+                            if(choix_emprunt == 1){
+                                $('.etat_emprunt'+id_emprunt).html("Etat : <span style=\"color: blue\">  <i class=\"fa fa-thumbs-o-up\"></i> confirmé </span>");
+                                $('#accepter'+id_emprunt).remove();
+                                $('#refuser'+id_emprunt).remove();
+                                $('#'+id_emprunt).html("<button class=\"btn btn-primary valider\" type=\"submit\" id=\"retour"+id_emprunt+"\" value=\"3\">confirmer retour </button>" +
+                                    "<button class=\"btn btn-secondary\" data-dismiss=\"modal\" type=\"button\"> fermer</button>");
+                                Swal.fire(
+                                    'confirmé!',
+                                    'L\'emprunt a été confirmé.',
+                                    'success'
+                                );
+                            }
+                            if(choix_emprunt == 2){
+                                $('.etat_emprunt'+id_emprunt).html("Etat : <span style=\"color: red\"><i class=\"fa fa-warning\"></i> refusé</span>");
+                                $('#accepter'+id_emprunt).remove();
+                                $('#refuser'+id_emprunt).remove();
+                                Swal.fire(
+                                    'Refus!',
+                                    'L\'emprunt a été refusé.',
+                                    'success'
+                                );
+                            }
+                            if(choix_emprunt == 3){
+                                $('.etat_emprunt'+id_emprunt).html("Etat : <span style=\"color: green\"><i class=\"fa fa-thumbs-up\"></i> rendu</span>");
+                                $('#retour'+id_emprunt).remove();
+                                Swal.fire(
+                                    'Retour!',
+                                    'Retour du livre confirmé.',
+                                    'success'
+                                );
+                            }
+                        }
+                    });
+                }
+            })
+        })
     </script>
 {% endblock %}
