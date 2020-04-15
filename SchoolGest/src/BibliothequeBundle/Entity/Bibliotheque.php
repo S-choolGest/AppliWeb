@@ -3,6 +3,7 @@
 namespace BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use UserBundle\Entity\Utilisateur;
 
 /**
  * Bibliotheque
@@ -43,7 +44,7 @@ class Bibliotheque
     private $adresse;
 
     /**
-     * @var \UserBundle\Entity\Utilisateur
+     * @var Utilisateur
      *
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\Utilisateur")
      * @ORM\JoinColumns({
@@ -117,7 +118,7 @@ class Bibliotheque
     }
 
     /**
-     * @return \Bibliothecaire
+     * @return Utilisateur
      */
     public function getIdBibliothecaire()
     {
@@ -125,7 +126,7 @@ class Bibliotheque
     }
 
     /**
-     * @param \Bibliothecaire $idBibliothecaire
+     * @param Utilisateur $idBibliothecaire
      */
     public function setIdBibliothecaire($idBibliothecaire)
     {

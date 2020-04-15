@@ -7,6 +7,15 @@ biblio_catalogue:
 biblio_emprunt:
     path:     /back/emprunts
     defaults: { _controller: BibliothequeBundle:Emprunt:view }
+emprunt:
+    path:     /back/emprunts/{id}
+    defaults: { _controller: BibliothequeBundle:Emprunt:viewEmprunt }
+biblio_emprunt_categorie:
+    path:     /back/emprunts/categorie/{categorie}
+    defaults: { _controller: BibliothequeBundle:Emprunt:viewByCategorie }
+biblio_emprunt_livre:
+    path:     /back/emprunts/livre/{categorie}
+    defaults: { _controller: BibliothequeBundle:Emprunt:viewByLivre }
 edit_emprunt:
     path:     /back/emprunts/edit/{id}/{choix}
     defaults: { _controller: BibliothequeBundle:Emprunt:edit }
@@ -19,8 +28,17 @@ biblio_catalogue_front:
     path:     /catalogue
     defaults: { _controller: BibliothequeBundle:Default:index }
 biblio_emprunt_front:
-    path:     /emprunt
-    defaults: { _controller: BibliothequeBundle:Default:index }
+    path:     /front/emprunts
+    defaults: { _controller: BibliothequeBundle:Emprunt:viewFront }
+emprunt_front:
+    path:     /front/emprunts/{id}
+    defaults: { _controller: BibliothequeBundle:Emprunt:viewFrontEmprunt }
+biblio_emprunt_front_categorie:
+    path:     /front/emprunts/{categorie}
+    defaults: { _controller: BibliothequeBundle:Emprunt:viewFrontByCategorie }
+biblio_emprunt_front_livre:
+    path:     /front/emprunts/livre/{categorie}
+    defaults: { _controller: BibliothequeBundle:Emprunt:viewFrontByLivre }
 biblio_reservation_front:
     path:     /reservation
     defaults: { _controller: BibliothequeBundle:Default:index }
@@ -49,6 +67,8 @@ emprunter:
     path:     /front/emprunter
     defaults: { _controller: BibliothequeBundle:Emprunt:add }
 
-delete:
-    path:     /annuler
+delete_emprunt:
+    path:     /annuler/{id}
     defaults: { _controller: BibliothequeBundle:Emprunt:delete }
+    options:
+        expose: true

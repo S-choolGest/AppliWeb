@@ -17,10 +17,11 @@
             <h3><i class="fa fa-angle-right"></i>Catalogue des livres   <a href="{{ path('add_livre') }}"><i class="fa fa-plus-square-o"></i></a></h3>
                     <div class="row" id="catalogue">
                         {% for l in livres %}
+                            <div id="div{{ l.id }}">
                             <div class="col-lg-2 col-sm-6 col-md-3 col-6 col-xl-2 mb">
                                 <div class="livre">
                                     <div class="photo">
-                                        <a class="fancybox" href="{{ l.img }}"><img src="{{ l.img }}"
+                                        <a class="fancybox" href="{{ asset('upload/uploads/'~l.img) }}"><img src="{{ asset('upload/uploads/'~l.img) }}"
                                                                                     width="170" height="240" alt="" /></a>
                                         <div class="pr2-social centered">
                                             <a href="#" data-toggle="modal" data-target="#panel_info_livre{{ l.id }}"><i
@@ -45,7 +46,7 @@
                                             </div>
                                             <div class="modal-footer">
                                         <div class="col-md-4 centered">
-                                            <img src="{{ l.img }}" width="170" height="270" alt="" />
+                                            <img src="{{ asset('upload/uploads/'~l.img) }}" width="170" height="270" alt="" />
                                         </div>
                                         <div id="detail" class="text-left">
                                             <p class="text-left">
@@ -66,7 +67,7 @@
                                 <div id="panel_edit_livre{{ l.id }}" class="modal">
                                     <div class="modal-dialog">
                                         <a href="#" class="close_info"><i class="fa fa-times"></i></a>
-                                        <img src="{{ l.img }}" width="170" height="270" alt="" />
+                                        <img src="{{ asset('upload/uploads/'~l.img) }}" width="170" height="270" alt="" />
                                         <div id="detail">
                                             <p>
                                             <h5>Titre : <input class="form-control" placeholder="titre du livre" type="text"
@@ -96,6 +97,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         {% endfor %}
                     </div>
         </section>
@@ -113,6 +115,7 @@
     </script>
     <script>
         $('.delete_livre').click(function () {
+            var id = this.id;
             Swal.fire({
                 title: 'Etes-vous sûre?',
                 text: "Cette action est irréversible!",
@@ -136,7 +139,8 @@
                         },
                         async: true,
                         success: function (data) {
-                            $('#catalogue').load(' #catalogue');
+                            $('#div'+id).remove();
+                            //$('#catalogue').load(' #catalogue');
                             Swal.fire(
                                 'Supprimé!',
                                 'Le livre a été supprimé.',

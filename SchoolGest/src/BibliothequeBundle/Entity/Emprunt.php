@@ -9,7 +9,7 @@ use UserBundle\Entity\Utilisateur;
  * Emprunt
  *
  * @ORM\Table(name="emprunt", indexes={@ORM\Index(name="fk_livre", columns={"idLivre"}), @ORM\Index(name="fk_emprunt_user", columns={"idEmprunteur"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BibliothequeBundle\Repository\EmpruntRepository")
  */
 class Emprunt
 {

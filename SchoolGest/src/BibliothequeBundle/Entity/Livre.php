@@ -3,12 +3,15 @@
 namespace BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Livre
  *
  * @ORM\Table(name="livre", indexes={@ORM\Index(name="fk_livre_bibliotheque", columns={"id_bibliotheque"})})
  * @ORM\Entity(repositoryClass="BibliothequeBundle\Repository\LivreRepository")
+ * @Vich\Uploadable
  */
 class Livre
 {
@@ -76,6 +79,12 @@ class Livre
      * @ORM\Column(name="img", type="string", length=255, nullable=true)
      */
     private $img;
+
+    /**
+     * @Vich\UploadableField(mapping="img_livre", fileNameProperty="img")
+     * @var File
+     */
+    private $imageFile;
 
     /**
      * @var \DateTime
@@ -236,6 +245,28 @@ class Livre
     public function setImg($img)
     {
         $this -> img = $img;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this -> imageFile;
+    }
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->dateajout = new \DateTime('now');
+        }
+        return $this;
     }
 
     /**

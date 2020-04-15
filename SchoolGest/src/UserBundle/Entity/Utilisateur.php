@@ -4,12 +4,15 @@ namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Utilisateur
  *
  * @ORM\Table(name="fos_user")
  * @ORM\Entity(repositoryClass="UserBundle\Repository\UtilisateurRepository")
+ * @Vich\Uploadable
  */
 class Utilisateur extends BaseUser
 {
@@ -71,6 +74,18 @@ class Utilisateur extends BaseUser
      */
 
     private $profile;
+
+    /**
+     * @Vich\UploadableField(mapping="photo_profile", fileNameProperty="profile")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @var \DateTime
+     */
+
+    private $dateajout;
 
     /**
      * Utilisateur constructor.
@@ -207,7 +222,43 @@ class Utilisateur extends BaseUser
         $this->profile = $profile;
     }
 
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this -> imageFile;
+    }
 
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->dateajout = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateajout()
+    {
+        return $this -> dateajout;
+    }
+
+    /**
+     * @param \DateTime $dateajout
+     */
+    public function setDateajout($dateajout)
+    {
+        $this -> dateajout = $dateajout;
+    }
 
 }
 

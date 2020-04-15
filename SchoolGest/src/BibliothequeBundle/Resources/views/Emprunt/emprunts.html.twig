@@ -37,14 +37,14 @@
 {% block container %}
     <!--main content start-->
     <section id="main-content">
-        <section class="wrapper site-min-height">
+            <section class="wrapper site-min-height">
             <h3><i class="fa fa-angle-right"></i>Emprunts de livre </h3>
             <div class="row" id="emprunts">
                 <div class="col-md-8">
                     {% for e in emprunts %}
                         <div class="col-md-6">
                     <div class="block-21 d-flex animate-box mysize">
-                        <a href="#" class="blog-img" data-toggle="modal" data-target="#panel_info_emprunt{{ e.id }}" style="background-image: url({{ e.idlivre.img }});height: 200px; width: 200px"></a>
+                        <a href="#" class="blog-img" data-toggle="modal" data-target="#panel_info_emprunt{{ e.id }}" style="background-image: url({{ asset('upload/uploads/'~e.idlivre.img) }});height: 200px; width: 200px"></a>
                         <div class="text">
                             <h3 class="heading"><a href="#" data-toggle="modal" data-target="#panel_info_livre{{ e.id }}">{{ e.idlivre.titre }} </a></h3>
                             <p class="etat_emprunt{{ e.id }}">Etat :{% if e.etat == 0 %}<span style="color: grey"> <i class="fa fa-spinner"></i>  en attente </span>{% elseif e.etat == 1 %}<span style="color: blue">  <i class="fa fa-thumbs-o-up"></i> confirmé </span>{% elseif e.etat == 2 %} <span style="color: red"><i class="fa fa-warning"></i> refusé</span> {% elseif e.etat == 3 %} <span style="color: green"><i class="fa fa-thumbs-up"></i> rendu</span> {% endif %}</p>
@@ -64,7 +64,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="col-md-4 centered">
-                                                <img src="{{ e.idlivre.img }}" width="170" height="270" alt="" />
+                                                <img src="{{ asset('upload/uploads/'~e.idlivre.img) }}" width="170" height="270" alt="" />
                                             </div>
                                             <div id="detail" class="">
                                                 <p class="text-left">
@@ -93,7 +93,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="col-md-4 centered">
-                                                <img src="{{ e.idemprunteur.profile }}" width="170" height="270" alt="" />
+                                                <img src="{{ asset('upload/uploads/'~e.idemprunteur.profile) }}" width="170" height="270" alt="" />
                                             </div>
                                             <div id="detail" class="mt-2">
                                                 <h5>Nom d'utilisateur : <span class="details">{{ e.idemprunteur.username }}</span></h5>
@@ -156,52 +156,38 @@
                             <h3 class="sidebar-heading">Categories</h3>
                             <div class="block-24">
                                 <ul>
-                                    <li><a href="#">En attente <span>10</span></a></li>
-                                    <li><a href="#">confirmé <span>43</span></a></li>
-                                    <li><a href="#">rendu <span>21</span></a></li>
-                                    <li><a href="#">refusé <span>65</span></a></li>
+                                    <li><a href="{{ path('biblio_emprunt_categorie', {'categorie': '0'}) }}">En attente <span>{{ etats[0][1] }}</span></a></li>
+                                    <li><a href="{{ path('biblio_emprunt_categorie', {'categorie': '1'}) }}">confirmé <span>{{ etats[1][1] }}</span></a></li>
+                                    <li><a href="{{ path('biblio_emprunt_categorie', {'categorie': '2'}) }}">refusé <span>{{ etats[2][1] }}</span></a></li>
+                                    <li><a href="{{ path('biblio_emprunt_categorie', {'categorie': '3'}) }}">rendu <span>{{ etats[3][1] }}</span></a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="side">
                             <h3 class="sidebar-heading">Emprunts récents</h3>
-                            <div class="f-blog">
-                                <a href="blog.html" class="blog-img" style="background-image: url({{ asset('front/images/blog-1.jpg') }});">
-                                </a>
-                                <div class="desc">
-                                    <p class="admin"><span>18 April 2018</span></p>
-                                    <h2><a href="blog.html">Creating Mobile Apps</a></h2>
-                                    <p>Far far away, behind the word mountains</p>
+                            {% for r in recents %}
+                                <div class="f-blog">
+                                    <a href="{{ path('emprunt', {'id':r.id}) }}" class="blog-img" style="background-image: url({{ asset('upload/uploads/'~r.idlivre.img) }});">
+                                    </a>
+                                    <div class="desc">
+                                        <p class="admin"><span> {{ r.dateemprunt|date('d-m-Y') }}</span></p>
+                                        <h2><a href="{{ path('emprunt', {'id':r.id}) }}">{{ r.idlivre.titre }}</a></h2>
+                                        <p class="etat_emprunt{{ r.id }}">Etat :{% if r.etat == 0 %}
+                                            <span style="color: grey"> <i class="fa fa-spinner"></i>  en attente </span>{% elseif r.etat == 1 %}
+                                            <span style="color: blue">  <i class="fa fa-thumbs-o-up"></i> confirmé </span>{% elseif r.etat == 2 %}
+                                            <span style="color: red"><i class="fa fa-warning"></i> refusé</span> {% elseif r.etat == 3 %}
+                                            <span style="color: green"><i class="fa fa-thumbs-up"></i> rendu</span> {% endif %}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="f-blog">
-                                <a href="blog.html" class="blog-img" style="background-image: url({{ asset('front/images/blog-2.jpg') }});">
-                                </a>
-                                <div class="desc">
-                                    <p class="admin"><span>18 April 2018</span></p>
-                                    <h2><a href="blog.html">Creating Mobile Apps</a></h2>
-                                    <p>Far far away, behind the word mountains</p>
-                                </div>
-                            </div>
-                            <div class="f-blog">
-                                <a href="blog.html" class="blog-img" style="background-image: url({{ asset('front/images/blog-3.jpg') }});">
-                                </a>
-                                <div class="desc">
-                                    <p class="admin"><span>18 April 2018</span></p>
-                                    <h2><a href="blog.html">Creating Mobile Apps</a></h2>
-                                    <p>Far far away, behind the word mountains</p>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                         <div class="side">
                             <h3 class="sidbar-heading">Tags</h3>
                             <div class="block-26">
                                 <ul>
-                                    <li><a href="#">roman</a></li>
-                                    <li><a href="#">poésie</a></li>
-                                    <li><a href="#">drame</a></li>
-                                    <li><a href="#">programmation</a></li>
-                                    <li><a href="#">histoire</a></li>
+                                    {% for t in tags %}
+                                        <li><a href="{{ path('biblio_emprunt_livre', {'categorie': t[1]}) }}">{{ t[1] }}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>

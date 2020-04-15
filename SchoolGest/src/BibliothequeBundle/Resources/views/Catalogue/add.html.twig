@@ -71,22 +71,23 @@
                                 {{ form_widget(f.quantite, {'attr' : {'class' : 'form-control', 'placeholder' : 'Nombre d exemplaires', 'type' : 'number', 'name' : 'quantite'} }) }}
                             </div>
                         </div>
-                        {{ form_widget(f.dateajout, {'attr' : {'class':'form-control form-control-inline input-medium default-date-picker', 'type':'text', 'value': "now"|date("m/d/Y")}})
+                        {{ form_widget(f.dateajout, {'attr' : {'class':'form-control form-control-inline input-medium default-date-picker hide', 'type':'text', 'value': "now"|date("m/d/Y")}})
                         }}
-                        {{ form_widget(f.idBibliotheque, {'attr' : {}}) }}
+                        {{ form_widget(f.idBibliotheque, {'attr' : {'class':'hide'}}) }}
                         <div class="form-group last">
                             <label class="control-label col-md-3">Photo de couverture</label>
                             <div class="col-md-9">
                                 <div class="fileupload fileupload-new" data-provides="fileupload">
                                     <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" alt="" />
+                                        <img src="{{ asset('upload/uploads/AAAAAA&text=no+image.png') }}" alt="" />
                                     </div>
                                     <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                     <div>
                         <span class="btn btn-theme02 btn-file">
                           <span class="fileupload-new"><i class="fa fa-paperclip"></i> Selectionner une image</span>
                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
-                        <input type="file" class="default" name="img" id="img"/>
+                        {{ form_widget(f.imageFile) }}
+                        <!--<input type="file" class="default" name="img" id="img"/>-->
                         </span>
                                         <a href="#" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash-o"></i> retirer</a>
                                     </div>
@@ -99,7 +100,6 @@
                       </span>
                             </div>
                         </div>
-                        {{ form_widget(f.img, {'attr' : {'class':'hide', 'value':''}}) }}
                         <button type="submit" class="btn btn-theme02" id="add-livre" href="javascript:;"><i class="fa fa-plus-circle"></i> Ajouter</button>
                         {{ form_end(f) }}
                     </div>
@@ -135,15 +135,35 @@
     <script type="text/javascript" src="{{ asset('lib/gritter-conf.js') }}"></script>
     <script>
         $('#add-livre').click(function(){
-
+            url = "{{ path('add_livre') }}";
+            /*$.ajax({
+                url: url,
+                type: "POST",
+                async: true,
+                success: function (data) {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'Livre ajouté!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'Le livre a bien été ajouté à la bibliothèque. Vous serez redirigez vers le catalogue. Cliquez ici pour ajouter un <a href="{{ path('add_livre') }}" style="color:#4ECDC4">nouveau livre</a>.'
+                    });
+                }
+            });*/
             $.gritter.add({
                 // (string | mandatory) the heading of the notification
                 title: 'Livre ajouté!',
                 // (string | mandatory) the text inside the notification
                 text: 'Le livre a bien été ajouté à la bibliothèque. Vous serez redirigez vers le catalogue. Cliquez ici pour ajouter un <a href="{{ path('add_livre') }}" style="color:#4ECDC4">nouveau livre</a>.'
             });
-
-            return false;
         });
+        jQuery.browser = {};
+        (function () {
+            jQuery.browser.msie = false;
+            jQuery.browser.version = 0;
+            if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+                jQuery.browser.msie = true;
+                jQuery.browser.version = RegExp.$1;
+            }
+        })();
     </script>
 {% endblock %}

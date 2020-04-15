@@ -2,6 +2,9 @@
 
 namespace BibliothequeBundle\Repository;
 
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
+
 /**
  * EmpruntRepository
  *
@@ -10,4 +13,86 @@ namespace BibliothequeBundle\Repository;
  */
 class EmpruntRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllByBibliotheque($id_biblio)
+    {
+        $query = $this->getEntityManager()->createQuery('select e from BibliothequeBundle:Emprunt e where e.idlivre in (select l.id from BibliothequeBundle:Livre l where l.idBibliotheque = :id_biblio) ')
+        ->setParameter('id_biblio', $id_biblio);
+        return $query->getResult();
+    }
+
+    public function findOneByBibliotheque($id_biblio, $id)
+    {
+        $query = $this->getEntityManager()->createQuery('select e from BibliothequeBundle:Emprunt e where (e.idlivre in (select l.id from BibliothequeBundle:Livre l where l.idBibliotheque = :id_biblio))
+        and 
+            (e.id = :id)')
+            ->setParameters(['id_biblio' => $id_biblio, 'id' => $id]);
+        return $query->getResult();
+    }
+
+    public function findAllRecentByBibliotheque($id_biblio)
+    {
+        $query = $this->getEntityManager()->createQuery('select e from BibliothequeBundle:Emprunt e where e.idlivre in (select l.id from BibliothequeBundle:Livre l where l.idBibliotheque = :id_biblio) 
+        order by e.dateemprunt desc')
+            ->setParameter('id_biblio', $id_biblio)
+            ->setMaxResults(3);
+        return $query->getResult();
+    }
+
+    public function findAllByBibliothequeCategorie($id_biblio, $categorie)
+    {
+        $query = $this->getEntityManager()->createQuery('select e from BibliothequeBundle:Emprunt e where (e.idlivre in (select l.id from BibliothequeBundle:Livre l where l.idBibliotheque = :id_biblio)) 
+            and 
+            (e.etat = :categorie) ')
+            ->setParameter('id_biblio', $id_biblio)
+            ->setParameter('categorie', $categorie);
+        return $query->getResult();
+    }
+
+    public function findAllByLivre_front($iduser, $categorie)
+    {
+        $query = $this->getEntityManager()->createQuery('select e from BibliothequeBundle:Emprunt e where (e.idlivre in (select l.id from BibliothequeBundle:Livre l where l.categorie = :categorie)) 
+            and 
+            (e.idemprunteur = :iduser) ')
+            ->setParameter('iduser', $iduser)
+            ->setParameter('categorie', $categorie);
+        return $query->getResult();
+    }
+
+    public function findAllByLivre($id_biblio, $categorie)
+    {
+        $query = $this->getEntityManager()->createQuery('select e from BibliothequeBundle:Emprunt e where (e.idlivre in (select l.id from BibliothequeBundle:Livre l where l.idBibliotheque = :id_biblio and 
+        l.categorie = :categorie
+        )) ')
+            ->setParameter('id_biblio', $id_biblio)
+            ->setParameter('categorie', $categorie);
+        return $query->getResult();
+    }
+
+    public function countByEtat($id_biblio, $etat)
+    {
+        $query = $this->getEntityManager()->createQuery('select count(e) from BibliothequeBundle:Emprunt e where (e.idlivre in (select l.id from BibliothequeBundle:Livre l where l.idBibliotheque = :id_biblio))
+        and 
+        e.etat = :etat')
+            ->setParameters(['etat'=> $etat, 'id_biblio' => $id_biblio]);
+        try {
+            return $query -> getSingleResult();
+        } catch (NoResultException $e) {
+            return null;
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
+    public function countFrontByEtat($iduser, $etat)
+    {
+        $query = $this->getEntityManager()->createQuery('select count(e) from BibliothequeBundle:Emprunt e where e.etat = :etat and e.idemprunteur = :iduser')
+            ->setParameters(['etat' => $etat, 'iduser' => $iduser]);
+        try {
+            return $query -> getSingleResult();
+        } catch (NoResultException $e) {
+            return null;
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
 }

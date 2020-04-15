@@ -10,7 +10,17 @@ namespace BibliothequeBundle\Repository;
  */
 class LivreRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getLivreLesPlusDemande(){
-        //$qd = $this->getEntityManager()->createQuery('select l from BibliothequeBundle:Livre l order by l.');
+    public function LivresLesPlusDemandes($biblio)
+    {
+        $query = $this->getEntityManager()->createQuery('select l, (select count(e.id) from BibliothequeBundle:Emprunt e where e.idlivre = l.id) as nbEmprunt from BibliothequeBundle:Livre l order by nbEmprunt')
+        ->getMaxResults(5);
+        /*$query = $this->getEntityManager()->createQuery('select l, (select count(e.id) from BibliothequeBundle:Emprunt e where e.idlivre = l.id) as nbEmprunt from BibliothequeBundle:Livre l where l.idBibliotheque = :biblio order by nbEmprunt')
+            ->setParameter('biblio', $biblio)
+            ->getMaxResults(5);*/
+    }
+
+    public function getAllCategorie(){
+        $query = $this->getEntityManager()->createQuery('select distinct(l.categorie) from BibliothequeBundle:Livre l ');
+        return $query->getResult();
     }
 }

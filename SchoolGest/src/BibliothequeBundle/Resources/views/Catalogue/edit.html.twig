@@ -73,31 +73,29 @@
                         }}
                         {{ form_widget(f.idBibliotheque, {'attr' : {}}) }}
                         <div class="form-group last">
-                            <label class="control-label col-md-3">photo de couverture</label>
+                            <label class="control-label col-md-3">Photo de couverture</label>
                             <div class="col-md-9">
                                 <div class="fileupload fileupload-new" data-provides="fileupload">
                                     <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" alt="" />
+                                        <img src="{{ asset('upload/uploads/'~img) }}" alt="" />
                                     </div>
-                                    <div class="fileupload-preview fileupload-exists thumbnail"
-                                         style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                     <div>
-                                    <span class="btn btn-theme02 btn-file">
-                                        <span class="fileupload-new"><i class="fa fa-paperclip"></i> Selectionner une
-                                            image</span>
-                                        <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
-                                        {{ form_widget(f.img, {'attr' : {'class' : 'default', 'type' : 'file', 'name' : 'img'} }) }}
-                                    </span>
-                                        <a href="#" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload"><i
-                                                    class="fa fa-trash-o"></i> supprimer</a>
+                        <span class="btn btn-theme02 btn-file">
+                          <span class="fileupload-new"><i class="fa fa-paperclip"></i> Selectionner une image</span>
+                        <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
+                            {{ form_widget(f.imageFile, {'attr': {'accept':'image/png, image/jpeg'}}) }}
+                            <!--<input type="file" class="default" name="img" id="img"/>-->
+                        </span>
+                                        <a href="#" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash-o"></i> retirer</a>
                                     </div>
                                 </div>
                                 <span class="label label-info">NOTE!</span>
                                 <span>
-                                Attached image thumbnail is
-                                supported in Latest Firefox, Chrome, Opera,
-                                Safari and Internet Explorer 10 only
-                            </span>
+                      Attached image thumbnail is
+                      supported in Latest Firefox, Chrome, Opera,
+                      Safari and Internet Explorer 10 only
+                      </span>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-theme02"><i class="fa fa-check"></i> Valider</button>
@@ -131,4 +129,15 @@
     <script type="text/javascript" src="{{ asset('lib/bootstrap-daterangepicker/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('lib/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
     <script src="{{ asset('lib/advanced-form-components.js') }}"></script>
+    <script>
+        jQuery.browser = {};
+        (function () {
+            jQuery.browser.msie = false;
+            jQuery.browser.version = 0;
+            if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+                jQuery.browser.msie = true;
+                jQuery.browser.version = RegExp.$1;
+            }
+        })();
+    </script>
 {% endblock %}

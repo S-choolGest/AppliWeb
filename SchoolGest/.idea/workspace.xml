@@ -2,28 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec199dcd-f0a8-4c54-bb00-c33a949e31fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/js/fos_js_routes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SchoolGest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SchoolGest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base_front.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base_front.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Form/RegistrationFormType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/CatalogueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/CatalogueController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/EmpruntController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/EmpruntController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Bibliotheque.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Bibliotheque.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Emprunt.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Emprunt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Livre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Livre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Form/LivreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Form/LivreType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/EmpruntRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/EmpruntRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/LivreRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/LivreRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/add.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/catalogue.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/catalogue.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/search.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt/emprunts.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt/emprunts.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserBundle/Entity/Utilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Entity/Utilisateur.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,6 +200,18 @@
       <command value="s cache:clear" />
     </option>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -245,7 +254,9 @@
       <workItem from="1586487710280" duration="1976000" />
       <workItem from="1586524016426" duration="1544000" />
       <workItem from="1586610427631" duration="24714000" />
-      <workItem from="1586697139370" duration="34287000" />
+      <workItem from="1586697139370" duration="38785000" />
+      <workItem from="1586773253345" duration="40345000" />
+      <workItem from="1586956898421" duration="14078000" />
     </task>
     <task id="LOCAL-00001" summary="ajout des crud Bibliotheque">
       <created>1585768964714</created>
@@ -268,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586626961328</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fonction emprunter côté back-office">
+      <created>1586743415421</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586743415422</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +297,8 @@
     <MESSAGE value="ajout des crud Bibliotheque" />
     <MESSAGE value="ajout de supprimer livre" />
     <MESSAGE value="fonction emprunter côté front-office" />
-    <option name="LAST_COMMIT_MESSAGE" value="fonction emprunter côté front-office" />
+    <MESSAGE value="fonction emprunter côté back-office" />
+    <option name="LAST_COMMIT_MESSAGE" value="fonction emprunter côté back-office" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="220" key="#Inspections" timestamp="1585912050109">
@@ -290,30 +309,34 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="552" y="220" width="816" height="730" key="#Intentions/0.44.1920.1036@0.44.1920.1036" timestamp="1585265246087" />
+    <state x="552" y="220" key="#Notifications" timestamp="1586967735488">
+      <screen x="0" y="44" width="1920" height="1036" />
+    </state>
+    <state x="552" y="220" key="#Notifications/0.44.1920.1036@0.44.1920.1036" timestamp="1586967735488" />
     <state x="679" y="116" width="588" height="891" key="#PHP" timestamp="1586729512682">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="679" y="116" width="588" height="891" key="#PHP/0.44.1920.1036@0.44.1920.1036" timestamp="1586729512682" />
-    <state x="552" y="220" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585235902612">
+    <state x="552" y="220" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586794669475">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="552" y="220" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585235902612" />
+    <state x="552" y="220" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1586794669475" />
     <state x="719" y="351" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586624494769">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="719" y="351" key="#com.intellij.fileTypes.FileTypeChooser/0.44.1920.1036@0.44.1920.1036" timestamp="1586624494769" />
-    <state x="744" y="277" key="#com.intellij.ide.util.MemberChooser" timestamp="1586616732705">
+    <state x="744" y="277" key="#com.intellij.ide.util.MemberChooser" timestamp="1586885896725">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="744" y="277" key="#com.intellij.ide.util.MemberChooser/0.44.1920.1036@0.44.1920.1036" timestamp="1586616732705" />
-    <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586613392907">
+    <state x="744" y="277" key="#com.intellij.ide.util.MemberChooser/0.44.1920.1036@0.44.1920.1036" timestamp="1586885896725" />
+    <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586886077007">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1586613392907" />
-    <state x="490" y="69" key="CommitChangelistDialog2" timestamp="1586626934384">
+    <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1586886077007" />
+    <state x="490" y="69" key="CommitChangelistDialog2" timestamp="1586743411296">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="490" y="69" key="CommitChangelistDialog2/0.44.1920.1036@0.44.1920.1036" timestamp="1586626934384" />
+    <state x="490" y="69" key="CommitChangelistDialog2/0.44.1920.1036@0.44.1920.1036" timestamp="1586743411296" />
     <state x="796" y="429" key="ComposerCompositePathDialog" timestamp="1585228184215">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -330,22 +353,22 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="1267" y="451" key="FrameworkEditDialogDimensionKey/0.44.1920.1036@0.44.1920.1036" timestamp="1585227700099" />
-    <state width="1877" height="129" key="GridCell.Tab.0.bottom" timestamp="1586649094782">
+    <state width="1877" height="129" key="GridCell.Tab.0.bottom" timestamp="1586895860940">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state width="1877" height="129" key="GridCell.Tab.0.bottom/0.44.1920.1036@0.44.1920.1036" timestamp="1586649094782" />
-    <state width="1877" height="129" key="GridCell.Tab.0.center" timestamp="1586649094779">
+    <state width="1877" height="129" key="GridCell.Tab.0.bottom/0.44.1920.1036@0.44.1920.1036" timestamp="1586895860940" />
+    <state width="1877" height="129" key="GridCell.Tab.0.center" timestamp="1586895860940">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state width="1877" height="129" key="GridCell.Tab.0.center/0.44.1920.1036@0.44.1920.1036" timestamp="1586649094779" />
-    <state width="1877" height="129" key="GridCell.Tab.0.left" timestamp="1586649094775">
+    <state width="1877" height="129" key="GridCell.Tab.0.center/0.44.1920.1036@0.44.1920.1036" timestamp="1586895860940" />
+    <state width="1877" height="129" key="GridCell.Tab.0.left" timestamp="1586895860940">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state width="1877" height="129" key="GridCell.Tab.0.left/0.44.1920.1036@0.44.1920.1036" timestamp="1586649094775" />
-    <state width="1877" height="129" key="GridCell.Tab.0.right" timestamp="1586649094782">
+    <state width="1877" height="129" key="GridCell.Tab.0.left/0.44.1920.1036@0.44.1920.1036" timestamp="1586895860940" />
+    <state width="1877" height="129" key="GridCell.Tab.0.right" timestamp="1586895860940">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state width="1877" height="129" key="GridCell.Tab.0.right/0.44.1920.1036@0.44.1920.1036" timestamp="1586649094782" />
+    <state width="1877" height="129" key="GridCell.Tab.0.right/0.44.1920.1036@0.44.1920.1036" timestamp="1586895860940" />
     <state x="573" y="202" key="SettingsEditor" timestamp="1585230569839">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -354,10 +377,10 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="843" y="456" key="SymfonyPathDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585228151751" />
-    <state x="552" y="290" key="Vcs.Push.Dialog.v2" timestamp="1586626982195">
+    <state x="552" y="290" key="Vcs.Push.Dialog.v2" timestamp="1586743418073">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="552" y="290" key="Vcs.Push.Dialog.v2/0.44.1920.1036@0.44.1920.1036" timestamp="1586626982195" />
+    <state x="552" y="290" key="Vcs.Push.Dialog.v2/0.44.1920.1036@0.44.1920.1036" timestamp="1586743418073" />
     <state x="540" y="216" key="com.intellij.database.dbimport.ImportDialog" timestamp="1585911153754">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -370,14 +393,14 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="92" y="136" width="1736" height="852" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1586742379353" />
-    <state x="636" y="385" key="com.intellij.ide.util.TipDialog" timestamp="1586697178985">
+    <state x="636" y="385" key="com.intellij.ide.util.TipDialog" timestamp="1586958151329">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="636" y="385" key="com.intellij.ide.util.TipDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1586697178985" />
-    <state x="1096" y="265" width="672" height="677" key="run.anything.popup" timestamp="1586708868605">
+    <state x="636" y="385" key="com.intellij.ide.util.TipDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1586958151329" />
+    <state x="1096" y="265" width="672" height="677" key="run.anything.popup" timestamp="1586964347568">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="1096" y="265" width="672" height="677" key="run.anything.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1586708868605" />
+    <state x="1096" y="265" width="672" height="677" key="run.anything.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1586964347568" />
     <state x="623" y="268" width="672" height="678" key="search.everywhere.popup" timestamp="1585410897976">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
