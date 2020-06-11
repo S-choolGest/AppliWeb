@@ -297,6 +297,13 @@ class ComposerStaticInitdca2b6a6f29cee9c6296d675a681d1a2
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
             ),
         ),
+        'A' => 
+        array (
+            'ADesigns\\CalendarBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/adesigns/calendar-bundle',
+            ),
+        ),
     );
 
     public static $classMap = array (

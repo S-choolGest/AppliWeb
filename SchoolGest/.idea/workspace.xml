@@ -2,25 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec199dcd-f0a8-4c54-bb00-c33a949e31fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SchoolGest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SchoolGest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Form/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base_front.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base_front.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/uploads/bibpublique_stokholm.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/uploads/dca468074759e37ea3b484d66c473e3f5903d151.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/uploads/login-bg1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/CatalogueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/CatalogueController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/EmpruntController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/EmpruntController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Bibliotheque.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Bibliotheque.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Emprunt.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Emprunt.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Livre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Livre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Form/LivreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Form/LivreType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/BibliothequeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/BibliothequeRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/EmpruntRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/EmpruntRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/LivreRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/LivreRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/add.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/catalogue.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/catalogue.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt/emprunts.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt/emprunts.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserBundle/Entity/Utilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Entity/Utilisateur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt/emprunts_front.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt/emprunts_front.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,13 +122,13 @@
       <path value="$PROJECT_DIR$/vendor/willdurand/jsonp-callback-validator" />
       <path value="$PROJECT_DIR$/vendor/jms/metadata" />
       <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/adesigns/calendar-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ZCzw6LR7kD2Ii8SnZqqYdamEOd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -139,7 +144,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -200,18 +205,6 @@
       <command value="s cache:clear" />
     </option>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -256,7 +249,33 @@
       <workItem from="1586610427631" duration="24714000" />
       <workItem from="1586697139370" duration="38785000" />
       <workItem from="1586773253345" duration="40345000" />
-      <workItem from="1586956898421" duration="14078000" />
+      <workItem from="1586956898421" duration="15582000" />
+      <workItem from="1586991983488" duration="3648000" />
+      <workItem from="1586995810467" duration="823000" />
+      <workItem from="1586996667967" duration="1133000" />
+      <workItem from="1587078475796" duration="857000" />
+      <workItem from="1587153324074" duration="761000" />
+      <workItem from="1587399482204" duration="430000" />
+      <workItem from="1588087456750" duration="798000" />
+      <workItem from="1588337192619" duration="4217000" />
+      <workItem from="1588418165762" duration="1649000" />
+      <workItem from="1589210412407" duration="582000" />
+      <workItem from="1589298796520" duration="2493000" />
+      <workItem from="1589378687523" duration="17280000" />
+      <workItem from="1589560592881" duration="801000" />
+      <workItem from="1589651058063" duration="1095000" />
+      <workItem from="1589732527956" duration="8346000" />
+      <workItem from="1590353312040" duration="1781000" />
+      <workItem from="1590741725251" duration="585000" />
+      <workItem from="1590861773302" duration="573000" />
+      <workItem from="1590969462418" duration="966000" />
+      <workItem from="1591375826603" duration="1187000" />
+      <workItem from="1591595086405" duration="5230000" />
+      <workItem from="1591642840606" duration="2391000" />
+      <workItem from="1591648060792" duration="546000" />
+      <workItem from="1591649789302" duration="1054000" />
+      <workItem from="1591691167484" duration="8838000" />
+      <workItem from="1591788550739" duration="36590000" />
     </task>
     <task id="LOCAL-00001" summary="ajout des crud Bibliotheque">
       <created>1585768964714</created>
@@ -286,11 +305,18 @@
       <option name="project" value="LOCAL" />
       <updated>1586743415422</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="affichage de la liste d'emprunt côté back-office et front-office">
+      <created>1586971908664</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1586971908664</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ajout de /src/Entity avec entites du projet &#10;ajout de Bibliothequebundle" />
@@ -298,7 +324,8 @@
     <MESSAGE value="ajout de supprimer livre" />
     <MESSAGE value="fonction emprunter côté front-office" />
     <MESSAGE value="fonction emprunter côté back-office" />
-    <option name="LAST_COMMIT_MESSAGE" value="fonction emprunter côté back-office" />
+    <MESSAGE value="affichage de la liste d'emprunt côté back-office et front-office" />
+    <option name="LAST_COMMIT_MESSAGE" value="affichage de la liste d'emprunt côté back-office et front-office" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="220" key="#Inspections" timestamp="1585912050109">
@@ -309,14 +336,14 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="552" y="220" width="816" height="730" key="#Intentions/0.44.1920.1036@0.44.1920.1036" timestamp="1585265246087" />
-    <state x="552" y="220" key="#Notifications" timestamp="1586967735488">
+    <state x="552" y="220" key="#Notifications" timestamp="1586995376325">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="552" y="220" key="#Notifications/0.44.1920.1036@0.44.1920.1036" timestamp="1586967735488" />
-    <state x="679" y="116" width="588" height="891" key="#PHP" timestamp="1586729512682">
+    <state x="552" y="220" key="#Notifications/0.44.1920.1036@0.44.1920.1036" timestamp="1586995376325" />
+    <state x="679" y="116" width="588" height="891" key="#PHP" timestamp="1586995383901">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="679" y="116" width="588" height="891" key="#PHP/0.44.1920.1036@0.44.1920.1036" timestamp="1586729512682" />
+    <state x="679" y="116" width="588" height="891" key="#PHP/0.44.1920.1036@0.44.1920.1036" timestamp="1586995383901" />
     <state x="552" y="220" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586794669475">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -329,14 +356,18 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="744" y="277" key="#com.intellij.ide.util.MemberChooser/0.44.1920.1036@0.44.1920.1036" timestamp="1586885896725" />
-    <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586886077007">
+    <state x="640" y="297" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591648254621">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1586886077007" />
-    <state x="490" y="69" key="CommitChangelistDialog2" timestamp="1586743411296">
+    <state x="640" y="297" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1591648254621" />
+    <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591693457426">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="490" y="69" key="CommitChangelistDialog2/0.44.1920.1036@0.44.1920.1036" timestamp="1586743411296" />
+    <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1591693457426" />
+    <state x="490" y="69" key="CommitChangelistDialog2" timestamp="1586971904986">
+      <screen x="0" y="44" width="1920" height="1036" />
+    </state>
+    <state x="490" y="69" key="CommitChangelistDialog2/0.44.1920.1036@0.44.1920.1036" timestamp="1586971904986" />
     <state x="796" y="429" key="ComposerCompositePathDialog" timestamp="1585228184215">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -369,18 +400,18 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state width="1877" height="129" key="GridCell.Tab.0.right/0.44.1920.1036@0.44.1920.1036" timestamp="1586895860940" />
-    <state x="573" y="202" key="SettingsEditor" timestamp="1585230569839">
+    <state x="573" y="202" key="SettingsEditor" timestamp="1586996637508">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="573" y="202" key="SettingsEditor/0.44.1920.1036@0.44.1920.1036" timestamp="1585230569839" />
+    <state x="573" y="202" key="SettingsEditor/0.44.1920.1036@0.44.1920.1036" timestamp="1586996637508" />
     <state x="843" y="456" key="SymfonyPathDialog" timestamp="1585228151751">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="843" y="456" key="SymfonyPathDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585228151751" />
-    <state x="552" y="290" key="Vcs.Push.Dialog.v2" timestamp="1586743418073">
+    <state x="552" y="290" key="Vcs.Push.Dialog.v2" timestamp="1586971919451">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="552" y="290" key="Vcs.Push.Dialog.v2/0.44.1920.1036@0.44.1920.1036" timestamp="1586743418073" />
+    <state x="552" y="290" key="Vcs.Push.Dialog.v2/0.44.1920.1036@0.44.1920.1036" timestamp="1586971919451" />
     <state x="540" y="216" key="com.intellij.database.dbimport.ImportDialog" timestamp="1585911153754">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -393,17 +424,17 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="92" y="136" width="1736" height="852" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1586742379353" />
-    <state x="636" y="385" key="com.intellij.ide.util.TipDialog" timestamp="1586958151329">
+    <state x="636" y="385" key="com.intellij.ide.util.TipDialog" timestamp="1591648056725">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="636" y="385" key="com.intellij.ide.util.TipDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1586958151329" />
-    <state x="1096" y="265" width="672" height="677" key="run.anything.popup" timestamp="1586964347568">
+    <state x="636" y="385" key="com.intellij.ide.util.TipDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1591648056725" />
+    <state x="1096" y="265" width="672" height="677" key="run.anything.popup" timestamp="1591838157767">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="1096" y="265" width="672" height="677" key="run.anything.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1586964347568" />
-    <state x="623" y="268" width="672" height="678" key="search.everywhere.popup" timestamp="1585410897976">
+    <state x="1096" y="265" width="672" height="677" key="run.anything.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1591838157767" />
+    <state x="623" y="268" width="672" height="678" key="search.everywhere.popup" timestamp="1591838926958">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="623" y="268" width="672" height="678" key="search.everywhere.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1585410897976" />
+    <state x="623" y="268" width="672" height="678" key="search.everywhere.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1591838926958" />
   </component>
 </project>

@@ -10,4 +10,8 @@ namespace BibliothequeBundle\Repository;
  */
 class BibliothequeRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAllBiblios(){
+        $query = $this->getEntityManager()->createQuery('select b from BibliothequeBundle:Bibliotheque b');
+        return $query->getArrayResult();
+    }
 }

@@ -13,4 +13,5 @@ return array(
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
+    'ADesigns\\CalendarBundle' => array($vendorDir . '/adesigns/calendar-bundle'),
 );

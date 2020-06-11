@@ -9,3 +9,6 @@ front:
 back:
     path:     /back
     defaults: { _controller: SchoolBundle:Default:back }
+login:
+    path:     /mobile/login/{username}/{pwd}
+    defaults: { _controller: UserBundle:Default:login }

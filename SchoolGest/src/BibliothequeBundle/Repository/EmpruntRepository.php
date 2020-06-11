@@ -95,4 +95,32 @@ class EmpruntRepository extends \Doctrine\ORM\EntityRepository
             return null;
         }
     }
+
+    public function LivresLesPlusDemandes($biblio)
+    {
+        $query = $this->getEntityManager()->createQuery('select l,  (select count(e) from BibliothequeBundle:Emprunt e group by e.idlivre) as nbEmprunt from BibliothequeBundle:Emprunt l order by nbEmprunt')
+            ->setMaxResults(5);
+        return $query->getResult();
+    }
+
+    public function findByIdEmprunteur($iduser)
+    {
+        $query = $this->getEntityManager()->createQuery('select e, l, u from BibliothequeBundle:Emprunt e inner join e.idlivre l inner join e.idemprunteur u where e.idemprunteur = :iduser')
+            ->setParameter('iduser', $iduser);
+        return $query->getArrayResult();
+    }
+
+    public function rechercher_empruntFront($iduser, $mot, $categorie, $biblio)
+    {
+        $query = $this->getEntityManager()->createQuery('select e, l from BibliothequeBundle:Emprunt e inner join e.idlivre l 
+        where e.idemprunteur = :iduser and l.idBibliotheque = :biblio and l.categorie = :categorie and (e.dateconfirmation like :mot or e.dateemprunt like :mot 
+        or e.daterendu like :mot or e.datedebut like :mot or e.datefin like :mot or 
+        l.titre like :mot or l.editeur like :mot or l.auteur like :mot 
+        or l.datesortie like :mot or l.taille like :mot or l.quantite like :mot or l.dateajout like :mot)')
+            ->setParameter('iduser', $iduser)
+            ->setParameter('categorie', $categorie)
+            ->setParameter('biblio', $biblio)
+            ->setParameter('mot', '%'.$mot.'%');
+        return $query->getArrayResult();
+    }
 }

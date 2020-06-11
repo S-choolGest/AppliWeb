@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new BibliothequeBundle\BibliothequeBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new \Vich\UploaderBundle\VichUploaderBundle(),
+            new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
         ];
 
 

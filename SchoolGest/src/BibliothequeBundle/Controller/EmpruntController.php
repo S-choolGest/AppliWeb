@@ -7,6 +7,7 @@ use BibliothequeBundle\Entity\Emprunt;
 use BibliothequeBundle\Entity\Livre;
 use BibliothequeBundle\Form\EmpruntType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use UserBundle\Entity\Utilisateur;
 
@@ -14,18 +15,23 @@ class EmpruntController extends Controller
 {
     public function addAction(Request $request)
     {
-        $emprunt = new Emprunt();
-        $em = $this->getDoctrine()->getManager();
-        $livre = $this->getDoctrine()->getRepository(Livre::class)->find($request->request->get('idlivre'));
-        $emprunt->setIdlivre($livre);
-        $user = $this->getDoctrine()->getRepository(Utilisateur::class)->find($request->request->get('iduser'));
-        $emprunt->setIdemprunteur($user);
-        $emprunt->setDatedebut(new \DateTime($request->request->get('datedebut')));
-        $emprunt->setDatefin(new \DateTime($request->request->get('datefin')));
-        $emprunt->setDateemprunt(new \DateTime());
-        $em->persist($emprunt);
-        $em->flush();
-        return $this->json(['message' => ' 1 23 test'], 200);
+        $datedebut = new \DateTime($request->request->get('datedebut'));
+        $datefin = new \DateTime($request->request->get('datefin'));
+        if($datedebut < $datefin){
+            $emprunt = new Emprunt();
+            $em = $this->getDoctrine()->getManager();
+            $livre = $this->getDoctrine()->getRepository(Livre::class)->find($request->request->get('idlivre'));
+            $emprunt->setIdlivre($livre);
+            $user = $this->getDoctrine()->getRepository(Utilisateur::class)->find($request->request->get('iduser'));
+            $emprunt->setIdemprunteur($user);
+            $emprunt->setDatedebut($datedebut);
+            $emprunt->setDatefin($datefin);
+            $emprunt->setDateemprunt(new \DateTime());
+            $em->persist($emprunt);
+            $em->flush();
+            return $this->json(['message' => ' Emprunt réussi'], 200);
+        }
+        return $this->json(['message' => ' Emprunt echoué'], 500);
     }
 
     public function deleteAction($id)
@@ -149,14 +155,28 @@ class EmpruntController extends Controller
         $emprunts = $empruntRepos->findBy(['idemprunteur' => $this->getUser()->getId()]);
         $recents = $empruntRepos->findBy(['idemprunteur' => $this->getUser()->getId()], ['dateemprunt' => 'desc'], 3);
         $tags = $this->getDoctrine()->getRepository(Livre::class)->getAllCategorie();
-        $etats = [$empruntRepos->countFrontByEtat( $this->getUser()->getId(), 0), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 1), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 2), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 3)];
+        $etats = [$empruntRepos->countFrontByEtat( $this->getUser()->getId(), 0),
+            $empruntRepos->countFrontByEtat($this->getUser()->getId(), 1), $empruntRepos->countFrontByEtat(
+                $this->getUser()->getId(), 2), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 3)];
+
+        $bibliotheques = $this->getDoctrine()->getRepository(Bibliotheque::class)->findAll();
+
         return $this->render('@Bibliotheque/Emprunt/emprunts_front.html.twig', array(
             "emprunts" => $emprunts,
             "recents" => $recents,
             "tags" => $tags,
-            "etats" => $etats
+            "etats" => $etats,
+            "biblio" => $bibliotheques
             // ...
         ));
+    }
+
+    public function rechercher_empruntFrontAction(Request $request)
+    {
+        $empruntRepos = $this->getDoctrine()->getRepository(Emprunt::class);
+        $biblio = $this->getDoctrine()->getRepository(Bibliotheque::class)->findOneBy(['nom'=>$request->request->get('biblio')]);
+        $emprunts = $empruntRepos->rechercher_empruntFront($this->getUser()->getId(), $request->request->get('mot_recherche'), $request->request->get('categorie'), $biblio->getId());
+        return new JsonResponse(array('emprunts'=>$emprunts), 200);
     }
 
     public function viewFrontByCategorieAction($categorie)
@@ -165,12 +185,18 @@ class EmpruntController extends Controller
         $emprunts = $empruntRepos->findBy(['idemprunteur' => $this->getUser()->getId(), 'etat' => $categorie]);
         $recents = $empruntRepos->findBy(['idemprunteur' => $this->getUser()->getId()], ['dateemprunt' => 'desc'], 3);
         $tags = $this->getDoctrine()->getRepository(Livre::class)->getAllCategorie();
-        $etats = [$empruntRepos->countFrontByEtat($this->getUser()->getId(), 0), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 1), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 2), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 3)];
+        $etats = [$empruntRepos->countFrontByEtat($this->getUser()->getId(), 0),
+            $empruntRepos->countFrontByEtat($this->getUser()->getId(), 1), $empruntRepos->countFrontByEtat(
+                $this->getUser()->getId(), 2), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 3)];
+
+        $bibliotheques = $this->getDoctrine()->getRepository(Bibliotheque::class)->findAll();
+
         return $this->render('@Bibliotheque/Emprunt/emprunts_front.html.twig', array(
             "emprunts" => $emprunts,
             "recents" => $recents,
             "tags" => $tags,
-            "etats" => $etats
+            "etats" => $etats,
+            "biblio" => $bibliotheques
             // ...
         ));
     }
@@ -181,12 +207,18 @@ class EmpruntController extends Controller
         $emprunts = $empruntRepos->findAllByLivre_front($this->getUser()->getId(), $categorie);
         $recents = $empruntRepos->findBy(['idemprunteur' => $this->getUser()->getId()], ['dateemprunt' => 'desc'], 3);
         $tags = $this->getDoctrine()->getRepository(Livre::class)->getAllCategorie();
-        $etats = [$empruntRepos->countFrontByEtat($this->getUser()->getId(), 0), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 1), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 2), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 3)];
+        $etats = [$empruntRepos->countFrontByEtat($this->getUser()->getId(), 0),
+            $empruntRepos->countFrontByEtat($this->getUser()->getId(), 1), $empruntRepos->countFrontByEtat(
+                $this->getUser()->getId(), 2), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 3)];
+
+        $bibliotheques = $this->getDoctrine()->getRepository(Bibliotheque::class)->findAll();
+
         return $this->render('@Bibliotheque/Emprunt/emprunts_front.html.twig', array(
             "emprunts" => $emprunts,
             "recents" => $recents,
             "tags" => $tags,
-            "etats" => $etats
+            "etats" => $etats,
+            "biblio" => $bibliotheques
             // ...
         ));
     }
@@ -197,13 +229,50 @@ class EmpruntController extends Controller
         $emprunts = $empruntRepos->findBy(['idemprunteur' => $this->getUser()->getId(), 'id' => $id]);
         $recents = $empruntRepos->findBy(['idemprunteur' => $this->getUser()->getId()], ['dateemprunt' => 'desc'], 3);
         $tags = $this->getDoctrine()->getRepository(Livre::class)->getAllCategorie();
-        $etats = [$empruntRepos->countFrontByEtat($this->getUser()->getId(), 0), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 1), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 2), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 3)];
+        $etats = [$empruntRepos->countFrontByEtat($this->getUser()->getId(), 0),
+            $empruntRepos->countFrontByEtat($this->getUser()->getId(), 1), $empruntRepos->countFrontByEtat(
+                $this->getUser()->getId(), 2), $empruntRepos->countFrontByEtat($this->getUser()->getId(), 3)];
+
+        $bibliotheques = $this->getDoctrine()->getRepository(Bibliotheque::class)->findAll();
+
         return $this->render('@Bibliotheque/Emprunt/emprunts_front.html.twig', array(
             "emprunts" => $emprunts,
             "recents" => $recents,
             "tags" => $tags,
-            "etats" => $etats
+            "etats" => $etats,
+            "biblio" => $bibliotheques
             // ...
         ));
+    }
+
+    public function planningAction()
+    {
+
+    }
+
+    //fonction emprunter cote mobile
+    public function EmprunterAction($idemprunteur, $idlivre, $datedebut, $datefin)
+    {
+        $emprunt = new Emprunt();
+        $em = $this->getDoctrine()->getManager();
+        $livre = $this->getDoctrine()->getRepository(Livre::class)->find($idlivre);
+        $emprunt->setIdlivre($livre);
+        $user = $this->getDoctrine()->getRepository(Utilisateur::class)->find($idemprunteur);
+        $emprunt->setIdemprunteur($user);
+        $emprunt->setDatedebut(new \DateTime($datedebut));
+        $emprunt->setDatefin(new \DateTime($datefin));
+        $emprunt->setDateemprunt(new \DateTime());
+        $em->persist($emprunt);
+        $em->flush();
+        return $this->json(['message' => 'emprunt réussi'], 200);
+    }
+
+    //fonction afficher emprunts cote mobile
+    public function MviewFrontEmpruntAction($iduser)
+    {
+        $empruntRepos = $this->getDoctrine()->getRepository(Emprunt::class);
+       //$emprunts = $empruntRepos->findBy(['idemprunteur' => $iduser]);
+        $emprunts = $empruntRepos->findByIdEmprunteur($iduser);
+        return new JsonResponse(array('emprunts'=>$emprunts), 200);
     }
 }

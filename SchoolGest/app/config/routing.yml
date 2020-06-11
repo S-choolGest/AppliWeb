@@ -16,3 +16,6 @@ fos_js_routing:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+adesigns_calendar:
+    resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"

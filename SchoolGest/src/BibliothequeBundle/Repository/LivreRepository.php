@@ -13,14 +13,37 @@ class LivreRepository extends \Doctrine\ORM\EntityRepository
     public function LivresLesPlusDemandes($biblio)
     {
         $query = $this->getEntityManager()->createQuery('select l, (select count(e.id) from BibliothequeBundle:Emprunt e where e.idlivre = l.id) as nbEmprunt from BibliothequeBundle:Livre l order by nbEmprunt')
-        ->getMaxResults(5);
+        ->setMaxResults(5);
         /*$query = $this->getEntityManager()->createQuery('select l, (select count(e.id) from BibliothequeBundle:Emprunt e where e.idlivre = l.id) as nbEmprunt from BibliothequeBundle:Livre l where l.idBibliotheque = :biblio order by nbEmprunt')
             ->setParameter('biblio', $biblio)
             ->getMaxResults(5);*/
+        return $query->getResult();
     }
 
     public function getAllCategorie(){
         $query = $this->getEntityManager()->createQuery('select distinct(l.categorie) from BibliothequeBundle:Livre l ');
         return $query->getResult();
+    }
+
+    public function getAllLivresByBibliotheque($biblio){
+        $query = $this->getEntityManager()->createQuery('select l from BibliothequeBundle:livre l where l.idBibliotheque = :biblio')
+        ->setParameter('biblio', $biblio);
+        return $query->getArrayResult();
+    }
+
+    public function getAllLivres(){
+        $query = $this->getEntityManager()->createQuery('select l from BibliothequeBundle:livre l');
+        return $query->getArrayResult();
+    }
+
+    public function rechercher_livre($mot, $categorie, $idbiblio){
+        $query = $this->getEntityManager()->createQuery('select l.id, l.titre, l.auteur, l.editeur, l.categorie, l.datesortie, l.taille, l.quantite, l.img, l.dateajout
+        , b.nom as biblio from BibliothequeBundle:livre l inner join l.idBibliotheque b where l.idBibliotheque = :biblio 
+        and l.categorie = :categorie and (l.titre like :mot or l.editeur like :mot or l.auteur like :mot 
+        or l.datesortie like :mot or l.taille like :mot or l.quantite like :mot or l.dateajout like :mot)')
+            ->setParameter('biblio', $idbiblio)
+            ->setParameter('categorie', $categorie)
+            ->setParameter('mot' , '%'.$mot.'%');
+        return $query->getArrayResult();
     }
 }

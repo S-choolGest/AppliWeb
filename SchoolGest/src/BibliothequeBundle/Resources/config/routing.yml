@@ -39,8 +39,13 @@ biblio_emprunt_front_categorie:
 biblio_emprunt_front_livre:
     path:     /front/emprunts/livre/{categorie}
     defaults: { _controller: BibliothequeBundle:Emprunt:viewFrontByLivre }
+
+rechercher_empruntFront:
+    path:     /front/emprunt/rechercher
+    defaults: { _controller: BibliothequeBundle:Emprunt:rechercher_empruntFront }
+
 biblio_reservation_front:
-    path:     /reservation
+    path:     /reservationphp
     defaults: { _controller: BibliothequeBundle:Default:index }
 add_livre:
     path:     /back/add
@@ -63,6 +68,15 @@ catalogue_livre:
 catalogue_livre_front:
     path:     /front/catalogue
     defaults: { _controller: BibliothequeBundle:Catalogue:catalogue }
+
+catalogue_livre_front_categorie:
+    path:     /front/Catalogue/{categorie}
+    defaults: { _controller: BibliothequeBundle:Catalogue:catalogue_livre_front_categorie }
+
+rechercher_livre:
+    path:     /front/catalogue/rechercher
+    defaults: { _controller: BibliothequeBundle:Catalogue:rechercher_livre }
+
 emprunter:
     path:     /front/emprunter
     defaults: { _controller: BibliothequeBundle:Emprunt:add }
@@ -72,3 +86,39 @@ delete_emprunt:
     defaults: { _controller: BibliothequeBundle:Emprunt:delete }
     options:
         expose: true
+
+planning:
+    path:     /front/planning
+    defaults: { _controller: BibliothequeBundle:Emprunt:planning }
+
+mcatalogue_back:
+    path:     /mobile/back/livres/{iduser}
+    defaults: { _controller: BibliothequeBundle:Catalogue:list_livres_by_bibliothecaire }
+
+medit_livre:
+    path:     /mobile/back/livre/edit/{id}/{titre}/{auteur}/{editeur}/{categorie}/{taille}/{quantite}
+    defaults: { _controller: BibliothequeBundle:Catalogue:Medit }
+
+mdelete_livre:
+    path:     /mobile/back/livre/delete/{id}
+    defaults: { _controller: BibliothequeBundle:Catalogue:delete }
+
+mList_Biblio:
+    path:     /mobile/front/biblios
+    defaults: { _controller: BibliothequeBundle:Catalogue:list_biblios }
+
+mcatalogue_front:
+    path:     /mobile/front/livres/{idbibliotheque}
+    defaults: { _controller: BibliothequeBundle:Catalogue:list_livres_by_biblio }
+
+Memprunter:
+    path:     /mobile/front/emprunter/{idemprunteur}/{idlivre}/{datedebut}/{datefin}
+    defaults: { _controller: BibliothequeBundle:Emprunt:Emprunter }
+
+Mview_emprunts:
+    path:     /mobile/front/emprunts/{iduser}
+    defaults: { _controller: BibliothequeBundle:Emprunt:MviewFrontEmprunt }
+
+Mlist_livre:
+    path:     /mobile/front/livres
+    defaults: { _controller: BibliothequeBundle:Catalogue:list_livres }
