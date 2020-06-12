@@ -12,7 +12,7 @@ class LivreRepository extends \Doctrine\ORM\EntityRepository
 {
     public function LivresLesPlusDemandes($biblio)
     {
-        $query = $this->getEntityManager()->createQuery('select l, (select count(e.id) from BibliothequeBundle:Emprunt e where e.idlivre = l.id) as nbEmprunt from BibliothequeBundle:Livre l order by nbEmprunt')
+        $query = $this->getEntityManager()->createQuery('select l, (select count(e.id) from BibliothequeBundle:Emprunt e where e.idlivre = l.id) as nbEmprunt from BibliothequeBundle:Livre l order by nbEmprunt desc ')
         ->setMaxResults(5);
         /*$query = $this->getEntityManager()->createQuery('select l, (select count(e.id) from BibliothequeBundle:Emprunt e where e.idlivre = l.id) as nbEmprunt from BibliothequeBundle:Livre l where l.idBibliotheque = :biblio order by nbEmprunt')
             ->setParameter('biblio', $biblio)

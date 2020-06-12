@@ -1,7 +1,7 @@
 {% extends "base_front.html.twig" %}
 {% block css %}
     {{ parent() }}
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
 {% endblock %}
 {% block nav %}
     <nav class="colorlib-nav" role="navigation">
@@ -72,8 +72,8 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-12 col-md-offset-3 col-xs-12 slider-text">
                                 <div class="slider-text-inner text-center">
-                                    <h1>Catalogue</h1>
-                                    <h2 class="breadcrumbs"><span><a href="#">Acceuil</a></span> | <span>Catalogue</span>
+                                    <h1>Planning</h1>
+                                    <h2 class="breadcrumbs"><span><a href="#">Acceuil</a></span> | <span>PLanning</span>
                                     </h2>
                                 </div>
                             </div>
@@ -85,329 +85,37 @@
     </aside>
 {% endblock %}
 {% block container %}
-    <div class="colorlib-search">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 search-wrap">
-                    <div class="search-wrap-2">
-                        <form method="post" class="colorlib-form">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <!-- <label for="search">Search Course</label> -->
-                                        <div class="form-field">
-                                            <input type="text" id="search" class="form-control"
-                                                   placeholder="recherche">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <!-- <label for="course">Category Course</label> -->
-                                        <div class="form-field">
-                                            <i class="icon icon-arrow-down3"></i>
-                                            <select name="categorie" id="categorie" class="form-control">
-                                                {% for t in tags %}
-                                                    <option value="{{ t[1] }}">{{ t[1] }}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <!-- <label for="difficulty">Difficulty</label> -->
-                                        <div class="form-field">
-                                            <i class="icon icon-arrow-down3"></i>
-                                            <select name="biblio" id="biblio" class="form-control">
-                                                {% for b in biblio %}
-                                                <option value="{{ b.nom }}">{{ b.nom }}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <input type="button" name="submit" id="rechercher_livre" value="rechercher livre"
-                                           class="btn btn-primary btn-block">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="colorlib-classes">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 colorlib-heading center-heading text-center animate-box">
-                    <h1 class="heading-big">Livres les plus demandés</h1>
-                    <h2>Livres les plus demandés</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 animate-box">
-                    <div class="owl-carousel">
-                        {% if mostuse is null %}<br><br><br><br><br><br>
-                            <div class="col-md-12 colorlib-heading center-heading text-center animate-box">
-                                <h1 class="heading-big">Aucun livre</h1>
-                            </div>
-                        {% endif %}
-                        {% for m in mostuse %}
-                        <div class="item">
-                            <div class="classes">
-                                <div class="classes-img" style="background-image: url({{ asset('upload/uploads/'~m[0].img) }});">
-                                </div>
-                                <div class="wrap">
-                                    <div class="desc">
-                                        <span class="teacher">{{ m[0].auteur }}</span>
-                                        <h3><a href="#" data-toggle="modal" data-target="#panel_info_livre{{ m[0].id }}">{{ m[0].titre }} a été écrit le {{ m[0].datesortie|date('d-m-Y') }} et publié par {{ m[0].editeur }}</a></h3>
-                                    </div>
-                                    <div class="pricing">
-                                        <p>Taille <span class="price">{{ m[0].taille }}</span> Qte <span class="price">{{ m[0].quantite }}</span> <span
-                                                    class="more"><a href="#"><i class="icon-link"></i></a></span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="colorlib-classes">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 colorlib-heading center-heading text-center animate-box">
-                    <h1 class="heading-big">Livres</h1>
-                    <h2>Livres</h2>
-                </div>
-            </div>
-            <div class="row" id="catalogue">
-                {% if livres is null %}<br><br><br><br><br><br>
-                    <div class="col-md-12 colorlib-heading center-heading text-center animate-box">
-                        <h1 class="heading-big">Aucun livre</h1>
-                    </div>
-                {% endif %}
-                {% for l in livres %}
-                <div class="col-md-4 animate-box">
-                    <div class="classes">
-                        <div class="classes-img" style="background-image: url({{ asset('upload/uploads/'~l.img) }});">
-                        </div>
-                        <div class="wrap">
-                            <div class="desc">
-                                <span class="teacher">{{ l.auteur }}</span>
-                                <h3><a href="#" data-toggle="modal" data-target="#panel_info_livre{{ l.id }}">{{ l.titre }} a été écrit le {{ l.datesortie|date('d-m-Y') }} et publié par {{ l.editeur }}</a></h3>
-                            </div>
-                            <div class="pricing">
-                                <p>Taille <span class="price">{{ l.taille }}</span> Qte <span class="price">{{ l.quantite }}</span> <span
-                                            class="more"><a href="#"><i class="icon-link"></i></a></span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    <div id="panel_info_livre{{ l.id }}" class="modal fade">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title" id="myModalLabel">détail du livre</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="col-md-4 centered">
-                                        <img src="{{ asset('upload/uploads/'~l.img) }}" width="170" height="270" alt="" class="img"/>
-                                        <script>
-                                            console.log({{ vich_uploader_asset(l, 'imageFile') }});
-                                            console.log({{ asset(l.img) }});
-                                            console.log({{ asset(l.imageFile) }})
-                                        </script>
-                                    </div>
-                                    <div id="detail" class="">
-                                        <p class="text-left">
-                                        <h5>Titre : <span class="details">{{ l.titre }}</span></h5>
-                                        <h5>Auteur : <span>{{ l.auteur }}</span></h5>
-                                        <h5>Editeur : <span>{{ l.editeur }}</span></h5>
-                                        <h5>date de sortie : <span>{{ l.datesortie|date('d-m-Y') }}</span></h5>
-                                        <h5>date d'ajout : <span>{{ l.dateajout|date('d-m-Y') }}</span></h5>
-                                        <h5>nombre de pages : <span>{{ l.taille }}</span></h5>
-                                        <h5>nombre d'exemplaires : <span>{{ l.quantite }}</span></h5>
-                                        </p>
-                                    </div>
-                                    <form class="form-horizontal style-form" id="livre{{ l.id }}">
-                                        <p>Bibliotheque : <span class="price">{{ l.idBibliotheque.nom }}</span></p>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Date début</label>
-                                        <input class="form-control input-medium default-date-picker" id="datedebut{{ l.id }}" name="datedebut" type="date"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Date fin</label>
-                                        <input class="form-control form-control-inline input-medium default-date-picker" id="datefin{{ l.id }}" name="datefin" type="date"/>
-                                    </div>
-                                    <input class="hide" value="{{ app.user.id }}" id="idemprunteur">
-                                    <input class="hide" value="{{ l.id }}" id="idlivre"/>
-                                    </form>
-                                </div>
-                                <div class="modal-footer" id="{{ l.id }}">
-                                    <button class="btn btn-secondary" data-dismiss="modal" type="button"> fermer</button>
-                                    <button class="btn btn-primary livre" type="submit" id="emprunter{{ l.id }}">Emprunter</button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-                <!-- SIDEBAR: start -->
-                <div class="col-md-4 animate-box">
-                    <div class="sidebar">
-                        <div class="side">
-                            <h3 class="sidbar-heading">Tags</h3>
-                            <div class="block-26">
-                                <ul>
-                                    {% for t in tags %}
-                                        <li><a href="{{ path('catalogue_livre_front_categorie', {'categorie': t[1]}) }}">{{ t[1] }}</a></li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- SIDEBAR : end -->
-
+    {% include '@ADesignsCalendar/calendar.html.twig' %}
         </div>
     </div>
 {% endblock %}
 {% block js %}
-    {{ parent() }}
-    <script>
-        $('.livre').click(function () {
-            url = "{{ path('emprunter') }}";
-            $.ajax({
-                url: url,
-                type: "POST",
-                dataType: "json",
-                data: {
-                    "idlivre": this.parentElement.id,
-                    "iduser": {{ app.user.id}},
-                    "datedebut": $('#datedebut'+this.parentElement.id).val(),
-                    "datefin": $('#datefin'+this.parentElement.id).val(),
-                },
-                async: true,
-                success: function (data) {
-                    /*$('.modal').css('display', 'none');
-                    $('.fade').css('display', 'none');*/
-                    Swal.fire(
-                        'Emprunt!',
-                        'Emprunt réussi',
-                        'success'
-                    );
-                },
-                error: function (data) {
-                    /*$('.modal').css('display', 'none');
-                    $('.fade').css('display', 'none');*/
-                    Swal.fire(
-                        'Emprunt!',
-                        'Emprunt echoué',
-                        'error'
-                    );
-                }
-            });
-        });
-        console.log($('.img'));
+    <!-- jQuery -->
+    <script src="{{ asset('front/js/jquery.min.js') }}"></script>
+    <!-- jQuery Easing -->
+    <script src="{{ asset('front/js/jquery.easing.1.3.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+    <!-- Waypoints -->
+    <script src="{{ asset('front/js/jquery.waypoints.min.js') }}"></script>
+    <!-- Stellar Parallax -->
+    <script src="{{ asset('front/js/jquery.stellar.min.js') }}"></script>
+    <!-- Flexslider -->
+    <script src="{{ asset('front/js/jquery.flexslider-min.js') }}"></script>
+    <!-- Owl carousel -->
+    <script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+    <!-- Magnific Popup -->
+    <script src="{{ asset('front/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('front/js/magnific-popup-options.js') }}"></script>
+    <!-- Counters -->
+    <script src="{{ asset('front/js/jquery.countTo.js') }}"></script>
+    <!-- Main -->
+    <script src="{{ asset('front/js/main.js') }}"></script>
 
-        $('#rechercher_livre').click(function(){
-            url = "{{ path('rechercher_livre') }}";
-            $.ajax({
-                url: url,
-                type: "POST",
-                dataType: "json",
-                data: {
-                    "mot_recherche":$('#search').val(),
-                    "categorie":$('#categorie option:selected').val(),
-                    "biblio":$('#biblio option:selected').val()
-                },
-                async: true,
-                success: function (data) {
-                    console.log(data);
-                    //$('#catalogue').load(' #catalogue');
-                    $('#catalogue').html("");
-                    content = "";
-                    data.livres.forEach(l => {
-                        content += "<div class=\"col-md-4 \">\n " +
-                            "                    <div class=\"classes\">\n " +
-                            "                        <div class=\"classes-img\" style=\"background-image: url('http://localhost/appliweb/AppliWeb/SchoolGest/web/upload/uploads/"+l.img+"');\">\n " +
-                            "                        </div>\n" +
-                            "                        <div class=\"wrap\">\n" +
-                            "                            <div class=\"desc\">\n" +
-                            "                                <span class=\"teacher\"> "+l.auteur+"</span>\n" +
-                            "                                <h3><a href=\"#\" data-toggle=\"modal\" data-target=\"#panel_info_livre"+l.id+"\">"+ l.titre+" a été écrit le "+l.datesortie+" et publié par "+ l.editeur +"</a></h3>\n" +
-                            "                            </div>\n" +
-                            "                            <div class=\"pricing\">\n" +
-                            "                                <p>Taille <span class=\"price\">"+ l.taille+"</span> Qte <span class=\"price\">"+ l.quantite +"</span> <span\n" +
-                            "                                            class=\"more\"><a href=\"#\"><i class=\"icon-link\"></i></a></span></p>\n" +
-                            "                            </div>\n" +
-                            "                        </div>\n" +
-                            "                    </div>\n" +
-                            "                </div>\n" +
-                            "                    <div id=\"panel_info_livre"+ l.id +"\" class=\"modal fade\">\n" +
-                            "                        <div class=\"modal-dialog\">\n" +
-                            "                            <div class=\"modal-content\">\n" +
-                            "                                <div class=\"modal-header\">\n" +
-                            "                                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-                            "                                    <h4 class=\"modal-title\" id=\"myModalLabel\">détail du livre</h4>\n" +
-                            "                                </div>\n" +
-                            "                                <div class=\"modal-body\">\n" +
-                            "                                    <div class=\"col-md-4 centered\">\n" +
-                            "                                        <img src=\"http://localhost/appliweb/AppliWeb/SchoolGest/web/upload/uploads/"+l.img+"\" width=\"170\" height=\"270\" alt=\"\" class=\"img\"/>\n" +
-                            "                                    </div>\n"+
-    "<div id=\"detail\" class=\"\">\n"+
-        " <p class=\"text-left\">\n"+
-            "                                        <h5>Titre : <span class=\"details\">"+ l.titre +"</span></h5>\n"+
-        " <h5>Auteur : <span>"+ l.auteur +" </span></h5>\n"+
-        " <h5>Editeur : <span>"+ l.editeur +" </span></h5>\n"+
-        " <h5>date de sortie : <span>"+ l.datesortie.date +"</span></h5>\n"+
-        " <h5>date d'ajout : <span> " +l.dateajout.date + "</span></h5>\n"+
-        " <h5>nombre de pages : <span>"+ l.taille +"</span></h5>\n"+
-        " <h5>nombre d'exemplaires : <span>"+ l.quantite +"</span></h5>\n"+
-        "                                        </p>\n"+
-    "</div>\n"+
-    "<form class=\"form-horizontal style-form\" id=\"livre"+ l.id +"\">\n"+
-    "<p>Bibliotheque : <span class=\"price\">"+l.biblio+" </span></p>"+
-    " <div class=\"form-group\">\n"+
-        " <label class=\"control-label col-md-3\">Date début</label>\n"+
-        " <input class=\"form-control input-medium default-date-picker\" id=\"datedebut"+ l.id +"\" name='datedebut' "+
-        "type=\"date\"/>\n"+
-        " </div>\n"+
-    " <div class=\"form-group\">\n"+
-        " <label class=\"control-label col-md-3\">Date fin</label>\n"+
-        " <input class=\"form-control form-control-inline input-medium default-date-picker\" id=\"datefin"+ l.id +"\" "+
-        " name=\"datefin\" type=\"date\"/>\n"+
-        " </div>\n"+
-    "                                    <input class=\"hide\" value=\"{{ app.user.id }}\" id=\"idemprunteur\">\n"+
-    "                                    <input class=\"hide\" value=\""+ l.id +"\" id=\"idlivre\"/>\n"+
-    "                                    </form>\n"+
-    "                                </div>\n"+
-    " <div class=\"modal-footer\" id=\""+ l.id +"\">\n"+
-        " <button class=\"btn btn-secondary\" "+
-        " data-dismiss=\"modal\" type=\"button\"> fermer</button>\n"+
-        " <button class=\"btn btn-primary livre\" "+
-        " type=\"submit\" id=\"emprunter"+ l.id +"\">Emprunter</button>\n"+
-        " </div>\n"+
-    "\n"+
-    "                            </div>\n"+
-    "                        </div>\n"+
-    "                    </div>"
-                    });
-                    $('#catalogue').html(content);
-                    if(data.livres.length == 0 )
-                        $('#catalogue').html("<br><br><br><br><br><br><div class=\"col-md-12 colorlib-heading center-heading text-center\"><h1 class=\"heading-big\">Aucun livre trouvé</h1></div>");
-                    console.log(content)
-                }
-            })
-        })
-    </script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
 {% endblock %}

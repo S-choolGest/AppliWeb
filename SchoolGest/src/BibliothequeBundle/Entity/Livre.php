@@ -4,6 +4,7 @@ namespace BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -28,6 +29,11 @@ class Livre
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255, nullable=false)
+     * @Assert\Length(min=3)
+     * @Assert\NotBlank()
+     * @Assert\Regex (
+     *     pattern="/^\w+/",
+     *     message="le champ titre doit au-moins commencer par des lettres")
      */
     private $titre;
 
@@ -35,6 +41,13 @@ class Livre
      * @var string
      *
      * @ORM\Column(name="auteur", type="string", length=255, nullable=false)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=3)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="le champ auteur ne doit contenir que des lettres"
+     * )
      */
     private $auteur;
 
@@ -42,6 +55,13 @@ class Livre
      * @var string
      *
      * @ORM\Column(name="editeur", type="string", length=20, nullable=false)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=3)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="le champ editeur ne doit contenir que des lettres"
+     * )
      */
     private $editeur;
 
@@ -49,6 +69,8 @@ class Livre
      * @var string
      *
      * @ORM\Column(name="categorie", type="string", length=20, nullable=false)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=3)
      */
     private $categorie;
 
@@ -63,6 +85,13 @@ class Livre
      * @var integer
      *
      * @ORM\Column(name="taille", type="integer", nullable=false)
+     * @Assert\NotBlank()
+     * @Assert\Length(max="5")
+     * @Assert\GreaterThan(0)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="La valeur {{ value }} n'est pas valide {{ type }}."
+     * )
      */
     private $taille;
 
@@ -70,6 +99,13 @@ class Livre
      * @var integer
      *
      * @ORM\Column(name="quantite", type="integer", nullable=false)
+     * @Assert\NotBlank()
+     * @Assert\Length(max="4")
+     * @Assert\GreaterThan(0)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="La valeur {{ value }} n'est pas valide {{ type }}."
+     * )
      */
     private $quantite = '0';
 
@@ -83,6 +119,7 @@ class Livre
     /**
      * @Vich\UploadableField(mapping="img_livre", fileNameProperty="img")
      * @var File
+     * @Assert\NotBlank()
      */
     private $imageFile;
 

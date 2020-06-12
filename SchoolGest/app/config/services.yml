@@ -33,3 +33,6 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    BibliothequeBundle\EventListener\CalendarEventListener:
+        tags:
+            - { name: 'kernel.event_listener', event: 'calendar.load_events', method: "loadEvents" }

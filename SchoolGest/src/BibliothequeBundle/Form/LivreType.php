@@ -20,7 +20,10 @@ class LivreType extends AbstractType
             'class'=>'BibliothequeBundle:Bibliotheque',
             'choice_label'=>'nom',
             'multiple'=>false
-        ));
+        ))
+        ->add('validate', SubmitType::class, [
+            'attr'=>['formnovalidate'=>'formnovalidate', 'class'=>'btn btn-theme02']
+        ]);
     }/**
      * {@inheritdoc}
      */

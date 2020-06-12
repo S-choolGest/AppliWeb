@@ -20,7 +20,7 @@ class CatalogueController extends Controller
         $livre = new Livre();
         $formLivre = $this->createForm(LivreType::class, $livre);
         $formLivre->handleRequest($request);
-        if($formLivre->isSubmitted()){
+        if($formLivre->isValid()){
             $em = $this->getDoctrine()->getManager();
             $livre->setDateajout(new \DateTime('now'));
             $biblio = new Bibliotheque();

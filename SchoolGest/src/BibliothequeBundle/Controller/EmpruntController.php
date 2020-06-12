@@ -248,6 +248,9 @@ class EmpruntController extends Controller
     public function planningAction()
     {
 
+        return $this->render('@Bibliotheque/Emprunt/planning.html.twig', array(
+            // ...
+        ));
     }
 
     //fonction emprunter cote mobile

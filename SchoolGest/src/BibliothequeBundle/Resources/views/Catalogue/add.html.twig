@@ -26,30 +26,33 @@
             <div class="row mt">
                 <div class="col-lg-12">
                     <div class="form-panel">
-                        <a id="add-livre" class="btn btn-info  btn-sm" href="javascript:;">Imageless</a>
-                        {{ form_start(f, {'attr' : {'class' : 'form-horizontal style-form'}}) }}
+                        {{ form_start(f, {'attr' : {'class' : 'form-horizontal style-form', 'novalidate':'novalidate'}}) }}
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Titre</label>
                             <div class="col-sm-10">
                                 {{ form_widget(f.titre, {'attr' : {'class' : 'form-control', 'placeholder' : 'titre du livre', 'type' : 'text', 'name' : 'titre'} }) }}
+                                <span style="color: red"><small>{{ form_errors(f.titre) }}</small></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Auteur</label>
                             <div class="col-sm-10">
                                 {{ form_widget(f.auteur, {'attr' : {'class' : 'form-control', 'placeholder' : 'auteur du livre', 'type' : 'text', 'name' : 'auteur'} }) }}
+                                <span style="color: red"><small>{{ form_errors(f.auteur) }}</small></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Editeur</label>
                             <div class="col-sm-10">
                                 {{ form_widget(f.editeur, {'attr' : {'class' : 'form-control', 'placeholder' : 'editeur du livre', 'type' : 'text', 'name' : 'editeur'} }) }}
+                                <span style="color: red"><small>{{ form_errors(f.editeur) }}</small></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Categorie</label>
                             <div class="col-sm-10">
                                 {{ form_widget(f.categorie, {'attr' : {'class' : 'form-control', 'placeholder' : 'catégorie du livre', 'type' : 'text', 'name' : 'categorie'} }) }}
+                                <span style="color: red"><small>{{ form_errors(f.categorie) }}</small></span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -63,12 +66,14 @@
                             <label class="col-sm-2 col-sm-2 control-label">Nombre de pages</label>
                             <div class="col-sm-10">
                                 {{ form_widget(f.taille, {'attr' : {'class' : 'form-control', 'placeholder' : 'Nombre de pages', 'type' : 'number', 'name' : 'taille'} }) }}
+                                <span style="color: red"><small>{{ form_errors(f.taille) }}</small></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Nombre d' exemplaires</label>
                             <div class="col-sm-10">
                                 {{ form_widget(f.quantite, {'attr' : {'class' : 'form-control', 'placeholder' : 'Nombre d exemplaires', 'type' : 'number', 'name' : 'quantite'} }) }}
+                                <span style="color: red"><small>{{ form_errors(f.quantite) }}</small></span>
                             </div>
                         </div>
                         {{ form_widget(f.dateajout, {'attr' : {'class':'form-control form-control-inline input-medium default-date-picker hide', 'type':'text', 'value': "now"|date("m/d/Y")}})
@@ -99,8 +104,9 @@
                       Safari and Internet Explorer 10 only
                       </span>
                             </div>
+                            <span style="color: red"><small>{{ form_errors(f.imageFile) }}</small></span>
                         </div>
-                        <button type="submit" class="btn btn-theme02" id="add-livre" href="javascript:;"><i class="fa fa-plus-circle"></i> Ajouter</button>
+                        <!--<button type="submit" class="btn btn-theme02" id="add-livre" href="javascript:;"><i class="fa fa-plus-circle"></i> Ajouter</button>-->
                         {{ form_end(f) }}
                     </div>
                     <!-- /form-panel -->
