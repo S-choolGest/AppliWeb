@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec199dcd-f0a8-4c54-bb00-c33a949e31fc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/web/upload/uploads/5ee32dc3cf7f8_51hVPMb8mEL._SX331_BO1,204,203,200_.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/upload/uploads/5ee333b31c53e_122672903_o.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/CatalogueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/CatalogueController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/EmpruntController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/EmpruntController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Livre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Livre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Form/LivreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Form/LivreType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/catalogue.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/catalogue.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt/planning.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt/planning.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/upload/uploads/5e95dda67c0a6_images.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/upload/uploads/5ee2c6523ecb9_images (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/upload/uploads/5e95e2f0df457_download.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/upload/uploads/5ee33a198bebd_download.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/upload/uploads/5ee3248594335_Apollinaire_-_Alcools,_1920.djvu.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/web/upload/uploads/5ee335e7ebfa8_Apollinaire_-_Alcools,_1920.djvu.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +262,8 @@
       <workItem from="1591648060792" duration="546000" />
       <workItem from="1591649789302" duration="1054000" />
       <workItem from="1591691167484" duration="8838000" />
-      <workItem from="1591788550739" duration="80929000" />
+      <workItem from="1591788550739" duration="85280000" />
+      <workItem from="1591975395658" duration="575000" />
     </task>
     <task id="LOCAL-00001" summary="ajout des crud Bibliotheque">
       <created>1585768964714</created>
@@ -317,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591928239710</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ajout de l API calendar et du bundle calendar">
+      <created>1591946290920</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1591946290920</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +336,8 @@
     <MESSAGE value="affichage de la liste d'emprunt côté back-office et front-office" />
     <MESSAGE value="ajout de la fonctionalite de recherche avance cote front-end" />
     <MESSAGE value="controle de saisie sur le form d ajout d un livre" />
-    <option name="LAST_COMMIT_MESSAGE" value="controle de saisie sur le form d ajout d un livre" />
+    <MESSAGE value="ajout de l API calendar et du bundle calendar" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout de l API calendar et du bundle calendar" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="220" key="#Inspections" timestamp="1585912050109">
@@ -375,10 +380,10 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1591693457426" />
-    <state x="490" y="44" key="CommitChangelistDialog2" timestamp="1591928236647">
+    <state x="490" y="44" key="CommitChangelistDialog2" timestamp="1591946286483">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="490" y="44" key="CommitChangelistDialog2/0.44.1920.1036@0.44.1920.1036" timestamp="1591928236647" />
+    <state x="490" y="44" key="CommitChangelistDialog2/0.44.1920.1036@0.44.1920.1036" timestamp="1591946286483" />
     <state x="796" y="429" key="ComposerCompositePathDialog" timestamp="1585228184215">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -423,10 +428,10 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="843" y="456" key="SymfonyPathDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585228151751" />
-    <state x="552" y="290" key="Vcs.Push.Dialog.v2" timestamp="1591928245337">
+    <state x="552" y="290" key="Vcs.Push.Dialog.v2" timestamp="1591946327574">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="552" y="290" key="Vcs.Push.Dialog.v2/0.44.1920.1036@0.44.1920.1036" timestamp="1591928245337" />
+    <state x="552" y="290" key="Vcs.Push.Dialog.v2/0.44.1920.1036@0.44.1920.1036" timestamp="1591946327574" />
     <state x="540" y="216" key="com.intellij.database.dbimport.ImportDialog" timestamp="1585911153754">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>

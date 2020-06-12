@@ -78,6 +78,7 @@ class Livre
      * @var \DateTime
      *
      * @ORM\Column(name="dateSortie", type="date", nullable=false)
+     * @Assert\NotBlank()
      * @Assert\LessThan("today")
      */
     private $datesortie;
