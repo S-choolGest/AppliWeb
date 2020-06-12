@@ -29,7 +29,7 @@ class CatalogueController extends Controller
             $livre->setIdBibliotheque($biblio);
             $em->persist($livre);
             $em->flush();
-            //return $this->redirectToRoute('catalogue_livre');
+            return $this->redirectToRoute('catalogue_livre');
             //return $this->json(['id' => $livre->getId(), 'message' => 'ajout reussi'], 200);
         }
         return $this->render('@Bibliotheque/Catalogue/add.html.twig', array(
@@ -43,7 +43,7 @@ class CatalogueController extends Controller
         $livre = $this->getDoctrine()->getRepository(Livre::class)->find($id);
         $formLivre = $this->createForm(LivreType::class, $livre);
         $formLivre->handleRequest($request);
-        if($formLivre->isSubmitted()){
+        if($formLivre->isValid()){
             $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute('catalogue_livre');

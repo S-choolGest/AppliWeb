@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+{% block css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('fullcalendar/core/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('fullcalendar/daygrid/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('fullcalendar/list/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('fullcalendar/timegrid/main.css') }}">
+{% endblock %}
+{% block container %}
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <h3><i class="fa fa-angle-right"></i>Calendrier </h3>
+            <div class="row">
+                <div class="col-md-8">
+                    {% include '@ADesignsCalendar/calendar.html.twig' %}
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
+
+{% endblock %}

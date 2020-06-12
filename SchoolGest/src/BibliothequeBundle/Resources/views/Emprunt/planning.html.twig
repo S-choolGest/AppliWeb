@@ -2,6 +2,10 @@
 {% block css %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('fullcalendar/core/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('fullcalendar/daygrid/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('fullcalendar/list/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('fullcalendar/timegrid/main.css') }}">
 {% endblock %}
 {% block nav %}
     <nav class="colorlib-nav" role="navigation">
@@ -87,7 +91,8 @@
 {% block container %}
     <div class="colorlib-classes">
         <div class="container">
-    {% include '@ADesignsCalendar/calendar.html.twig' %}
+            <div id="calendrier"></div>
+        <!--{% include '@ADesignsCalendar/calendar.html.twig' %}-->
         </div>
     </div>
 {% endblock %}
@@ -118,4 +123,126 @@
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
+
+    <!--Fichiers JS calendrier-->
+    <script src="{{ asset('fullcalendar/core/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/daygrid/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/list/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/interaction/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/timegrid/main.js') }}"></script>
+    <!--<script src="{{ asset('calendrier.js') }}"></script>-->
+    <script>
+        let evenements = "[";
+        url = "{{ path('Mview_emprunts', {"iduser" : 'iduser'}) }}";
+        url = url.replace("iduser", {{ app.user.id }});
+        $.ajax({
+            url: url,
+            type: "POST",
+            async: true,
+            success: function (data) {
+                console.log(data.emprunts)
+
+                data.emprunts.forEach(e=>{
+                    let evenement = [{
+                        "title": "",
+                        "start":"",
+                        'end':"",
+                        "backgroundColor": ""
+                    }]
+                    if(e.etat == 0){
+                        evenement[0].title = "emprunt en attente : "+e.idlivre.titre
+                        evenement[0].backgroundColor = "#8090B5"
+                        evenement[0].start = e.dateemprunt.date
+                        evenement[0].end = e.dateemprunt.date
+                    }
+                    else if (e.etat == 1){
+                        evenement[0].title = "emprunt confirmé : "+e.idlivre.titre
+                        evenement[0].backgroundColor = "#0082FF"
+                        evenement[0].start = e.datedebut.date
+                        evenement[0].end = e.datefin.date
+                    }
+                    else if (e.etat == 2){
+                        evenement[0].title = "emprunt rendu : "+e.idlivre.titre
+                        evenement[0].backgroundColor = "#008000"
+                        evenement[0].start = e.dateconfirmation.date
+                        evenement[0].end = e.dateconfirmation.date
+                    }
+                    else if (e.etat == 3){
+                        evenement[0].title = "emprunt refusé : "+e.idlivre.titre
+                        evenement[0].backgroundColor = "#FF0000"
+                        evenement[0].start = e.daterendu.date
+                        evenement[0].end = e.daterendu.date
+                    }
+                    url_event = "{{ path('emprunt_front', {"id" : 'id'}) }}";
+                    url_event = url_event.replace("id", e.id);
+
+                    evenements+="{\"title\":\""+evenement[0].title+"\", \"start\":\""+evenement[0].start+"\", \"end\":\""+evenement[0].end+"\", \"backgroundColor\":\""+evenement[0].backgroundColor+"\", \"url\":\""+url_event+"\"},"
+
+                })
+                let evenement = [{
+                    "title": "",
+                    "start": "",
+                    "end": "",
+                    "backgroundColor": ""
+                },{
+                    "title": "Live coding - Demo 2",
+                    "start": "2019-11-23 14:00:00",
+                    "end": "2019-11-23 16:00:00"
+                }]
+                evenements+="{\"title\":\""+evenement[0].title+"\", \"start\":\""+evenement[0].start+"\", \"end\":\""+evenement[0].end+"\", \"backgroundColor\":\""+evenement[0].backgroundColor+"\"}"
+                evenements+="]"
+                let events = JSON.parse(evenements);
+                console.log(events)
+                //evenements = JSON.parse(data.emprunts)
+                // On va chercher la div dans le HTML
+                let calendarEl = document.getElementById('calendrier');
+
+                // On instancie le calendrier
+                let calendrier = new FullCalendar.Calendar(calendarEl, {
+                    // On appelle les composants
+                    plugins: ['dayGrid','timeGrid','list'],
+                    locale: 'fr',
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,list'
+                    },
+                    buttonText: {
+                        today: 'Aujourd\'hui',
+                        month: 'Mois',
+                        week: 'Semaine',
+                        list: 'Liste'
+                    },
+                    events: events,
+                    nowIndicator: true,
+                    editable: true,
+                    eventDrop: (infos) => {
+                        if(!confirm("Etes vous sûr.e de vouloir déplacer cet évènement")){
+                            infos.revert();
+                        }
+                    },
+                    eventResize: (infos) => {
+                        console.log(infos.event.end)
+                    }
+                })
+
+                // On affiche le calendrier
+                calendrier.render();
+            },
+        });
+        /*let evenements = [{
+            "title": "Live coding - Demo",
+            "start": "2020-11-23 09:00:00",
+            "end": "2020-11-23 11:00:00",
+            "backgroundColor": "#839c49"
+        },{
+            "title": "Live coding - Demo 2",
+            "start": "2019-11-23 14:00:00",
+            "end": "2019-11-23 16:00:00"
+        }]*/
+
+        window.onload = () => {
+
+        }
+    </script>
 {% endblock %}

@@ -91,6 +91,10 @@ planning:
     path:     /front/planning
     defaults: { _controller: BibliothequeBundle:Emprunt:planning }
 
+calendrier_back:
+    path:     /back/calendrier
+    defaults: { _controller: BibliothequeBundle:Emprunt:calendrier_back }
+
 mcatalogue_back:
     path:     /mobile/back/livres/{iduser}
     defaults: { _controller: BibliothequeBundle:Catalogue:list_livres_by_bibliothecaire }

@@ -146,6 +146,13 @@
                                 'Le livre a été supprimé.',
                                 'success'
                             );
+                        },
+                        error: function () {
+                            Swal.fire(
+                                'Echec!',
+                                'Impossible de supprimer ce livre.',
+                                'error'
+                            );
                         }
                     });
                 }

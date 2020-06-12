@@ -247,10 +247,27 @@ class EmpruntController extends Controller
 
     public function planningAction()
     {
+        $empruntRepos = $this->getDoctrine()->getRepository(Emprunt::class);
+        $emprunts = $empruntRepos->findBy(['idemprunteur' => $this->getUser()->getId()]);
 
         return $this->render('@Bibliotheque/Emprunt/planning.html.twig', array(
+            "emprunts" => $emprunts,
             // ...
         ));
+    }
+
+    public function calendrier_backAction()
+    {
+        return $this->render('@Bibliotheque/Emprunt/calendrier_back.html.twig', array(
+            // ...
+        ));
+    }
+
+    public function getAllEmpruntsCalendarAction()
+    {
+        $empruntRepos = $this->getDoctrine()->getRepository(Emprunt::class);
+        $emprunts = $empruntRepos->findByIdEmprunteur($this->getUser()->getId());
+        return new JsonResponse(array('emprunts'=>$emprunts), 200);
     }
 
     //fonction emprunter cote mobile

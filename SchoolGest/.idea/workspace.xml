@@ -4,17 +4,17 @@
     <list default="true" id="ec199dcd-f0a8-4c54-bb00-c33a949e31fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/CatalogueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/CatalogueController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/EmpruntController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Controller/EmpruntController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Livre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Entity/Livre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Form/LivreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Form/LivreType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/LivreRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Repository/LivreRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/add.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/catalogue.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/catalogue.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt/emprunts_front.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt/emprunts_front.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Catalogue/search.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt/planning.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt/planning.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/upload/uploads/5e95dda67c0a6_images.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/upload/uploads/5ee2c6523ecb9_images (1).png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +125,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/BibliothequeBundle/Resources/views/Emprunt" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -133,15 +133,15 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\AppliWeb\AppliWeb\SchoolGest\src\BibliothequeBundle\Resources\views\Emprunt" />
+      <recent name="C:\wamp64\www\AppliWeb\AppliWeb\SchoolGest\web\fullcalendar" />
       <recent name="C:\wamp64\www\AppliWeb\AppliWeb\SchoolGest\app\Resources\views" />
       <recent name="C:\wamp64\www\AppliWeb\AppliWeb\SchoolGest\app\Resources" />
-      <recent name="C:\wamp64\www\AppliWeb\AppliWeb\SchoolGest\src\BibliothequeBundle\Resources\views\Emprunt" />
       <recent name="C:\wamp64\www\AppliWeb\AppliWeb\SchoolGest\src\AppBundle\Form" />
-      <recent name="C:\wamp64\www\AppliWeb\AppliWeb\SchoolGest\src\UserBundle\Form" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\AppliWeb\AppliWeb\SchoolGest\src\BibliothequeBundle\EventListener" />
@@ -266,7 +266,7 @@
       <workItem from="1591648060792" duration="546000" />
       <workItem from="1591649789302" duration="1054000" />
       <workItem from="1591691167484" duration="8838000" />
-      <workItem from="1591788550739" duration="64562000" />
+      <workItem from="1591788550739" duration="80929000" />
     </task>
     <task id="LOCAL-00001" summary="ajout des crud Bibliotheque">
       <created>1585768964714</created>
@@ -310,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591849629908</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="controle de saisie sur le form d ajout d un livre">
+      <created>1591928239710</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1591928239710</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +331,8 @@
     <MESSAGE value="fonction emprunter côté back-office" />
     <MESSAGE value="affichage de la liste d'emprunt côté back-office et front-office" />
     <MESSAGE value="ajout de la fonctionalite de recherche avance cote front-end" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout de la fonctionalite de recherche avance cote front-end" />
+    <MESSAGE value="controle de saisie sur le form d ajout d un livre" />
+    <option name="LAST_COMMIT_MESSAGE" value="controle de saisie sur le form d ajout d un livre" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="220" key="#Inspections" timestamp="1585912050109">
@@ -367,10 +375,10 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="690" y="316" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1591693457426" />
-    <state x="490" y="44" key="CommitChangelistDialog2" timestamp="1591849625236">
+    <state x="490" y="44" key="CommitChangelistDialog2" timestamp="1591928236647">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="490" y="44" key="CommitChangelistDialog2/0.44.1920.1036@0.44.1920.1036" timestamp="1591849625236" />
+    <state x="490" y="44" key="CommitChangelistDialog2/0.44.1920.1036@0.44.1920.1036" timestamp="1591928236647" />
     <state x="796" y="429" key="ComposerCompositePathDialog" timestamp="1585228184215">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -403,10 +411,10 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state width="1877" height="129" key="GridCell.Tab.0.right/0.44.1920.1036@0.44.1920.1036" timestamp="1586895860940" />
-    <state x="573" y="202" key="SettingsEditor" timestamp="1586996637508">
+    <state x="573" y="202" key="SettingsEditor" timestamp="1591928076193">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="573" y="202" key="SettingsEditor/0.44.1920.1036@0.44.1920.1036" timestamp="1586996637508" />
+    <state x="573" y="202" key="SettingsEditor/0.44.1920.1036@0.44.1920.1036" timestamp="1591928076193" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1591866163755">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -415,10 +423,10 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="843" y="456" key="SymfonyPathDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1585228151751" />
-    <state x="552" y="290" key="Vcs.Push.Dialog.v2" timestamp="1591849634359">
+    <state x="552" y="290" key="Vcs.Push.Dialog.v2" timestamp="1591928245337">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="552" y="290" key="Vcs.Push.Dialog.v2/0.44.1920.1036@0.44.1920.1036" timestamp="1591849634359" />
+    <state x="552" y="290" key="Vcs.Push.Dialog.v2/0.44.1920.1036@0.44.1920.1036" timestamp="1591928245337" />
     <state x="540" y="216" key="com.intellij.database.dbimport.ImportDialog" timestamp="1585911153754">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
@@ -435,13 +443,13 @@
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
     <state x="636" y="385" key="com.intellij.ide.util.TipDialog/0.44.1920.1036@0.44.1920.1036" timestamp="1591648056725" />
-    <state x="1096" y="265" width="672" height="677" key="run.anything.popup" timestamp="1591838157767">
+    <state x="1096" y="265" width="672" height="677" key="run.anything.popup" timestamp="1591939134132">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="1096" y="265" width="672" height="677" key="run.anything.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1591838157767" />
-    <state x="623" y="268" width="672" height="678" key="search.everywhere.popup" timestamp="1591838926958">
+    <state x="1096" y="265" width="672" height="677" key="run.anything.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1591939134132" />
+    <state x="623" y="268" width="672" height="678" key="search.everywhere.popup" timestamp="1591938291192">
       <screen x="0" y="44" width="1920" height="1036" />
     </state>
-    <state x="623" y="268" width="672" height="678" key="search.everywhere.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1591838926958" />
+    <state x="623" y="268" width="672" height="678" key="search.everywhere.popup/0.44.1920.1036@0.44.1920.1036" timestamp="1591938291192" />
   </component>
 </project>
