@@ -132,6 +132,64 @@ class CatalogueController extends Controller
         return new JsonResponse(array('livres'=>$livres), 200);
     }
 
+    public function MaddAction($titre, $auteur, $editeur, $categorie, $taille, $quantite, $path, $extension, $datesortie, $iduser)
+    {
+        $livre = new Livre();
+        $livre->setId(0);
+        $livre->setAuteur($auteur);
+        $livre->setCategorie($categorie);
+        $livre->setDatesortie(new \DateTime($datesortie));
+        $livre->setEditeur($editeur);
+        $livre->setTitre($titre);
+        $livre->setTaille($taille);
+        $livre->setQuantite($quantite);
+        if($path!=""){
+            $path=str_replace("&","/",$path);
+            $image_link = $path;//Direct link to image
+            $structure = '';
+            $ex=$pieces = explode(".", $image_link);
+
+            $destination= $this->get('kernel')->getProjectDir()."/web/upload/uploads/";
+            $name = new \DateTime('now');
+            $name1 = $name->format('Y-m-dH:i:s').$extension;
+            $name1=str_replace(":","-",$name1);
+            $destination .= $name1;
+            $livre->setImg($name1);
+            if(copy($path, $destination)){
+                $em = $this->getDoctrine()->getManager();
+                $livre->setDateajout(new \DateTime('now'));
+                $biblio = new Bibliotheque();
+                $biblio->getId();
+                $biblio = $this->getDoctrine()->getRepository(Bibliotheque::class)->findOneBy(['idBibliothecaire' => $iduser]);
+                $livre->setIdBibliotheque($biblio);
+                $em->persist($livre);
+                $em->flush();
+            }
+        }
+
+        return $this->json(['id' => $livre->getId(), 'message' => 'ajout reussi'], 200);
+    }
+
+    public function uploadAction($path, $extension)
+    {
+        if($path!=""){
+            $path=str_replace("&","/",$path);
+            $image_link = $path;//Direct link to image
+            $structure = '';
+            $ex=$pieces = explode(".", $image_link);
+
+            $destination= $this->get('kernel')->getProjectDir()."/web/upload/uploads/";
+            $name = new \DateTime('now');
+            $name1 = $name->format('Y-m-dH:i:s').$extension;
+            $name1=str_replace(":","-",$name1);
+            $destination .= $name1;
+            if(copy($path, $destination)){
+                echo "dsdsqd";
+            }
+        }
+        return $this->json(['id' => 'dfg', 'message' => 'ajout reussi'], 200);
+    }
+
     public function MeditAction($id, $titre, $auteur, $editeur, $categorie, $taille, $quantite)
     {
         $livre = $this->getDoctrine()->getRepository(Livre::class)->find($id);
@@ -164,6 +222,23 @@ class CatalogueController extends Controller
         $biblio = new Bibliotheque();
         $livres = $this->getDoctrine()->getRepository(Livre::class)->getAllLivres();
         //dump($livres);
+        return new JsonResponse(array('livres'=>$livres), 200);
+    }
+
+    public function Mrechercher_livreFrontAction($text, $biblio)
+    {
+        $LivreRepos = $this->getDoctrine()->getRepository(Livre::class);
+        $livres = $LivreRepos->Mrechercher_livre($text, $biblio);
+
+        return new JsonResponse(array('livres'=>$livres), 200);
+    }
+
+    public function Mrechercher_livreBackAction($text, $idbibliothecaire)
+    {
+        $biblio = $this->getDoctrine()->getRepository(Bibliotheque::class)->findOneBy(['idBibliothecaire' => $idbibliothecaire]);
+        $LivreRepos = $this->getDoctrine()->getRepository(Livre::class);
+        $livres = $LivreRepos->Mrechercher_livre($text, $biblio->getId());
+
         return new JsonResponse(array('livres'=>$livres), 200);
     }
 }

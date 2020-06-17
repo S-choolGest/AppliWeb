@@ -29,7 +29,12 @@ matrix:
           env: deps=high
         - php: 7.4
           env: deps=low
+        - php: nightly
+          services: [memcached]
     fast_finish: true
+    allow_failures:
+        - php: nightly
+          services: [memcached]
 
 cache:
     directories:
@@ -54,9 +59,11 @@ before_install:
 
     - |
       # Start Redis cluster
-      docker pull grokzen/redis-cluster:4.0.8
-      docker run -d -p 7000:7000 -p 7001:7001 -p 7002:7002 -p 7003:7003 -p 7004:7004 -p 7005:7005 --name redis-cluster grokzen/redis-cluster:4.0.8
-      export REDIS_CLUSTER_HOSTS='localhost:7000 localhost:7001 localhost:7002 localhost:7003 localhost:7004 localhost:7005'
+      if [[ $TRAVIS_PHP_VERSION != nightly ]]; then
+          docker pull grokzen/redis-cluster:4.0.8
+          docker run -d -p 7000:7000 -p 7001:7001 -p 7002:7002 -p 7003:7003 -p 7004:7004 -p 7005:7005 --name redis-cluster grokzen/redis-cluster:4.0.8
+          export REDIS_CLUSTER_HOSTS='localhost:7000 localhost:7001 localhost:7002 localhost:7003 localhost:7004 localhost:7005'
+      fi
 
     - |
       # General configuration
@@ -135,6 +142,23 @@ before_install:
       }
       export -f tpecl
 
+      install_apcu_dev () {
+          local ref=$1
+          local INI=$2
+
+          wget https://github.com/krakjoe/apcu/archive/${ref}.zip
+          unzip ${ref}.zip
+          cd apcu-${ref}
+          phpize
+          ./configure
+          make
+          mv modules/apcu.so $(php -r "echo ini_get('extension_dir');")
+          echo 'extension = apcu.so' >> $INI
+          cd ..
+          rm -rf apcu-${ref} ${ref}.zip
+      }
+      export -f install_apcu_dev
+
     - |
       # Install sigchild-enabled PHP to test the Process component on the lowest PHP matrix line
       if [[ ! $deps && $TRAVIS_PHP_VERSION = ${MIN_PHP%.*} && ! -d php-$MIN_PHP/sapi ]]; then
@@ -157,11 +181,14 @@ before_install:
           echo opcache.enable_cli = 1 >> $INI
           echo hhvm.jit = 0 >> $INI
           echo apc.enable_cli = 1 >> $INI
-          echo extension = redis.so >> $INI
-          echo extension = memcached.so >> $INI
           if [[ $PHP = 5.* ]]; then
+              echo extension = redis.so >> $INI
+              echo extension = memcached.so >> $INI
               echo extension = memcache.so >> $INI
               echo extension = mongo.so >> $INI
+          elif [[ $PHP = 7.* ]]; then
+              echo extension = redis.so >> $INI
+              echo extension = memcached.so >> $INI
           fi
       done
 
@@ -183,6 +210,9 @@ before_install:
           elif [[ $PHP = 7.* ]]; then
               tfold ext.apcu tpecl apcu-5.1.17 apcu.so $INI
               tfold ext.mongodb tpecl mongodb-1.6.0 mongodb.so $INI
+          elif [[ $PHP = nightly ]]; then
+              tfold ext.memcached tpecl memcached-3.1.5 memcached.so $INI
+              tfold ext.apcu install_apcu_dev 9c36db45100d4d27ec33072f4be90f1f5a0108b7 $INI
           fi
       done
 
@@ -247,6 +277,13 @@ install:
       # Skip the phpunit-bridge on not-master branches when $deps is empty
       if [[ ! $deps && $TRAVIS_BRANCH != master ]]; then
           export COMPONENTS=$(find src/Symfony -mindepth 3 -type f -name phpunit.xml.dist -not -wholename '*/Bridge/PhpUnit/*' -printf '%h\n' | sort)
+      fi
+
+    - |
+      # Set composer's platform to php 7.4 if we're on php 8.
+      if [[ $PHP = nightly ]]; then
+          composer config platform.php 7.4.99
+          export SYMFONY_DEPRECATIONS_HELPER=max[total]=999
       fi
 
     - |

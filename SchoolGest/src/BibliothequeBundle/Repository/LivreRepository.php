@@ -46,4 +46,14 @@ class LivreRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('mot' , '%'.$mot.'%');
         return $query->getArrayResult();
     }
+
+    public function Mrechercher_livre($mot, $idbiblio){
+        $query = $this->getEntityManager()->createQuery('select l.id, l.titre, l.auteur, l.editeur, l.categorie, l.datesortie, l.taille, l.quantite, l.img, l.dateajout
+        , b.nom as biblio from BibliothequeBundle:livre l inner join l.idBibliotheque b where l.idBibliotheque = :biblio 
+        and (l.categorie like :mot or l.titre like :mot or l.editeur like :mot or l.auteur like :mot 
+        or l.datesortie like :mot or l.taille like :mot or l.quantite like :mot or l.dateajout like :mot)')
+            ->setParameter('biblio', $idbiblio)
+            ->setParameter('mot' , '%'.$mot.'%');
+        return $query->getArrayResult();
+    }
 }

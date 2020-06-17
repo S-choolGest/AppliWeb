@@ -99,6 +99,14 @@ mcatalogue_back:
     path:     /mobile/back/livres/{iduser}
     defaults: { _controller: BibliothequeBundle:Catalogue:list_livres_by_bibliothecaire }
 
+Madd_livre:
+    path:     /mobile/back/livre/add/{titre}/{auteur}/{editeur}/{categorie}/{taille}/{quantite}/{datesortie}/{iduser}/{path}/{extension}
+    defaults: { _controller: BibliothequeBundle:Catalogue:Madd }
+
+Mupload_img:
+    path:     /mobile/back/upload/{path}/{extension}
+    defaults: { _controller: BibliothequeBundle:Catalogue:upload }
+
 medit_livre:
     path:     /mobile/back/livre/edit/{id}/{titre}/{auteur}/{editeur}/{categorie}/{taille}/{quantite}
     defaults: { _controller: BibliothequeBundle:Catalogue:Medit }
@@ -120,9 +128,37 @@ Memprunter:
     defaults: { _controller: BibliothequeBundle:Emprunt:Emprunter }
 
 Mview_emprunts:
-    path:     /mobile/front/emprunts/{iduser}
+    path:     /mobile/front/emprunts/{iduser}/{idbiblio}
     defaults: { _controller: BibliothequeBundle:Emprunt:MviewFrontEmprunt }
+
+Mview_emprunts_back:
+    path:     /mobile/back/emprunts/{idbibliothecaire}
+    defaults: { _controller: BibliothequeBundle:Emprunt:MviewBackEmprunt }
 
 Mlist_livre:
     path:     /mobile/front/livres
     defaults: { _controller: BibliothequeBundle:Catalogue:list_livres }
+
+annuler_emprunt:
+    path:     /mobile/front/emprunt/annuler/{id}
+    defaults: { _controller: BibliothequeBundle:Emprunt:Mannuler_emprunt }
+
+Medit_emprunt:
+    path:     /mobile/back/emprunt/editer/{id}/{choix}
+    defaults: { _controller: BibliothequeBundle:Emprunt:edit }
+
+Mrechercher_livre:
+    path:     /mobile/front/livres/rechercher/{text}/{biblio}
+    defaults: { _controller: BibliothequeBundle:Catalogue:Mrechercher_livreFront }
+
+Mrechercher_livre_back:
+    path:     /mobile/back/livres/rechercher/{text}/{idbibliothecaire}
+    defaults: { _controller: BibliothequeBundle:Catalogue:Mrechercher_livreBack }
+
+Mrechercher_empruntFront:
+    path:     /mobile/front/emprunts/rechercher/{text}/{iduser}/{idbiblio}
+    defaults: { _controller: BibliothequeBundle:Emprunt:Mrechercher_empruntFront }
+
+Mrechercher_empruntBack:
+    path:     /mobile/back/emprunts/rechercher/{text}/{idbibliothecaire}
+    defaults: { _controller: BibliothequeBundle:Emprunt:Mrechercher_empruntBack }

@@ -288,11 +288,47 @@ class EmpruntController extends Controller
     }
 
     //fonction afficher emprunts cote mobile
-    public function MviewFrontEmpruntAction($iduser)
+    public function MviewFrontEmpruntAction($iduser, $idbiblio)
     {
         $empruntRepos = $this->getDoctrine()->getRepository(Emprunt::class);
        //$emprunts = $empruntRepos->findBy(['idemprunteur' => $iduser]);
-        $emprunts = $empruntRepos->findByIdEmprunteur($iduser);
+        $emprunts = $empruntRepos->findByIdEmprunteur($iduser, $idbiblio);
+        return new JsonResponse(array('emprunts'=>$emprunts), 200);
+    }
+
+    public function MviewBackEmpruntAction($idbibliothecaire)
+    {
+        $biblio = new Bibliotheque();
+        $biblio = $this->getDoctrine()->getRepository(Bibliotheque::class)->findOneBy(['idBibliothecaire' => $idbibliothecaire]);
+        $empruntRepos = $this->getDoctrine()->getRepository(Emprunt::class);
+        $emprunts = $empruntRepos->findByIdBiblio($biblio->getId());
+        return new JsonResponse(array('emprunts'=>$emprunts), 200);
+    }
+
+    public function Mannuler_empruntAction($id)
+    {
+        $emprunt = $this->getDoctrine()->getRepository(Emprunt::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($emprunt);
+        $em->flush();
+        return $this->json(['message' => 'emprunt supprimé'], 200);
+        /*return $this->render('BibliothequeBundle:Emprunt:delete.html.twig', array(
+            // ...
+        ));*/
+    }
+
+    public function Mrechercher_empruntFrontAction($text, $iduser, $idbiblio)
+    {
+        $empruntRepos = $this->getDoctrine()->getRepository(Emprunt::class);
+        $emprunts = $empruntRepos->Mrechercher_empruntFront($iduser, $text, $idbiblio);
+        return new JsonResponse(array('emprunts'=>$emprunts), 200);
+    }
+
+    public function Mrechercher_empruntBackAction($text, $idbibliothecaire)
+    {
+        $biblio = $this->getDoctrine()->getRepository(Bibliotheque::class)->findOneBy(['idBibliothecaire' => $idbibliothecaire]);
+        $empruntRepos = $this->getDoctrine()->getRepository(Emprunt::class);
+        $emprunts = $empruntRepos->Mrechercher_empruntBack($text, $biblio->getId());
         return new JsonResponse(array('emprunts'=>$emprunts), 200);
     }
 }

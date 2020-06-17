@@ -103,10 +103,18 @@ class EmpruntRepository extends \Doctrine\ORM\EntityRepository
         return $query->getResult();
     }
 
-    public function findByIdEmprunteur($iduser)
+    public function findByIdEmprunteur($iduser, $idbiblio)
     {
-        $query = $this->getEntityManager()->createQuery('select e, l, u from BibliothequeBundle:Emprunt e inner join e.idlivre l inner join e.idemprunteur u where e.idemprunteur = :iduser')
-            ->setParameter('iduser', $iduser);
+        $query = $this->getEntityManager()->createQuery('select e, l, u from BibliothequeBundle:Emprunt e inner join e.idlivre l inner join e.idemprunteur u where e.idemprunteur = :iduser and l.idBibliotheque = :idbiblio order by e.id desc')
+            ->setParameter('iduser', $iduser)
+            ->setParameter('idbiblio', $idbiblio);
+        return $query->getArrayResult();
+    }
+
+    public function findByIdBiblio($idbiblio)
+    {
+        $query = $this->getEntityManager()->createQuery('select e, l, u from BibliothequeBundle:Emprunt e inner join e.idlivre l inner join e.idemprunteur u where l.idBibliotheque = :idbiblio order by e.id desc')
+            ->setParameter('idbiblio', $idbiblio);
         return $query->getArrayResult();
     }
 
@@ -116,10 +124,35 @@ class EmpruntRepository extends \Doctrine\ORM\EntityRepository
         where e.idemprunteur = :iduser and l.idBibliotheque = :biblio and l.categorie = :categorie and (e.dateconfirmation like :mot or e.dateemprunt like :mot 
         or e.daterendu like :mot or e.datedebut like :mot or e.datefin like :mot or 
         l.titre like :mot or l.editeur like :mot or l.auteur like :mot 
-        or l.datesortie like :mot or l.taille like :mot or l.quantite like :mot or l.dateajout like :mot)')
+        or l.datesortie like :mot or l.taille like :mot or l.quantite like :mot or l.dateajout like :mot) order by e.id desc')
             ->setParameter('iduser', $iduser)
             ->setParameter('categorie', $categorie)
             ->setParameter('biblio', $biblio)
+            ->setParameter('mot', '%'.$mot.'%');
+        return $query->getArrayResult();
+    }
+
+    public function Mrechercher_empruntFront($iduser, $mot, $biblio)
+    {
+        $query = $this->getEntityManager()->createQuery('select e, l, u from BibliothequeBundle:Emprunt e inner join e.idlivre l inner join e.idemprunteur u
+        where e.idemprunteur = :iduser and l.idBibliotheque = :biblio and (l.categorie like :mot or e.dateconfirmation like :mot or e.dateemprunt like :mot 
+        or e.daterendu like :mot or e.datedebut like :mot or e.datefin like :mot or 
+        l.titre like :mot or l.editeur like :mot or l.auteur like :mot 
+        or l.datesortie like :mot or l.taille like :mot or l.quantite like :mot or l.dateajout like :mot or e.etat like :mot) order by e.id desc')
+            ->setParameter('iduser', $iduser)
+            ->setParameter('biblio', $biblio)
+            ->setParameter('mot', '%'.$mot.'%');
+        return $query->getArrayResult();
+    }
+
+    public function Mrechercher_empruntBack($mot, $idbiblio)
+    {
+        $query = $this->getEntityManager()->createQuery('select e, l, u from BibliothequeBundle:Emprunt e inner join e.idlivre l inner join e.idemprunteur u
+        where l.idBibliotheque = :biblio and (l.categorie like :mot or e.dateconfirmation like :mot or e.dateemprunt like :mot 
+        or e.daterendu like :mot or e.datedebut like :mot or e.datefin like :mot or 
+        l.titre like :mot or l.editeur like :mot or l.auteur like :mot 
+        or l.datesortie like :mot or l.taille like :mot or l.quantite like :mot or l.dateajout like :mot or e.etat like :mot) order by e.id desc')
+            ->setParameter('biblio', $idbiblio)
             ->setParameter('mot', '%'.$mot.'%');
         return $query->getArrayResult();
     }
